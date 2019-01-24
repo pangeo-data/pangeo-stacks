@@ -1,0 +1,10 @@
+USER root
+
+# Copy in pangeo configs
+RUN mkdir -p /etc/dask/
+ADD ./dask.yaml /etc/dask/
+
+# Install pangeo specific libraries
+RUN pip install dask-kubernetes kubernetes
+
+USER jovyan
