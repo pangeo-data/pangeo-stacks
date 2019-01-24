@@ -1,0 +1,20 @@
+# should probably swap this out with https://github.com/binder-examples/continuous-build/blob/master/.circleci/config.yml
+language: python
+python:
+  - "3.6"
+env:
+  - IMAGE=base-notebook
+# command to install dependencies
+install:
+  - pip install jupyter-repo2docker
+# command to run tests
+script:
+  - CALVER="$( date '+%Y.%m.%d.%H%M' )"
+  - repo2docker \
+    --debug \
+    --no-run \
+    --user-name=jovyan \
+    --user-id 1000 \
+    --appendix="`cat appendix.txt`" 
+    --image-name=${IMAGE}.${CALVER}./${IMAGE} 
+    # --push \ # Undocumented feature?
