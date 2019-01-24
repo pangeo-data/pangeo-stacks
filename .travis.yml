@@ -12,6 +12,7 @@ python:
 env:
   matrix:
     - IMAGE=base-notebook
+    - IMAGE=pangeo-notebook
   global:
     - DOCKER_ID=pangeo
     - CALVER="$( date '+%Y.%m.%d' )"
