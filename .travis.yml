@@ -13,16 +13,16 @@ env:
   matrix:
     - IMAGE=base-notebook
   global:
-    - DOCKERHUB_ORG=pangeo
-    - CALVER="$( date '+%Y.%m.%d.%H%M' )"
+    - DOCKER_ID=pangeo
+    - CALVER="$( date '+%Y.%m.%d' )"
 
 install:
   - pip install jupyter-repo2docker
   - repo2docker --version
 
 before_script:
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
 
 script:
-  - IMAGE_NAME=${DOCKERHUB_ORG}/${IMAGE}:${CALVER}
+  - IMAGE_NAME=${DOCKER_ID}/${IMAGE}:${CALVER}
   - repo2docker --push --debug --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
