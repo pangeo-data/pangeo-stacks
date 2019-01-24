@@ -3,18 +3,24 @@ language: python
 python:
   - "3.6"
 env:
-  - IMAGE=base-notebook
+  matrix:
+    - IMAGE=base-notebook
+  global:
+    - BUILD=true
+    - CALVER="$( date '+%Y.%m.%d.%H%M' )"
 # command to install dependencies
 install:
   - pip install jupyter-repo2docker
+  - repo2docker --version
 # command to run tests
 script:
-  - CALVER="$( date '+%Y.%m.%d.%H%M' )"
-  - repo2docker \
-    --debug \
-    --no-run \
-    --user-name=jovyan \
-    --user-id 1000 \
-    --appendix="`cat appendix.txt`" 
-    --image-name=${IMAGE}.${CALVER}./${IMAGE} 
-    # --push \ # Undocumented feature?
+  - if [ "${BUILD}" = true ] ; then
+    repo2docker \
+      --debug \
+      --no-run \
+      --user-name=jovyan \
+      --user-id 1000 \
+      --appendix="`cat appendix.txt`" \
+      --image-name=${IMAGE}.${CALVER}./${IMAGE};
+    fi
+        # --push \ # Undocumented feature?
