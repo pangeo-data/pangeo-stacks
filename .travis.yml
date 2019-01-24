@@ -16,21 +16,18 @@ env:
     - DOCKER_ID=pangeo
     - CALVER="$( date '+%Y.%m.%d' )"
 
-before_install:
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-
 install:
   - pip install jupyter-repo2docker
   - repo2docker --version
+  - docker version
 
 before_script:
-  - docker version
-  - docker login --help
+  # login to dockerhub
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 
 script:
   - IMAGE_NAME=${DOCKER_ID}/${IMAGE}:${CALVER}
-  - repo2docker --push --debug --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
+  - echo "Building $IMAGE_NAME"
+  # TODO: only push on master branch
+  - repo2docker --push --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
+  - echo "Done building/pushing $IMAGE_NAME"
