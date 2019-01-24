@@ -1,17 +1,29 @@
-# should probably swap this out with https://github.com/binder-examples/continuous-build/blob/master/.circleci/config.yml
 language: python
+
+services:
+  - docker
+
+notifications:
+  email: false
+
 python:
   - "3.6"
+
 env:
   matrix:
     - IMAGE=base-notebook
   global:
+    - DOCKERHUB_ORG=pangeo
     - CALVER="$( date '+%Y.%m.%d.%H%M' )"
-# command to install dependencies
+
 install:
   - pip install jupyter-repo2docker
   - repo2docker --version
-# command to run tests
+
+before_script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
 script:
-  - repo2docker --debug --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE}.${CALVER} ./${IMAGE}
+  - IMAGE_NAME=${DOCKERHUB_ORG}/${IMAGE}:${CALVER}
+  - repo2docker --push --debug --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
   # --push # Undocumented feature?
