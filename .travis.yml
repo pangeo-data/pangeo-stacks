@@ -14,13 +14,5 @@ install:
   - repo2docker --version
 # command to run tests
 script:
-  - if [ "${BUILD}" = true ] ; then
-    repo2docker \
-      --debug \
-      --no-run \
-      --user-name=jovyan \
-      --user-id 1000 \
-      --appendix="`cat appendix.txt`" \
-      --image-name=${IMAGE}.${CALVER}./${IMAGE};
-    fi
-        # --push \ # Undocumented feature?
+  - repo2docker --debug --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE}.${CALVER}./${IMAGE}
+  # --push # Undocumented feature?
