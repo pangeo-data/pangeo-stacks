@@ -6,7 +6,6 @@ env:
   matrix:
     - IMAGE=base-notebook
   global:
-    - BUILD=true
     - CALVER="$( date '+%Y.%m.%d.%H%M' )"
 # command to install dependencies
 install:
@@ -14,5 +13,5 @@ install:
   - repo2docker --version
 # command to run tests
 script:
-  - repo2docker --debug --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE}.${CALVER}./${IMAGE}
+  - repo2docker --debug --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE}.${CALVER} ./${IMAGE}
   # --push # Undocumented feature?
