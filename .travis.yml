@@ -21,9 +21,8 @@ install:
   - repo2docker --version
 
 before_script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 
 script:
   - IMAGE_NAME=${DOCKERHUB_ORG}/${IMAGE}:${CALVER}
   - repo2docker --push --debug --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
-  # --push # Undocumented feature?
