@@ -24,11 +24,16 @@ install:
 
 before_script:
   # login to dockerhub
-  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+      R2D_ARGS=" --push "
+    else
+      R2D_ARGS=""
+    fi
+  - 
 
 script:
   - IMAGE_NAME=${DOCKER_ID}/${IMAGE}:${CALVER}
-  - echo "Building $IMAGE_NAME"
-  # TODO: only push on master branch
-  - repo2docker --push --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
-  - echo "Done building/pushing $IMAGE_NAME"
+  - echo "Building ${IMAGE_NAME}"
+  - repo2docker ${R2D_ARGS} --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
+  - echo "Done building ${IMAGE_NAME}"
