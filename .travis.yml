@@ -23,11 +23,11 @@ install:
   - docker version
 
 before_script:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-      R2D_ARGS=" --push "
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+      echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin;
+      R2D_ARGS=" --push ";
     else
-      R2D_ARGS=""
+      R2D_ARGS="";
     fi
 
 script:
