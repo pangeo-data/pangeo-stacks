@@ -21,7 +21,7 @@ dependencies:
   - panel
   - geoviews
   - hvplot
-  - rasterio
+  - cartopy
   - geoviews
   - datashader
   - netcdf4
@@ -37,4 +37,4 @@ dependencies:
   - graphviz
   - pip:
     - xgcm
-
+    - dask_labextension

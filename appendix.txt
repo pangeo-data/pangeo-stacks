@@ -8,9 +8,14 @@ RUN mkdir -p /etc/dask/
 USER jovyan
 
 # Install Pangeo specific libraries
-RUN pip install dask-kubernetes dask_labextension ipywidgets
+RUN pip install bokeh dask-kubernetes nbserverproxy dask_labextension ipywidgets
 
 # Install Pangeo specific Jupyter bits
-RUN jupyter labextension install dask-labextension
-RUN jupyter labextension install @jupyterlab/hub-extension
+# serverextensions
+RUN jupyter serverextension enable --sys-prefix --py nbserverproxy 
+# nbextensions
 RUN jupyter nbextension enable --py widgetsnbextension
+# labextensions
+RUN jupyter labextension install dask-labextension
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+RUN jupyter labextension install @jupyterlab/hub-extension
