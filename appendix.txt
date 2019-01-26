@@ -8,9 +8,9 @@ RUN mkdir -p /etc/dask/
 USER jovyan
 
 # Install Pangeo specific libraries
-RUN pip install dask-kubernetes
-pip install dask_labextension
+RUN pip install dask-kubernetes dask_labextension ipywidgets
 
-# Install Pangeo specific Jupyter Extensions
-jupyter labextension install dask-labextension
-jupyter labextension install @jupyterlab/hub-extension
+# Install Pangeo specific Jupyter bits
+RUN jupyter labextension install dask-labextension
+RUN jupyter labextension install @jupyterlab/hub-extension
+RUN jupyter nbextension enable --py widgetsnbextension
