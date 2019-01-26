@@ -5,7 +5,12 @@ RUN mkdir -p /etc/dask/
 # pending GH#1
 # ADD ./dask.yaml /etc/dask/
 
-# Install pangeo specific libraries
-RUN pip install dask-kubernetes kubernetes
-
 USER jovyan
+
+# Install Pangeo specific libraries
+RUN pip install dask-kubernetes
+pip install dask_labextension
+
+# Install Pangeo specific Jupyter Extensions
+jupyter labextension install dask-labextension
+jupyter labextension install @jupyterlab/hub-extension
