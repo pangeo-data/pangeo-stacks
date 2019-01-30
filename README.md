@@ -8,16 +8,16 @@ This repository contains a few currated Docker images that can be used with depl
 
 ### Current Notebook Images:
 
-| Image           | Description                                   | Link                                                                                                                   |
-|-----------------|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| base-notebook   | A bare-bones image with Jupyter and Dask.     | [![](https://img.shields.io/docker/pulls/pangeo/base-notebook.svg)](https://hub.docker.com/r/pangeo/base-notebook)                                                      |
-| pangeo-notebook | A complete image with lots of Python packages | [![](https://img.shields.io/docker/pulls/pangeo/pangeo-notebook.svg)](https://hub.docker.com/r/pangeo/pangeo-notebook) |
+| Image           | Description                                   | Link                                                                                                                   |                                                                                                                                                                                    |                                                                                                                                                                                        |
+|-----------------|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| base-notebook   | A bare-bones image with Jupyter and Dask.     | [![](https://img.shields.io/docker/pulls/pangeo/base-notebook.svg)](https://hub.docker.com/r/pangeo/base-notebook)     | [![](https://images.microbadger.com/badges/image/pangeo/base-notebook.svg)](https://microbadger.com/images/pangeo/base-notebook "Get your own image badge on microbadger.com")     | [![](https://images.microbadger.com/badges/version/pangeo/base-notebook.svg)](https://microbadger.com/images/pangeo/base-notebook "Get your own version badge on microbadger.com")     |
+| pangeo-notebook | A complete image with lots of Python packages | [![](https://img.shields.io/docker/pulls/pangeo/pangeo-notebook.svg)](https://hub.docker.com/r/pangeo/pangeo-notebook) | [![](https://images.microbadger.com/badges/image/pangeo/pangeo-notebook.svg)](https://microbadger.com/images/pangeo/pangeo-notebook "Get your own image badge on microbadger.com") | [![](https://images.microbadger.com/badges/version/pangeo/pangeo-notebook.svg)](https://microbadger.com/images/pangeo/pangeo-notebook "Get your own version badge on microbadger.com") |
 
 ### Adding new images
 
 It is easy to add additional images. The basic steps involved are:
 
-1. Open an [Issue](https://github.com/pangeo-data/pangeo-stacks/issues/new) to discuss adding your image. 
+1. Open an [Issue](https://github.com/pangeo-data/pangeo-stacks/issues/new) to discuss adding your image.
 2. Copy the `base-notebook` directory and name it something informative.
 3. Modify the contents of the `binder` directory, adding any configuration you need according to the [repo2docker documentation](https://repo2docker.readthedocs.io/en/latest/config_files.html).
 4. Edit the TravisCI configuration file to inclue the new image.
