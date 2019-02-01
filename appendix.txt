@@ -2,8 +2,10 @@ USER root
 
 # Copy in pangeo configs
 RUN mkdir -p /etc/dask/
-# pending GH#1
-# ADD ./dask.yaml /etc/dask/
+# TODO: It would be better if this was a common file for all images in the repo
+# It doesn't seem like symbolic links work.
+# xref: pangeo-stacks#1 and repo2docker#565
+RUN cp ./binder/etc_dask_config.yaml /etc/dask/dask.yaml
 
 USER jovyan
 
