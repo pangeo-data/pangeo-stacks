@@ -34,4 +34,6 @@ script:
   - IMAGE_NAME=${DOCKER_ID}/${IMAGE}:${CALVER}
   - echo "Building ${IMAGE_NAME}"
   - repo2docker ${R2D_ARGS} --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
+  - docker run -i -t ${IMAGE_NAME} "binder/verify"
   - echo "Done building ${IMAGE_NAME}"
+
