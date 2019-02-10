@@ -18,7 +18,8 @@ env:
     - CALVER="$( date '+%Y.%m.%d' )"
 
 install:
-  - pip install jupyter-repo2docker
+  # pinned r2d version to fix conda install problems
+  - pip install git+git://github.com/jupyter/repo2docker.git@9766c9545540fb3e461c6ea92b054dbb3cb90184
   - repo2docker --version
   - docker version
 
