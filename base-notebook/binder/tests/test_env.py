@@ -1,9 +1,9 @@
 import pytest
-import dask.distributed.Client
 
 
 @pytest.fixture(scope='module')
 def client():
+    from dask.distributed import Client
     with Client(n_workers=4) as dask_client:
         yield dask_client
 
