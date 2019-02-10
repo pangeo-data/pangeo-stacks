@@ -25,13 +25,12 @@ install:
 
 script:
   - IMAGE_NAME=${DOCKER_ID}/${IMAGE}:${CALVER}
-  - IMAGE_LATEST=${DOCKER_ID}/${IMAGE}:latest
   - echo "Building ${IMAGE_NAME}"
   - repo2docker --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
   - echo "Done building ${IMAGE_NAME}"
 
 deploy:
   provider: script
-  script: bash docker_push.sh
+  script: bash docker_push.sh 
   on:
     branch: master
