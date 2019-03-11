@@ -1,3 +1,3 @@
 # Pangeo/Pangeo-Ocean
 
-A notebook image for oceanography. Includes python and julia kernels.
+A notebook image for oceanography. Includes Python and Julia kernels.
