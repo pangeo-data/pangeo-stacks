@@ -24,7 +24,8 @@ dependencies:
   - nomkl
   - nbserverproxy
   - jupyter
-  - jupyterlab
+  - jupyterlab=0.35
+  - tornado<6.0
   - jupyterlab_launcher
   - jupyter_client
   - ipywidgets
