@@ -13,13 +13,14 @@ env:
   matrix:
     - IMAGE=base-notebook
     - IMAGE=pangeo-notebook
+    - IMAGE=pangeo-ocean
   global:
     - DOCKER_ID=pangeo
     - CALVER="$( date '+%Y.%m.%d' )"
 
 install:
   # pinned r2d version to fix conda install problems
-  - pip install git+git://github.com/jupyter/repo2docker.git@9766c9545540fb3e461c6ea92b054dbb3cb90184
+  - pip install git+git://github.com/jupyter/repo2docker.git@8dfd400c779763d0051975454050f22c1f19daf0
   - repo2docker --version
   - docker version
 
@@ -31,6 +32,6 @@ script:
 
 deploy:
   provider: script
-  script: bash docker_push.sh 
+  script: bash docker_push.sh
   on:
     branch: master
