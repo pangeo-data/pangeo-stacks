@@ -13,7 +13,7 @@ env:
   matrix:
     - IMAGE=base-notebook
     - IMAGE=pangeo-notebook
-    - IMAGE-pangeo-ocean
+    - IMAGE=pangeo-ocean
   global:
     - DOCKER_ID=pangeo
     - CALVER="$( date '+%Y.%m.%d' )"
@@ -32,6 +32,6 @@ script:
 
 deploy:
   provider: script
-  script: bash docker_push.sh 
+  script: bash docker_push.sh
   on:
     branch: master
