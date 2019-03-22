@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Running verify script"
+
+pip install pytest
+
+py.test -v
+
+#EOF

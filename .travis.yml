@@ -29,9 +29,11 @@ script:
   - echo "Building ${IMAGE_NAME}"
   - repo2docker --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
   - echo "Done building ${IMAGE_NAME}"
+  - docker run -i -t ${IMAGE_NAME} "binder/verify"
 
 deploy:
   provider: script
   script: bash docker_push.sh
   on:
     branch: master
+
