@@ -23,14 +23,18 @@ install:
   - repo2docker --version
   - docker version
 
-script:
+before_script:
   - IMAGE_NAME=${DOCKER_ID}/${IMAGE}:${CALVER}
   - echo "Building ${IMAGE_NAME}"
   - repo2docker --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
   - echo "Done building ${IMAGE_NAME}"
 
+script:
+  - docker run -d --name pangeo ${IMAGE_NAME}
+  - docker exec -it pangeo bash -c 'pip install pytest; py.test -v tests/*.py'
+
 deploy:
   provider: script
-  script: bash docker_push.sh 
+  script: bash docker_push.sh
   on:
     branch: master
