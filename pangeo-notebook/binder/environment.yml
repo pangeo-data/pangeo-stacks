@@ -3,38 +3,62 @@ channels:
   - conda-forge
 dependencies:
   - python=3.6
-  - rasterio
+  # core scipy packages
   - numpy
   - scipy
+  - matplotlib
   - pandas
   - xarray
-  - matplotlib
-  - dask
-  - distributed
-  - intake::intake
-  - intake::intake-xarray
+  # data science stuff
   - scikit-image
   - scikit-learn
   - dask-ml
+  # dask-related
+  - dask
+  - distributed
+  - graphviz
+  # pyviz
   - bokeh
   - holoviews
   - panel
   - geoviews
   - hvplot
-  - cartopy
   - geoviews
   - datashader
+  # geospatial
+  - cartopy
+  - geopandas
+  - rasterio
   - netcdf4
+  # geoscience-relatedd
+  - metpy
+  - satpy
+  - gsw
+  - eofs
+  - esmpy
+  - xesmf
+  - windspharm
+  # intake-related
+  - intake::intake
+  - intake::intake-xarray
+  - intake-esm
+  # zarr-related
   - zarr
   - numcodecs
   - python-blosc
   - lz4
+  - gcsfs
+  - s3fs
+  # jupyter-related
   - nbserverproxy
   - jupyter
-  - jupyterlab=0.35
+  - jupyterlab
+  - jupyterhub
   - ipywidgets
   - ipyleaflet
-  - graphviz
+  # xarray-related
+  - xgcm
+  - xrft
   - pip:
-    - xgcm
-    - dask_labextension
+    - regionmask
+    - git+https://github.com/dask/dask-labextension.git
