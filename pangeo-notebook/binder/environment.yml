@@ -37,7 +37,7 @@ dependencies:
   - netcdf4
   - h5py
   - h5netcdf
-  # geoscience-relatedd
+  # geoscience-related
   - climlab
   - metpy
   - satpy
