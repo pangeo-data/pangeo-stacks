@@ -10,4 +10,3 @@ def client():
 def test_check_dask_version(client):
     print(client)
     versions = client.get_versions(check=True)
-    assert len(versions) == 4
