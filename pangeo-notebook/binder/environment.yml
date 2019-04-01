@@ -3,38 +3,71 @@ channels:
   - conda-forge
 dependencies:
   - python=3.6
-  - rasterio
-  - numpy
-  - scipy
-  - pandas
-  - xarray
-  - matplotlib
-  - dask
-  - distributed
-  - intake::intake
-  - intake::intake-xarray
-  - scikit-image
-  - scikit-learn
-  - dask-ml
-  - bokeh
-  - holoviews
+  # core scipy packages
+  - numpy=1.16.2
+  - scipy=1.2.1
+  - matplotlib=3.0.3
+  - pandas=0.24.2
+  - xarray=0.12.0
+  # data science stuff
+  - scikit-image=0.14.2
+  - scikit-learn=0.20.3
+  - dask-ml=0.12.0
+  # dask-related
+  - dask=1.1.4
+  - distributed=1.26.1
+  - graphviz
+  - kubernetes
+  - dask-kubernetes
+  - dask-jobqueue
+  # pyviz
+  - bokeh=1.0.4
+  - holoviews=1.11.3
   - panel
   - geoviews
   - hvplot
-  - cartopy
   - geoviews
   - datashader
+  - tornado<6.0 # https://github.com/pyviz/holoviews/pull/3560
+  # geospatial
+  - iris
+  - cartopy
+  - geopandas
+  - rasterio
   - netcdf4
+  - h5py
+  - h5netcdf
+  # geoscience-related
+  - climlab
+  - metpy
+  - satpy
+  - gsw
+  - eofs
+  - esmpy
+  - xesmf
+  - windspharm
+  # intake-related
+  - intake::intake
+  - intake::intake-xarray
+  - intake-esm
+  # zarr-related
   - zarr
   - numcodecs
   - python-blosc
   - lz4
+  - gcsfs
+  - s3fs
+  # jupyter-related
   - nbserverproxy
   - jupyter
-  - jupyterlab=0.35
+  - jupyterlab
+  - jupyterhub
   - ipywidgets
   - ipyleaflet
-  - graphviz
+  # xarray-related
+  - xgcm
+  - xrft
   - pip:
-    - xgcm
-    - dask_labextension
+    - regionmask
+    - git+https://github.com/dask/dask-labextension.git
+    - git+https://github.com/cogeotiff/rio-cogeo.git
