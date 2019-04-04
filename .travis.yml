@@ -13,7 +13,6 @@ env:
   matrix:
     - IMAGE=base-notebook
     - IMAGE=pangeo-notebook
-    - IMAGE=pangeo-ocean
   global:
     - DOCKER_ID=pangeo
     - CALVER="$( date '+%Y.%m.%d' )"
