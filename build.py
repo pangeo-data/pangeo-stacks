@@ -11,6 +11,8 @@ import os
 from functools import lru_cache
 from repo2docker.app import Repo2Docker
 import argparse
+import shutil
+import tempfile
 
 
 def modified_date(n, *paths, **kwargs):
@@ -45,6 +47,49 @@ def image_exists_in_registry(client, image_spec):
             return False
         else:
             raise
+
+def build_onbuild(base_image_spec, target_image_spec):
+    print(f'Building {target_image_spec}')
+    with tempfile.TemporaryDirectory() as d:
+        dest_dir = os.path.join(d, 'onbuild')
+        shutil.copytree('onbuild', dest_dir)
+        with open(os.path.join(dest_dir, 'Dockerfile'), 'r+') as f:
+            dockerfile = f.read()
+            f.seek(0)
+            f.write(dockerfile.replace(
+                '{base_image_spec}', base_image_spec
+            ))
+        subprocess.check_call([
+            'docker', 'build',
+            '-t', target_image_spec,
+            dest_dir
+        ])
+
+def build(image, image_spec, cache_from, appendix):
+    r2d = Repo2Docker()
+
+    r2d.subdir = image
+    r2d.output_image_spec = image_spec
+    r2d.user_id = 1000
+    r2d.user_name = 'jovyan'
+    r2d.cache_from = cache_from
+    r2d.appendix = appendix
+
+    r2d.initialize()
+    r2d.build()
+
+    if os.path.exists(os.path.join(r2d.subdir, 'binder/verify')):
+        print(f'Validating {image_spec}')
+        # Validate the built image
+        subprocess.check_call([
+            'docker',
+            'run',
+            '-i', '-t',
+            f'{r2d.output_image_spec}',
+            'binder/verify'
+        ])
+    else:
+        print(f'No verify script found for {image_spec}')
 
 def main():
     argparser = argparse.ArgumentParser()
@@ -90,32 +135,22 @@ def main():
 
 
     calver = datetime.utcnow().strftime('%Y.%m.%d')
-    r2d = Repo2Docker()
-
-    r2d.subdir = args.image
-    r2d.output_image_spec = f'{image_name}:{calver}'
-    r2d.user_id = 1000
-    r2d.user_name = 'jovyan'
-    r2d.cache_from = cache_from
-
+    # Build regular image
     with open('appendix.txt') as f:
-        r2d.appendix = f.read()
+        build(
+            args.image,
+            f'{image_name}:{calver}',
+            cache_from,
+            f.read()
+        )
 
-    r2d.initialize()
-    r2d.build()
+    # Build onbuild image
+    build_onbuild(
+        f'{image_name}:{calver}',
+        f'{image_name}-onbuild:{calver}',
 
-    if os.path.exists(os.path.join(r2d.subdir, 'binder/verify')):
-        print(f'Validating {image_name}')
-        # Validate the built image
-        subprocess.check_call([
-            'docker',
-            'run',
-            '-i', '-t',
-            f'{r2d.output_image_spec}',
-            'binder/verify'
-        ])
-    else:
-        print(f'No verify script found for {image_name}')
+    )
+
 
 if __name__ == '__main__':
     main()
