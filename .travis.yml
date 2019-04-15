@@ -10,9 +10,6 @@ python:
   - "3.6"
 
 env:
-  matrix:
-    - IMAGE=base-notebook
-    - IMAGE=pangeo-notebook
   global:
     - IMAGE_PREFIX=pangeo/
 
@@ -22,7 +19,8 @@ install:
   - docker version
 
 script:
-  - python3 build.py --image-prefix=${IMAGE_PREFIX} ${IMAGE}
+  - python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
+  - python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-notebook
 
 deploy:
   provider: script
