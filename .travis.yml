@@ -14,21 +14,15 @@ env:
     - IMAGE=base-notebook
     - IMAGE=pangeo-notebook
   global:
-    - DOCKER_ID=pangeo
-    - CALVER="$( date '+%Y.%m.%d' )"
+    - IMAGE_PREFIX=pangeo/
 
 install:
-  # pinned r2d version to fix conda install problems
-  - pip install git+git://github.com/jupyter/repo2docker.git@8dfd400c779763d0051975454050f22c1f19daf0
+  - pip install --no-cache-dir -r requirements.txt
   - repo2docker --version
   - docker version
 
 script:
-  - IMAGE_NAME=${DOCKER_ID}/${IMAGE}:${CALVER}
-  - echo "Building ${IMAGE_NAME}"
-  - repo2docker --no-run --user-name=jovyan --user-id 1000 --appendix="`cat appendix.txt`" --image-name=${IMAGE_NAME} ./${IMAGE}
-  - echo "Done building ${IMAGE_NAME}"
-  - docker run -i -t ${IMAGE_NAME} "binder/verify"
+  - python3 build.py --image-prefix=${IMAGE_PREFIX} ${IMAGE}
 
 deploy:
   provider: script
