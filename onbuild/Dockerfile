@@ -1,4 +1,5 @@
-FROM {base_image_spec}
+ARG BASE_IMAGE_SPEC
+FROM $BASE_IMAGE_SPEC
 
 USER root
 COPY r2d_overlay.py /usr/local/bin/r2d_overlay.py

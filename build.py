@@ -11,8 +11,6 @@ import os
 from functools import lru_cache
 from repo2docker.app import Repo2Docker
 import argparse
-import shutil
-import tempfile
 
 
 def modified_date(n, *paths, **kwargs):
@@ -50,20 +48,12 @@ def image_exists_in_registry(client, image_spec):
 
 def build_onbuild(base_image_spec, target_image_spec):
     print(f'Building {target_image_spec}')
-    with tempfile.TemporaryDirectory() as d:
-        dest_dir = os.path.join(d, 'onbuild')
-        shutil.copytree('onbuild', dest_dir)
-        with open(os.path.join(dest_dir, 'Dockerfile'), 'r+') as f:
-            dockerfile = f.read()
-            f.seek(0)
-            f.write(dockerfile.replace(
-                '{base_image_spec}', base_image_spec
-            ))
-        subprocess.check_call([
-            'docker', 'build',
-            '-t', target_image_spec,
-            dest_dir
-        ])
+    subprocess.check_call([
+        'docker', 'build',
+        '-t', target_image_spec,
+        '--build-arg', f'BASE_IMAGE_SPEC={base_image_spec}',
+        'onbuild'
+    ])
 
 def build(image, image_spec, cache_from, appendix):
     r2d = Repo2Docker()
