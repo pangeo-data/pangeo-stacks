@@ -10,7 +10,7 @@ RUN cp ./binder/etc_dask_config.yaml /etc/dask/dask.yaml
 USER jovyan
 
 # Install Pangeo specific libraries
-RUN pip install bokeh dask-kubernetes nbserverproxy dask_labextension ipywidgets
+RUN pip install --no-cache-dir bokeh dask-kubernetes nbserverproxy dask_labextension ipywidgets
 
 # Install Pangeo specific Jupyter bits
 # serverextensions
