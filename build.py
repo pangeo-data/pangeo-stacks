@@ -47,10 +47,14 @@ def image_exists_in_registry(client, image_spec):
 
 def docker_build(image_spec, path, build_args):
     print(f'Building {image_spec}')
+    if os.path.exists(os.path.join(path, 'Dockerfile')):
+        df_path = os.path.join(path, 'Dockerfile')
+    else:
+        df_path = os.path.join(path, 'binder', 'Dockerfile')
     command = [
         'docker', 'build',
         '-t', image_spec,
-        '-f', os.path.join(path, 'binder/Dockerfile')
+        '-f', df_path
     ]
     for k, v in build_args.items():
         command += ['--build-arg', f'{k}={v}']
@@ -127,7 +131,11 @@ def main():
 
 
     calver = datetime.utcnow().strftime('%Y.%m.%d')
-    if os.path.exists(os.path.join(args.image, 'binder', 'Dockerfile')):
+    dockerfile_paths = [
+        os.path.join(args.image, 'binder', 'Dockerfile'),
+        os.path.join(args.image, 'Dockerfile')
+    ]
+    if any((os.path.exists(df) for df in dockerfile_paths)):
         # Use docker if we have a Dockerfile
         # Can be just r2d once we can pass arbitrary BUILD ARGs to it
         # https://github.com/jupyter/repo2docker/issues/645
