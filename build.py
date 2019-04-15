@@ -7,6 +7,7 @@ from dateutil.parser import parse
 from datetime import datetime
 import pytz
 import docker
+import os
 from functools import lru_cache
 from repo2docker.app import Repo2Docker
 import argparse
@@ -103,15 +104,18 @@ def main():
     r2d.initialize()
     r2d.build()
 
-    print(f'Validating {image_name}')
-    # Validate the built image
-    subprocess.check_call([
-        'docker',
-        'run',
-        '-i', '-t',
-        f'{r2d.output_image_spec}',
-        'binder/verify'
-    ])
+    if os.path.exists(os.path.join(r2d.subdir, 'binder/verify')):
+        print(f'Validating {image_name}')
+        # Validate the built image
+        subprocess.check_call([
+            'docker',
+            'run',
+            '-i', '-t',
+            f'{r2d.output_image_spec}',
+            'binder/verify'
+        ])
+    else:
+        print(f'No verify script found for {image_name}')
 
 if __name__ == '__main__':
     main()
