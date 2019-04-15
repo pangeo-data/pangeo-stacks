@@ -3,6 +3,7 @@ import subprocess
 import sys
 import os
 import argparse
+import re
 
 NB_UID = int(os.environ.get('NB_UID', 1000))
 REPO_DIR = os.environ['REPO_DIR']
@@ -11,10 +12,17 @@ REPO_DIR = os.environ['REPO_DIR']
 # child, and re-do the packages of the parent.
 ONBUILD_CONTENTS_DIR = os.path.join(REPO_DIR, '.onbuild-child')
 
+
 def become(uid):
-    # FIXME: Uh, maybe not do this
-    os.setgid(uid)
-    os.setuid(uid)
+    def wrap(func):
+        def _pre_exec():
+            # TODO: Look at the security of this very, very carefully
+            os.setgid(uid)
+            os.setuid(uid)
+        func._pre_exec = _pre_exec
+        return func
+    return wrap
+
 
 def binder_path(path):
     if os.path.exists(os.path.join(ONBUILD_CONTENTS_DIR, 'binder')):
@@ -22,6 +30,7 @@ def binder_path(path):
     return os.path.join(ONBUILD_CONTENTS_DIR, path)
 
 
+@become(NB_UID)
 def apply_environment():
     env_path = binder_path('environment.yml')
     if os.path.exists(env_path):
@@ -33,6 +42,7 @@ def apply_environment():
         ]
 
 
+@become(NB_UID)
 def apply_requirements():
     req_path = binder_path('requirements.txt')
     env_path = binder_path('environment.yml')
@@ -43,6 +53,7 @@ def apply_requirements():
         ]
 
 
+@become(NB_UID)
 def apply_postbuild():
     pb_path = binder_path('postBuild')
 
@@ -53,8 +64,35 @@ def apply_postbuild():
         ]
 
 
+@become(0)
+def apply_apt():
+    apt_path = binder_path('apt.txt')
+    if os.path.exists(apt_path):
+        with open(apt_path) as f:
+            extra_apt_packages = []
+            for l in f:
+                package = l.partition('#')[0].strip()
+                if not package:
+                    continue
+                # Validate that this is, indeed, just a list of packages
+                # We're doing shell injection around here, gotta be careful.
+                # FIXME: Add support for specifying version numbers
+                if not re.match(r"^[a-z0-9.+-]+", package):
+                    raise ValueError("Found invalid package name {} in "
+                                        "apt.txt".format(package))
+                extra_apt_packages.append(package)
+
+        return [
+            "apt-get -qq update",
+            "apt-get install --yes --no-install-recommends {}".format(' '.join(extra_apt_packages)),
+            "apt-get -qq purge",
+            "apt-get -qq clean",
+            "rm -rf /var/lib/apt/lists/*"
+        ]
+
 def build():
     applicators = [
+        apply_apt,
         apply_environment,
         apply_requirements,
         apply_postbuild
@@ -66,7 +104,7 @@ def build():
         if commands:
             for command in commands:
                 subprocess.check_call(
-                    ['/bin/bash', '-c', command], preexec_fn=become(NB_UID)
+                    ['/bin/bash', '-c', command], preexec_fn=applicator._pre_exec
                 )
 
 
