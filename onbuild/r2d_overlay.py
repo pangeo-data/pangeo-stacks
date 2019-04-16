@@ -60,7 +60,8 @@ def apply_postbuild():
     if os.path.exists(pb_path):
         return [
             f'chmod +x {pb_path}',
-            f'./{pb_path}'
+            # since pb_path is a fully qualified path, no need to add a ./
+            f'{pb_path}'
         ]
 
 
