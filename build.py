@@ -12,7 +12,6 @@ from functools import lru_cache
 from repo2docker.app import Repo2Docker
 import argparse
 
-
 def modified_date(n, *paths, **kwargs):
     """
     Return the commit date for nth commit that modified *paths
@@ -46,16 +45,24 @@ def image_exists_in_registry(client, image_spec):
         else:
             raise
 
-def build_onbuild(base_image_spec, target_image_spec):
-    print(f'Building {target_image_spec}')
-    subprocess.check_call([
+def docker_build(image_spec, path, build_args):
+    print(f'Building {image_spec}')
+    if os.path.exists(os.path.join(path, 'Dockerfile')):
+        df_path = os.path.join(path, 'Dockerfile')
+    else:
+        df_path = os.path.join(path, 'binder', 'Dockerfile')
+    command = [
         'docker', 'build',
-        '-t', target_image_spec,
-        '--build-arg', f'BASE_IMAGE_SPEC={base_image_spec}',
-        'onbuild'
-    ])
+        '-t', image_spec,
+        '-f', df_path
+    ]
+    for k, v in build_args.items():
+        command += ['--build-arg', f'{k}={v}']
+    command.append(path)
+    subprocess.check_call(command)
 
-def build(image, image_spec, cache_from, appendix):
+
+def r2d_build(image, image_spec, cache_from):
     r2d = Repo2Docker()
 
     r2d.subdir = image
@@ -63,7 +70,6 @@ def build(image, image_spec, cache_from, appendix):
     r2d.user_id = 1000
     r2d.user_name = 'jovyan'
     r2d.cache_from = cache_from
-    r2d.appendix = appendix
 
     r2d.initialize()
     r2d.build()
@@ -125,20 +131,34 @@ def main():
 
 
     calver = datetime.utcnow().strftime('%Y.%m.%d')
-    # Build regular image
-    with open('appendix.txt') as f:
-        build(
+    dockerfile_paths = [
+        os.path.join(args.image, 'binder', 'Dockerfile'),
+        os.path.join(args.image, 'Dockerfile')
+    ]
+    if any((os.path.exists(df) for df in dockerfile_paths)):
+        # Use docker if we have a Dockerfile
+        # Can be just r2d once we can pass arbitrary BUILD ARGs to it
+        # https://github.com/jupyter/repo2docker/issues/645
+        docker_build(
+            f'{image_name}:{calver}',
+            args.image,
+            {
+                'CALVER': calver
+            }
+        )
+    else:
+        # Build regular image
+        r2d_build(
             args.image,
             f'{image_name}:{calver}',
-            cache_from,
-            f.read()
+            cache_from
         )
 
     # Build onbuild image
-    build_onbuild(
-        f'{image_name}:{calver}',
+    docker_build(
         f'{image_name}-onbuild:{calver}',
-
+        'onbuild',
+        {'BASE_IMAGE_SPEC': f'{image_name}:{calver}'}
     )
 
 
