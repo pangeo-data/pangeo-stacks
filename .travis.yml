@@ -24,7 +24,9 @@ script:
 
 deploy:
   provider: script
-  script: bash docker_push.sh
+  script:
+    - ./docker_push.sh base-notebook
+    - ./docker_push.sh pangeo-notebook
   on:
     branch: master
 

@@ -1,8 +1,9 @@
 #!/bin/bash
-
-set -x
+set -euxo pipefail
 
 echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+
+IMAGE=${1}
 
 CALVER="$( date -u '+%Y.%m.%d' )"
 IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${CALVER}
