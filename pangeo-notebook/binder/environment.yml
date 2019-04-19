@@ -13,6 +13,9 @@ dependencies:
   - scikit-image=0.14.2
   - scikit-learn=0.20.3
   - dask-ml=0.12.0
+  - tensorflow=1.10.0
+  - keras=2.2.4
+  - pytorch-cpu=1.0.1
   # dask-related
   - dask=1.1.4
   - distributed=1.26.1
