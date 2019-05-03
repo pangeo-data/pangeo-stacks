@@ -31,6 +31,9 @@ that have the `-onbuild` suffix. If your Dockerfile inherits from an
    d. `postBuild` is a script (in any language) that is run automatically
       after other customization steps for you to execute arbitrary code.
 
+   These files could also be inside a `binder/` directory rather than
+   the top level of your repository if you would like.
+
 For example, if you want to start from the base `pangeo-notebook` image but
 add the `django` python package, you would do the following.
 
