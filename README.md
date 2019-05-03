@@ -20,7 +20,8 @@ that have the `-onbuild` suffix. If your Dockerfile inherits from an
 `-onbuild` Pangeo image, you automatically get the following features:
 
 1. The contents of your directory are copied with appropriate permissions
-   into the image
+   into the image. The files will be present under the directory pointed
+   to by `${REPO_DIR}` docker environment variable.
 2. If you have any of the following files in your repository, they are
    used to automatically customize the image similar to what `repo2docker`
    (used by mybinder.org) does:
