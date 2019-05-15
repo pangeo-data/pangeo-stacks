@@ -1,5 +1,4 @@
 docker
 python-dateutil
 pytz
-# pinned r2d version to fix conda install problems
-git+git://github.com/jupyter/repo2docker.git@8dfd400c779763d0051975454050f22c1f19daf0
+repo2docker
