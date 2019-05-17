@@ -19,7 +19,6 @@ dependencies:
   # dask-related
   - dask
   - distributed
-  - graphviz
   - kubernetes
   - dask-kubernetes
   - dask-jobqueue
@@ -71,6 +70,7 @@ dependencies:
   - xgcm
   - xrft
   - pip:
+    - graphviz
     - regionmask
     - rio-cogeo
     - dask-labextension
