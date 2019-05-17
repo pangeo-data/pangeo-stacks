@@ -4,34 +4,34 @@ channels:
 dependencies:
   - python=3.6
   # core scipy packages
-  - numpy=1.16.2
-  - scipy=1.2.1
-  - matplotlib=3.0.3
-  - pandas=0.24.2
-  - xarray=0.12.0
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - xarray
   # data science stuff
-  - scikit-image=0.14.2
-  - scikit-learn=0.20.3
-  - dask-ml=0.12.0
-  - tensorflow=1.10.0
-  - keras=2.2.4
-  - pytorch-cpu=1.0.1
+  - scikit-image
+  - scikit-learn
+  - dask-ml
+  - tensorflow
+  - keras
+  - pytorch-cpu
   # dask-related
-  - dask=1.1.4
-  - distributed=1.26.1
+  - dask
+  - distributed
   - graphviz
   - kubernetes
   - dask-kubernetes
   - dask-jobqueue
   # pyviz
-  - bokeh=1.0.4
-  - holoviews=1.11.3
+  - bokeh
+  - holoviews
   - panel
   - geoviews
   - hvplot
   - geoviews
   - datashader
-  - tornado<6.0 # https://github.com/pyviz/holoviews/pull/3560
+  - tornado
   # geospatial
   - iris
   - cartopy
@@ -50,8 +50,8 @@ dependencies:
   - xesmf
   - windspharm
   # intake-related
-  - intake::intake
-  - intake::intake-xarray
+  - intake
+  - intake-xarray
   - intake-esm
   # zarr-related
   - zarr
@@ -72,5 +72,5 @@ dependencies:
   - xrft
   - pip:
     - regionmask
-    - git+https://github.com/dask/dask-labextension.git
-    - git+https://github.com/cogeotiff/rio-cogeo.git
+    - rio-cogeo
+    - dask-labextension

@@ -4,10 +4,10 @@ channels:
 dependencies:
   - python=3.6
   - jupyter
-  - jupyterlab=0.35
+  - jupyterlab
+  - bokeh
+  - dask-kubernetes
+  - nbserverproxy
+  - ipywidgets
   - pip:
-    - bokeh
-    - dask-kubernetes
-    - nbserverproxy
     - dask_labextension
-    - ipywidgets
