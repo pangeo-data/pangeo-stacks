@@ -5,9 +5,13 @@ dependencies:
   - python=3.6
   - jupyter
   - jupyterlab
+  - jupyterhub
+  - tornado=5.1.1
   - bokeh
-  - dask-kubernetes
+  - dask-kubernetes>=0.8.0
   - nbserverproxy
   - ipywidgets
+  - pip
   - pip:
-    - dask_labextension
+    - dask_labextension==0.3.3
+    - graphviz

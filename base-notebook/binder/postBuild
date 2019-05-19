@@ -7,9 +7,10 @@ jupyter serverextension enable --sys-prefix --py nbserverproxy
 jupyter nbextension enable --sys-prefix --py widgetsnbextension
 
 # labextensions
-jupyter labextension install dask-labextension \
+jupyter labextension install dask-labextension@0.3.0 \
                              @jupyter-widgets/jupyterlab-manager \
                              @jupyterlab/hub-extension
+                             
 
 # dask config
 # ${KERNEL_PYTHON_PREFIX} is set by repo2docker to sys.prefix

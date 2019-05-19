@@ -16,21 +16,13 @@ dependencies:
   - tensorflow
   - keras
   - pytorch-cpu
-  # dask-related
-  - dask
-  - distributed
-  - kubernetes
-  - dask-kubernetes
-  - dask-jobqueue
   # pyviz
-  - bokeh
   - holoviews
   - panel
   - geoviews
   - hvplot
   - geoviews
   - datashader
-  - tornado
   # geospatial
   - iris
   - cartopy
@@ -60,17 +52,10 @@ dependencies:
   - gcsfs
   - s3fs
   # jupyter-related
-  - nbserverproxy
-  - jupyter
-  - jupyterlab
-  - jupyterhub
-  - ipywidgets
   - ipyleaflet
   # xarray-related
   - xgcm
   - xrft
   - pip:
-    - graphviz
     - regionmask
     - rio-cogeo
-    - dask-labextension
