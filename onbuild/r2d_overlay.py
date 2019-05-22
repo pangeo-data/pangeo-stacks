@@ -32,7 +32,7 @@ def binder_path(path):
 
 @become(NB_UID)
 def apply_environment():
-    NB_PYTHON_PREFIX=os.environ['NB_PYTHON_PREFIX']
+    NB_PYTHON_PREFIX = os.environ['NB_PYTHON_PREFIX']
     env_path = binder_path('environment.yml')
     if os.path.exists(env_path):
         return [
@@ -47,7 +47,7 @@ def apply_environment():
 def apply_requirements():
     req_path = binder_path('requirements.txt')
     env_path = binder_path('environment.yml')
-    NB_PYTHON_PREFIX=os.environ['NB_PYTHON_PREFIX']
+    NB_PYTHON_PREFIX = os.environ['NB_PYTHON_PREFIX']
     if os.path.exists(req_path) and not os.path.exists(env_path):
         return [
             f'{NB_PYTHON_PREFIX}/bin/pip install --no-cache-dir -r {req_path}'
