@@ -11,7 +11,7 @@ dependencies:
   - dask-kubernetes>=0.8.0
   - nbserverproxy
   - ipywidgets
+  - graphviz
   - pip
   - pip:
-    - dask_labextension==0.3.3
-    - graphviz
+    - dask_labextension==0.3.1
