@@ -32,12 +32,13 @@ def binder_path(path):
 
 @become(NB_UID)
 def apply_environment():
+    NB_PYTHON_PREFIX = os.environ['NB_PYTHON_PREFIX']
     env_path = binder_path('environment.yml')
     if os.path.exists(env_path):
         return [
-            f'conda env update -n root -f {env_path}',
-            f'conda clean -tipsy',
-            f'conda list -n root',
+            f'conda env update -p {NB_PYTHON_PREFIX} -f {env_path}',
+            f'conda clean --all -f -y',
+            f'conda list -p {NB_PYTHON_PREFIX}',
             f'rm -rf /srv/conda/pkgs'
         ]
 
@@ -46,10 +47,10 @@ def apply_environment():
 def apply_requirements():
     req_path = binder_path('requirements.txt')
     env_path = binder_path('environment.yml')
-
+    NB_PYTHON_PREFIX = os.environ['NB_PYTHON_PREFIX']
     if os.path.exists(req_path) and not os.path.exists(env_path):
         return [
-            f'python3 -m pip install --no-cache-dir -r {req_path}'
+            f'{NB_PYTHON_PREFIX}/bin/pip install --no-cache-dir -r {req_path}'
         ]
 
 
