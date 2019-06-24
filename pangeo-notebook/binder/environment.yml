@@ -31,6 +31,8 @@ dependencies:
   - netcdf4
   - h5py
   - h5netcdf
+  - regionmask
+  - rio-cogeo
   # geoscience-related
   - climlab
   - metpy
@@ -56,6 +58,3 @@ dependencies:
   # xarray-related
   - xgcm
   - xrft
-  - pip:
-    - regionmask
-    - rio-cogeo

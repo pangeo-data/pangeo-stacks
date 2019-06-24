@@ -12,6 +12,4 @@ dependencies:
   - nbserverproxy
   - ipywidgets
   - graphviz
-  - pip
-  - pip:
-    - dask_labextension==0.3.1
+  - dask-labextension==0.3.1
