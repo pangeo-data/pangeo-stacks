@@ -60,5 +60,4 @@ dependencies:
   - xrft
   - pip
   - pip:
-    - rio-cogeo
     - git+https://github.com/intake/xrviz
