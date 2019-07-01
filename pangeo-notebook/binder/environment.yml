@@ -8,7 +8,7 @@ dependencies:
   - scipy
   - matplotlib
   - pandas
-  - xarray
+  - xarray>=0.12.2
   # data science stuff
   - scikit-image
   - scikit-learn
@@ -58,3 +58,6 @@ dependencies:
   # xarray-related
   - xgcm
   - xrft
+  - pip
+  - pip:
+    - git+https://github.com/intake/xrviz
