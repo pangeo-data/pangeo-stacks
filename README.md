@@ -73,7 +73,6 @@ The images here can be built locally using [repo2docker](https://repo2docker.rea
 
 ```shell
 repo2docker --no-run --user-name=jovyan --user-id 1000 \
-    --appendix="`cat appendix.txt`" \
     --image-name=pangeo/base-notebook ./base-notebook
 ```
 
