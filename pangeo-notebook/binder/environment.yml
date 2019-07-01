@@ -8,7 +8,7 @@ dependencies:
   - scipy
   - matplotlib
   - pandas
-  - xarray
+  - xarray>=0.12.2
   # data science stuff
   - scikit-image
   - scikit-learn
