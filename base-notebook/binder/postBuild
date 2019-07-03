@@ -7,7 +7,7 @@ jupyter serverextension enable --sys-prefix --py nbserverproxy
 jupyter nbextension enable --sys-prefix --py widgetsnbextension
 
 # labextensions
-jupyter labextension install dask-labextension@0.3.0 \
+jupyter labextension install dask-labextension@0.3.3 \
                              @jupyter-widgets/jupyterlab-manager \
                              @jupyterlab/hub-extension
                              
