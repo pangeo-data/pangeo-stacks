@@ -6,11 +6,12 @@ dependencies:
   - jupyter
   - jupyterlab=1.0.1
   - jupyterhub
-  - tornado=6.0.3
+  # Pin tornado=5. Possible issues with bokeh & websockets?
+  - tornado=5
   - bokeh
   - dask>=2.0.0
   - dask-kubernetes>=0.9.0
   - nbserverproxy
   - ipywidgets
   - graphviz
-  - dask-labextension==0.3.3
+  - dask-labextension==1.0.0
