@@ -13,4 +13,4 @@ dependencies:
   - jupyter-server-proxy
   - ipywidgets
   - graphviz
-  - dask-labextension==0.3.3
+  - dask-labextension==1.0.0
