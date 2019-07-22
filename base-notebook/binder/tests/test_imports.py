@@ -24,4 +24,4 @@ def test_pinned_versions():
 
     assert LooseVersion(tornado.version) == LooseVersion('6.0.3')
     assert LooseVersion(dask_kubernetes.__version__) >= LooseVersion('0.9.0')
-    assert LooseVersion(dask_labextension.__version__) == LooseVersion('0.3.3')
+    assert LooseVersion(dask_labextension.__version__) == LooseVersion('1.0.0')
