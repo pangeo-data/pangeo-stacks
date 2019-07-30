@@ -1,9 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-# nbextensions
-jupyter nbextension enable --sys-prefix --py widgetsnbextension
-
 # labextensions
 
 jupyter labextension install dask-labextension@1.0.0 \
