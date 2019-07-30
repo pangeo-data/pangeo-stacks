@@ -13,4 +13,6 @@ dependencies:
   - jupyter-server-proxy
   - ipywidgets
   - graphviz
-  - dask-labextension==1.0.0
+  - pip
+  - pip:
+    - git+https://github.com/ian-r-rose/dask-labextension.git@de-asyncify#egg=dask_labextension
