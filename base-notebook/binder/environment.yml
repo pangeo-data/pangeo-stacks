@@ -5,7 +5,7 @@ channels:
 dependencies:
   - jupyterlab=1.*
   - dask=2.*
-  - aask-kubernetes=0.9
+  - dask-kubernetes=0.9
   - tornado=6.*
   - jupyter-server-proxy
   - bokeh
