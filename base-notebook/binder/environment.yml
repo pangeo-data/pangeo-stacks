@@ -1,17 +1,16 @@
+# packages in addition to repo2docker/buildpacks/conda/environment.yml
 name: pangeo
 channels:
   - conda-forge
 dependencies:
-  - python=3.6
-  - jupyter
-  - jupyterlab
-  - jupyterhub
-  - tornado=5.1.1
-  - bokeh
+  - jupyterlab=1.*
   - dask>=2.2.0
   - distributed>=2.2.0
   - dask-kubernetes>=0.9.1
-  - nbserverproxy
-  - ipywidgets
+  - tornado=6.*
+  - jupyter-server-proxy
+  - bokeh
   - graphviz
-  - dask-labextension==0.3.1
+  - pip
+  - pip:
+    - git+https://github.com/ian-r-rose/dask-labextension.git@de-asyncify#egg=dask_labextension
