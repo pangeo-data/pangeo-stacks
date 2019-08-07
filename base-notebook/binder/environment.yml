@@ -4,8 +4,9 @@ channels:
   - conda-forge
 dependencies:
   - jupyterlab=1.*
-  - dask=2.*
-  - dask-kubernetes=0.9
+  - dask>=2.2.0
+  - distributed>=2.2.0
+  - dask-kubernetes>=0.9.1
   - tornado=6.*
   - jupyter-server-proxy
   - bokeh
