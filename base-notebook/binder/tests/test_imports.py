@@ -6,15 +6,20 @@ import pytest
 packages = [
     # these are things we can't live without, just to be safe
     'dask', 'distributed'
+    # jupyterhub and related utilities
+    'jupyterhub', 'nbgitpuller'
     ]
+
 
 @pytest.mark.parametrize('package_name', packages, ids=packages)
 def test_import(package_name):
     importlib.import_module(package_name)
 
+
 # for current repo2docker config
 def test_conda_environment():
     assert sys.prefix == '/srv/conda/envs/notebook'
+
 
 # would be better to automatically get these from environment.yml
 def test_pinned_versions():
