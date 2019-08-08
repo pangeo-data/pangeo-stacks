@@ -2,21 +2,21 @@ name: pangeo
 channels:
   - conda-forge
 dependencies:
-  - python=3.7
+#  - python=3.7
   # core scipy packages
   - numpy
   - scipy
   - matplotlib
   - pandas
   - xarray>=0.12.2
-  - dask>=2.0.0
+#  - dask>=2.0.0
   # data science stuff
   - scikit-image
   - scikit-learn
   - dask-ml
-  - tensorflow
-  - keras
-  - pytorch-cpu
+#  - tensorflow
+#  - keras
+#  - pytorch-cpu
   # pyviz
   - holoviews
   - panel
@@ -60,5 +60,5 @@ dependencies:
   - xgcm
   - xrft
   - pip
-  - pip:
-    - git+https://github.com/intake/xrviz
+#  - pip:
+#    - git+https://github.com/intake/xrviz
