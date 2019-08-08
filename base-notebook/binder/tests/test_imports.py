@@ -5,7 +5,7 @@ import pytest
 
 packages = [
     # these are things we can't live without, just to be safe
-    'dask', 'distributed'
+    'dask', 'distributed',
     # jupyterhub and related utilities
     'jupyterhub', 'nbgitpuller'
     ]
