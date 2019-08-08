@@ -2,13 +2,14 @@ name: pangeo
 channels:
   - conda-forge
 dependencies:
-  - python=3.6
+  - python=3.7
   # core scipy packages
   - numpy
   - scipy
   - matplotlib
   - pandas
   - xarray>=0.12.2
+  - dask>=2.0.0
   # data science stuff
   - scikit-image
   - scikit-learn
@@ -60,5 +61,4 @@ dependencies:
   - xrft
   - pip
   - pip:
-    - rio-cogeo
     - git+https://github.com/intake/xrviz

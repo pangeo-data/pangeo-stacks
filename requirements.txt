@@ -1,4 +1,4 @@
 docker
 python-dateutil
 pytz
-jupyter-repo2docker
+git+git://github.com/jupyter/repo2docker
