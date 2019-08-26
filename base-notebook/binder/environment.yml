@@ -9,6 +9,7 @@ dependencies:
   - dask=2.2
   - distributed=2.2
   - dask-kubernetes=0.9
+  - dask-gateway=0.2
   - tornado=6
   - jupyter-server-proxy=1.1
   - bokeh=1.3
