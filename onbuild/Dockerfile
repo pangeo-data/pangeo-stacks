@@ -16,3 +16,6 @@ ONBUILD RUN /usr/local/bin/r2d_overlay.py build
 ONBUILD RUN rm -rf ${REPO_DIR}/.onbuild-child
 
 ONBUILD USER ${NB_USER}
+
+
+ENTRYPOINT /usr/local/bin/r2d_overlay.py start
