@@ -132,6 +132,8 @@ def apply_start():
             # since pb_path is a fully qualified path, no need to add a ./
             f'{st_path}'
         ]
+    else:
+        return [f'/usr/local/bin/repo2docker-entrypoint']
 
 def main():
     argparser = argparse.ArgumentParser()
