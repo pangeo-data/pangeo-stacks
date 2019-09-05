@@ -1,6 +1,8 @@
 import os
+import json
 import pathlib
 import re
+import requests
 import subprocess
 
 import jinja2
@@ -18,7 +20,14 @@ template_html = """    <div class="panel-group" id="accordion-{{ id }}">
         </div>
         <div id="collapse1-{{ id }}" class="panel-collapse collapse">
           <div class="panel-body">
-          <pre>{{ conda_list | indent(4) | e }}</pre>
+            <table class="table table-condensed table-hover">
+            <tbody>
+            <tr><td>Package</td><td>Version</td></tr>
+           {% for key, value in conda_list.items() %}
+             <tr><td>{{ key | e }}</td><td>{{ value | e }}</td></tr>
+           {% endfor %}
+            </tbody>
+           </table>
           </div>
         </div>
       </div>
@@ -58,6 +67,16 @@ def normalize_document_path(prefix_and_name, extension=''):
     return path + extension
 
 
+def conda_json_to_version_dict(s):
+    out = {}
+    sdict = json.loads(s.decode())
+
+    for package in sdict:
+      out[package['name']] = package['version']
+
+    return out
+
+
 class StacksRSTBuilder:
 
     def __init__(self, images, output_dir, actually_load=True):
@@ -66,18 +85,16 @@ class StacksRSTBuilder:
         self.actually_load = actually_load
 
     def conda_list(self, image):
-        return "docker run ... conda list"
-        # args = [
-        #     'docker', 'run', '-it',
-        #     '--entrypoint=""',
-        #     image, 
-        #     'conda', 'list']
-        # joined_args = " ".join(args)
-        # print('running ', joined_args)
-        # out = subprocess.check_output(joined_args, shell=True)
-        # out = out.decode().replace('#', '') + '\n'
-        # print(out, type(out))
-        # return out
+        # return "docker run ... conda list"
+        args = [
+            'docker', 'run', '-it',
+            '--entrypoint=""',
+            image,
+            'conda', 'list', '--json']
+        joined_args = " ".join(args)
+        out = subprocess.check_output(joined_args, shell=True)
+        out = conda_json_to_version_dict(out)
+        return out
 
     def write_rst(self):
         document_path = normalize_document_path([self.output_dir] + ['images'],
@@ -100,8 +117,12 @@ class StacksRSTBuilder:
 
             metadata = {'url': f'https://hub.docker.com/r/pangeo/{image}',
                         'onbuild-url': f'https://hub.docker.com/r/pangeo/{image}-onbuild'}
+            mb_meta = requests.get(f'https://api.microbadger.com/v1/images/{image}').json()['Versions'][0]  # latest version
+            metadata.update(mb_meta)
 
-            html = template.render(id=image, conda_list=conda_list, metadata=metadata, )
+            id = image.split('/')[1]
+
+            html = template.render(id=id, conda_list=conda_list, metadata=metadata)
             d.directive('raw', arg='html', content=html)
             d.newline()
 
