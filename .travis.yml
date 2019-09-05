@@ -25,20 +25,20 @@ install:
   - docker version
 
 script:
-  - python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
-  - python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-notebook
+  # - python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
+  # - python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-notebook
   - bash ./docs/build_docs.sh
 
 deploy:
+  # - provider: script
+  #   script: bash docker_push.sh base-notebook
+  #   on:
+  #     branch: master
+  # - provider: script
+  #   script: bash docker_push.sh pangeo-notebook
+  #   on:
+  #     branch: master
   - provider: script
-    script: bash docker_push.sh base-notebook
-    on:
-      branch: master
-  - provider: script
-    script: bash docker_push.sh pangeo-notebook
-    on:
-      branch: master
-  - provider: script
-    script: bash ./docs/publish_docs.sh
+    script: bash ./docs/build_docs.sh && bash ./docs/publish_docs.sh
     on:
       branch: master
