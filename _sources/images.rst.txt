@@ -1,0 +1,1234 @@
+=============
+Docker Images
+=============
+
+DockHub URL:
+
+.. code-block:: html
+
+   https://hub.docker.com/u/pangeo
+
+pangeo/base-notebook
+~~~~~~~~~~~~~~~~~~~~
+
+.. raw:: html
+
+       <div class="panel-group" id="accordion-base-notebook">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-base-notebook" href="#collapse1-base-notebook">
+            conda list
+            </a>
+          </h4>
+        </div>
+        <div id="collapse1-base-notebook" class="panel-collapse collapse">
+          <div class="panel-body">
+            <table class="table table-condensed table-hover">
+            <tbody>
+            <tr><td>Package</td><td>Version</td></tr>
+           
+             <tr><td>_libgcc_mutex</td><td>0.1</td></tr>
+           
+             <tr><td>adal</td><td>1.2.2</td></tr>
+           
+             <tr><td>aiohttp</td><td>3.5.4</td></tr>
+           
+             <tr><td>alembic</td><td>1.0.11</td></tr>
+           
+             <tr><td>asn1crypto</td><td>0.24.0</td></tr>
+           
+             <tr><td>async-timeout</td><td>3.0.1</td></tr>
+           
+             <tr><td>async_generator</td><td>1.10</td></tr>
+           
+             <tr><td>attrs</td><td>19.1.0</td></tr>
+           
+             <tr><td>backcall</td><td>0.1.0</td></tr>
+           
+             <tr><td>bleach</td><td>3.1.0</td></tr>
+           
+             <tr><td>blinker</td><td>1.4</td></tr>
+           
+             <tr><td>bokeh</td><td>1.3.4</td></tr>
+           
+             <tr><td>bzip2</td><td>1.0.8</td></tr>
+           
+             <tr><td>ca-certificates</td><td>2019.6.16</td></tr>
+           
+             <tr><td>cachetools</td><td>2.1.0</td></tr>
+           
+             <tr><td>cairo</td><td>1.16.0</td></tr>
+           
+             <tr><td>certifi</td><td>2019.6.16</td></tr>
+           
+             <tr><td>certipy</td><td>0.1.3</td></tr>
+           
+             <tr><td>cffi</td><td>1.12.3</td></tr>
+           
+             <tr><td>chardet</td><td>3.0.4</td></tr>
+           
+             <tr><td>click</td><td>7.0</td></tr>
+           
+             <tr><td>cloudpickle</td><td>1.2.1</td></tr>
+           
+             <tr><td>configurable-http-proxy</td><td>4.1.0</td></tr>
+           
+             <tr><td>cryptography</td><td>2.7</td></tr>
+           
+             <tr><td>cytoolz</td><td>0.10.0</td></tr>
+           
+             <tr><td>dask</td><td>2.2.0</td></tr>
+           
+             <tr><td>dask-core</td><td>2.2.0</td></tr>
+           
+             <tr><td>dask-gateway</td><td>0.2.0</td></tr>
+           
+             <tr><td>dask-kubernetes</td><td>0.9.2</td></tr>
+           
+             <tr><td>dask-labextension</td><td>1.0.0</td></tr>
+           
+             <tr><td>decorator</td><td>4.4.0</td></tr>
+           
+             <tr><td>defusedxml</td><td>0.5.0</td></tr>
+           
+             <tr><td>distributed</td><td>2.2.0</td></tr>
+           
+             <tr><td>entrypoints</td><td>0.3</td></tr>
+           
+             <tr><td>expat</td><td>2.2.5</td></tr>
+           
+             <tr><td>fontconfig</td><td>2.13.1</td></tr>
+           
+             <tr><td>freetype</td><td>2.10.0</td></tr>
+           
+             <tr><td>fribidi</td><td>1.0.5</td></tr>
+           
+             <tr><td>fsspec</td><td>0.4.1</td></tr>
+           
+             <tr><td>gettext</td><td>0.19.8.1</td></tr>
+           
+             <tr><td>glib</td><td>2.58.3</td></tr>
+           
+             <tr><td>google-auth</td><td>1.6.3</td></tr>
+           
+             <tr><td>graphite2</td><td>1.3.13</td></tr>
+           
+             <tr><td>graphviz</td><td>2.40.1</td></tr>
+           
+             <tr><td>harfbuzz</td><td>2.4.0</td></tr>
+           
+             <tr><td>heapdict</td><td>1.0.0</td></tr>
+           
+             <tr><td>icu</td><td>64.2</td></tr>
+           
+             <tr><td>idna</td><td>2.8</td></tr>
+           
+             <tr><td>ipykernel</td><td>5.1.1</td></tr>
+           
+             <tr><td>ipython</td><td>7.7.0</td></tr>
+           
+             <tr><td>ipython_genutils</td><td>0.2.0</td></tr>
+           
+             <tr><td>ipywidgets</td><td>7.4.2</td></tr>
+           
+             <tr><td>jedi</td><td>0.14.1</td></tr>
+           
+             <tr><td>jinja2</td><td>2.10.1</td></tr>
+           
+             <tr><td>jpeg</td><td>9c</td></tr>
+           
+             <tr><td>json5</td><td>0.8.5</td></tr>
+           
+             <tr><td>jsonschema</td><td>3.0.1</td></tr>
+           
+             <tr><td>jupyter-server-proxy</td><td>1.1.0</td></tr>
+           
+             <tr><td>jupyter_client</td><td>5.3.1</td></tr>
+           
+             <tr><td>jupyter_core</td><td>4.4.0</td></tr>
+           
+             <tr><td>jupyterhub</td><td>1.0.0</td></tr>
+           
+             <tr><td>jupyterlab</td><td>1.0.9</td></tr>
+           
+             <tr><td>jupyterlab_server</td><td>1.0.6</td></tr>
+           
+             <tr><td>krb5</td><td>1.16.3</td></tr>
+           
+             <tr><td>libblas</td><td>3.8.0</td></tr>
+           
+             <tr><td>libcblas</td><td>3.8.0</td></tr>
+           
+             <tr><td>libcurl</td><td>7.65.3</td></tr>
+           
+             <tr><td>libedit</td><td>3.1.20170329</td></tr>
+           
+             <tr><td>libffi</td><td>3.2.1</td></tr>
+           
+             <tr><td>libgcc-ng</td><td>9.1.0</td></tr>
+           
+             <tr><td>libgfortran-ng</td><td>7.3.0</td></tr>
+           
+             <tr><td>libiconv</td><td>1.15</td></tr>
+           
+             <tr><td>liblapack</td><td>3.8.0</td></tr>
+           
+             <tr><td>libopenblas</td><td>0.3.7</td></tr>
+           
+             <tr><td>libpng</td><td>1.6.37</td></tr>
+           
+             <tr><td>libsodium</td><td>1.0.17</td></tr>
+           
+             <tr><td>libssh2</td><td>1.8.2</td></tr>
+           
+             <tr><td>libstdcxx-ng</td><td>9.1.0</td></tr>
+           
+             <tr><td>libtiff</td><td>4.0.10</td></tr>
+           
+             <tr><td>libtool</td><td>2.4.6</td></tr>
+           
+             <tr><td>libuuid</td><td>2.32.1</td></tr>
+           
+             <tr><td>libxcb</td><td>1.13</td></tr>
+           
+             <tr><td>libxml2</td><td>2.9.9</td></tr>
+           
+             <tr><td>locket</td><td>0.2.0</td></tr>
+           
+             <tr><td>lz4-c</td><td>1.8.3</td></tr>
+           
+             <tr><td>mako</td><td>1.0.10</td></tr>
+           
+             <tr><td>markupsafe</td><td>1.1.1</td></tr>
+           
+             <tr><td>mistune</td><td>0.8.4</td></tr>
+           
+             <tr><td>msgpack-python</td><td>0.6.1</td></tr>
+           
+             <tr><td>multidict</td><td>4.5.2</td></tr>
+           
+             <tr><td>nbconvert</td><td>5.4.1</td></tr>
+           
+             <tr><td>nbformat</td><td>4.4.0</td></tr>
+           
+             <tr><td>nbgitpuller</td><td>0.7.0</td></tr>
+           
+             <tr><td>ncurses</td><td>6.1</td></tr>
+           
+             <tr><td>nodejs</td><td>11.14.0</td></tr>
+           
+             <tr><td>notebook</td><td>5.7.8</td></tr>
+           
+             <tr><td>nteract_on_jupyter</td><td>2.0.12</td></tr>
+           
+             <tr><td>numpy</td><td>1.17.0</td></tr>
+           
+             <tr><td>oauthlib</td><td>3.0.1</td></tr>
+           
+             <tr><td>olefile</td><td>0.46</td></tr>
+           
+             <tr><td>openssl</td><td>1.1.1c</td></tr>
+           
+             <tr><td>packaging</td><td>19.0</td></tr>
+           
+             <tr><td>pamela</td><td>1.0.0</td></tr>
+           
+             <tr><td>pandas</td><td>0.25.1</td></tr>
+           
+             <tr><td>pandoc</td><td>2.7.3</td></tr>
+           
+             <tr><td>pandocfilters</td><td>1.4.2</td></tr>
+           
+             <tr><td>pango</td><td>1.42.4</td></tr>
+           
+             <tr><td>parso</td><td>0.5.1</td></tr>
+           
+             <tr><td>partd</td><td>1.0.0</td></tr>
+           
+             <tr><td>pcre</td><td>8.41</td></tr>
+           
+             <tr><td>pexpect</td><td>4.7.0</td></tr>
+           
+             <tr><td>pickleshare</td><td>0.7.5</td></tr>
+           
+             <tr><td>pillow</td><td>6.1.0</td></tr>
+           
+             <tr><td>pip</td><td>19.2.3</td></tr>
+           
+             <tr><td>pixman</td><td>0.38.0</td></tr>
+           
+             <tr><td>prometheus_client</td><td>0.7.1</td></tr>
+           
+             <tr><td>prompt_toolkit</td><td>2.0.9</td></tr>
+           
+             <tr><td>psutil</td><td>5.6.3</td></tr>
+           
+             <tr><td>pthread-stubs</td><td>0.4</td></tr>
+           
+             <tr><td>ptyprocess</td><td>0.6.0</td></tr>
+           
+             <tr><td>pyasn1</td><td>0.4.6</td></tr>
+           
+             <tr><td>pyasn1-modules</td><td>0.2.6</td></tr>
+           
+             <tr><td>pycparser</td><td>2.19</td></tr>
+           
+             <tr><td>pycurl</td><td>7.43.0.2</td></tr>
+           
+             <tr><td>pygments</td><td>2.4.2</td></tr>
+           
+             <tr><td>pyjwt</td><td>1.7.1</td></tr>
+           
+             <tr><td>pyopenssl</td><td>19.0.0</td></tr>
+           
+             <tr><td>pyparsing</td><td>2.4.2</td></tr>
+           
+             <tr><td>pyrsistent</td><td>0.15.4</td></tr>
+           
+             <tr><td>pysocks</td><td>1.7.0</td></tr>
+           
+             <tr><td>python</td><td>3.7.3</td></tr>
+           
+             <tr><td>python-dateutil</td><td>2.8.0</td></tr>
+           
+             <tr><td>python-editor</td><td>1.0.4</td></tr>
+           
+             <tr><td>python-kubernetes</td><td>10.0.1</td></tr>
+           
+             <tr><td>pytz</td><td>2019.2</td></tr>
+           
+             <tr><td>pyyaml</td><td>5.1.2</td></tr>
+           
+             <tr><td>pyzmq</td><td>18.0.2</td></tr>
+           
+             <tr><td>readline</td><td>8.0</td></tr>
+           
+             <tr><td>requests</td><td>2.22.0</td></tr>
+           
+             <tr><td>requests-oauthlib</td><td>1.2.0</td></tr>
+           
+             <tr><td>rsa</td><td>3.4.2</td></tr>
+           
+             <tr><td>send2trash</td><td>1.5.0</td></tr>
+           
+             <tr><td>setuptools</td><td>41.0.1</td></tr>
+           
+             <tr><td>simpervisor</td><td>0.3</td></tr>
+           
+             <tr><td>six</td><td>1.12.0</td></tr>
+           
+             <tr><td>sortedcontainers</td><td>2.1.0</td></tr>
+           
+             <tr><td>sqlalchemy</td><td>1.3.6</td></tr>
+           
+             <tr><td>sqlite</td><td>3.29.0</td></tr>
+           
+             <tr><td>tblib</td><td>1.4.0</td></tr>
+           
+             <tr><td>terminado</td><td>0.8.2</td></tr>
+           
+             <tr><td>testpath</td><td>0.4.2</td></tr>
+           
+             <tr><td>tk</td><td>8.6.9</td></tr>
+           
+             <tr><td>toolz</td><td>0.10.0</td></tr>
+           
+             <tr><td>tornado</td><td>6.0.3</td></tr>
+           
+             <tr><td>traitlets</td><td>4.3.2</td></tr>
+           
+             <tr><td>urllib3</td><td>1.25.3</td></tr>
+           
+             <tr><td>wcwidth</td><td>0.1.7</td></tr>
+           
+             <tr><td>webencodings</td><td>0.5.1</td></tr>
+           
+             <tr><td>websocket-client</td><td>0.56.0</td></tr>
+           
+             <tr><td>wheel</td><td>0.33.4</td></tr>
+           
+             <tr><td>widgetsnbextension</td><td>3.4.2</td></tr>
+           
+             <tr><td>xorg-kbproto</td><td>1.0.7</td></tr>
+           
+             <tr><td>xorg-libice</td><td>1.0.10</td></tr>
+           
+             <tr><td>xorg-libsm</td><td>1.2.3</td></tr>
+           
+             <tr><td>xorg-libx11</td><td>1.6.8</td></tr>
+           
+             <tr><td>xorg-libxau</td><td>1.0.9</td></tr>
+           
+             <tr><td>xorg-libxdmcp</td><td>1.1.3</td></tr>
+           
+             <tr><td>xorg-libxext</td><td>1.3.4</td></tr>
+           
+             <tr><td>xorg-libxpm</td><td>3.5.12</td></tr>
+           
+             <tr><td>xorg-libxrender</td><td>0.9.10</td></tr>
+           
+             <tr><td>xorg-libxt</td><td>1.1.5</td></tr>
+           
+             <tr><td>xorg-renderproto</td><td>0.11.1</td></tr>
+           
+             <tr><td>xorg-xextproto</td><td>7.3.0</td></tr>
+           
+             <tr><td>xorg-xproto</td><td>7.0.31</td></tr>
+           
+             <tr><td>xz</td><td>5.2.4</td></tr>
+           
+             <tr><td>yaml</td><td>0.1.7</td></tr>
+           
+             <tr><td>yarl</td><td>1.3.0</td></tr>
+           
+             <tr><td>zeromq</td><td>4.3.2</td></tr>
+           
+             <tr><td>zict</td><td>1.0.0</td></tr>
+           
+             <tr><td>zlib</td><td>1.2.11</td></tr>
+           
+             <tr><td>zstd</td><td>1.4.0</td></tr>
+           
+            </tbody>
+           </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-base-notebook" href="#collapse2-base-notebook">
+             metadata</a>
+          </h4>
+        </div>
+        <div id="collapse2-base-notebook" class="panel-collapse collapse">
+          <div class="panel-body">
+           <table class="table table-condensed table-hover">
+            <tbody>
+           
+             <tr><td>url</td><td>https://hub.docker.com/r/pangeo/pangeo/base-notebook</td></tr>
+           
+             <tr><td>onbuild-url</td><td>https://hub.docker.com/r/pangeo/pangeo/base-notebook-onbuild</td></tr>
+           
+             <tr><td>SHA</td><td>33bc122de3dfc908d3a7ead42112d3f8f15e358f9fe697d016feea7426ca3379</td></tr>
+           
+             <tr><td>Tags</td><td>[{&#39;tag&#39;: &#39;2019.04.04&#39;}]</td></tr>
+           
+             <tr><td>ImageName</td><td>pangeo/base-notebook</td></tr>
+           
+             <tr><td>Author</td><td></td></tr>
+           
+             <tr><td>Labels</td><td>{&#39;repo2docker.ref&#39;: &#39;None&#39;, &#39;repo2docker.repo&#39;: &#39;./base-notebook&#39;, &#39;repo2docker.version&#39;: &#39;0.8.0+86.g8dfd400&#39;}</td></tr>
+           
+             <tr><td>LayerCount</td><td>62</td></tr>
+           
+             <tr><td>DownloadSize</td><td>934814147</td></tr>
+           
+             <tr><td>Created</td><td>2019-04-04T20:52:19.268531Z</td></tr>
+           
+            </tbody>
+           </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+pangeo/pangeo-notebook
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. raw:: html
+
+       <div class="panel-group" id="accordion-pangeo-notebook">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-pangeo-notebook" href="#collapse1-pangeo-notebook">
+            conda list
+            </a>
+          </h4>
+        </div>
+        <div id="collapse1-pangeo-notebook" class="panel-collapse collapse">
+          <div class="panel-body">
+            <table class="table table-condensed table-hover">
+            <tbody>
+            <tr><td>Package</td><td>Version</td></tr>
+           
+             <tr><td>_libgcc_mutex</td><td>0.1</td></tr>
+           
+             <tr><td>absl-py</td><td>0.8.0</td></tr>
+           
+             <tr><td>adal</td><td>1.2.2</td></tr>
+           
+             <tr><td>affine</td><td>2.3.0</td></tr>
+           
+             <tr><td>aiohttp</td><td>3.5.4</td></tr>
+           
+             <tr><td>alembic</td><td>1.1.0</td></tr>
+           
+             <tr><td>antlr-python-runtime</td><td>4.7.2</td></tr>
+           
+             <tr><td>appdirs</td><td>1.4.3</td></tr>
+           
+             <tr><td>asciitree</td><td>0.3.3</td></tr>
+           
+             <tr><td>asn1crypto</td><td>0.24.0</td></tr>
+           
+             <tr><td>astor</td><td>0.7.1</td></tr>
+           
+             <tr><td>async-timeout</td><td>3.0.1</td></tr>
+           
+             <tr><td>async_generator</td><td>1.10</td></tr>
+           
+             <tr><td>attrdict</td><td>2.0.1</td></tr>
+           
+             <tr><td>attrs</td><td>19.1.0</td></tr>
+           
+             <tr><td>backcall</td><td>0.1.0</td></tr>
+           
+             <tr><td>beautifulsoup4</td><td>4.8.0</td></tr>
+           
+             <tr><td>bleach</td><td>3.1.0</td></tr>
+           
+             <tr><td>blinker</td><td>1.4</td></tr>
+           
+             <tr><td>blosc</td><td>1.17.0</td></tr>
+           
+             <tr><td>bokeh</td><td>1.3.4</td></tr>
+           
+             <tr><td>boost-cpp</td><td>1.70.0</td></tr>
+           
+             <tr><td>boto3</td><td>1.9.223</td></tr>
+           
+             <tr><td>botocore</td><td>1.12.223</td></tr>
+           
+             <tr><td>branca</td><td>0.3.1</td></tr>
+           
+             <tr><td>bzip2</td><td>1.0.8</td></tr>
+           
+             <tr><td>c-ares</td><td>1.15.0</td></tr>
+           
+             <tr><td>ca-certificates</td><td>2019.6.16</td></tr>
+           
+             <tr><td>cached-property</td><td>1.5.1</td></tr>
+           
+             <tr><td>cachetools</td><td>2.1.0</td></tr>
+           
+             <tr><td>cairo</td><td>1.16.0</td></tr>
+           
+             <tr><td>cartopy</td><td>0.17.0</td></tr>
+           
+             <tr><td>certifi</td><td>2019.6.16</td></tr>
+           
+             <tr><td>certipy</td><td>0.1.3</td></tr>
+           
+             <tr><td>cf-units</td><td>2.1.3</td></tr>
+           
+             <tr><td>cffi</td><td>1.12.3</td></tr>
+           
+             <tr><td>cfitsio</td><td>3.470</td></tr>
+           
+             <tr><td>cftime</td><td>1.0.3.4</td></tr>
+           
+             <tr><td>chardet</td><td>3.0.4</td></tr>
+           
+             <tr><td>click</td><td>7.0</td></tr>
+           
+             <tr><td>click-plugins</td><td>1.1.1</td></tr>
+           
+             <tr><td>cligj</td><td>0.5.0</td></tr>
+           
+             <tr><td>climlab</td><td>0.7.5</td></tr>
+           
+             <tr><td>cloudpickle</td><td>1.2.1</td></tr>
+           
+             <tr><td>colorcet</td><td>2.0.1</td></tr>
+           
+             <tr><td>configobj</td><td>5.0.6</td></tr>
+           
+             <tr><td>configurable-http-proxy</td><td>4.1.0</td></tr>
+           
+             <tr><td>cryptography</td><td>2.7</td></tr>
+           
+             <tr><td>curl</td><td>7.65.3</td></tr>
+           
+             <tr><td>cycler</td><td>0.10.0</td></tr>
+           
+             <tr><td>cytoolz</td><td>0.10.0</td></tr>
+           
+             <tr><td>dask</td><td>2.2.0</td></tr>
+           
+             <tr><td>dask-core</td><td>2.2.0</td></tr>
+           
+             <tr><td>dask-gateway</td><td>0.2.0</td></tr>
+           
+             <tr><td>dask-glm</td><td>0.1.0</td></tr>
+           
+             <tr><td>dask-kubernetes</td><td>0.9.2</td></tr>
+           
+             <tr><td>dask-labextension</td><td>1.0.0</td></tr>
+           
+             <tr><td>dask-ml</td><td>1.0.0</td></tr>
+           
+             <tr><td>datashader</td><td>0.7.0</td></tr>
+           
+             <tr><td>datashape</td><td>0.5.4</td></tr>
+           
+             <tr><td>dbus</td><td>1.13.6</td></tr>
+           
+             <tr><td>decorator</td><td>4.4.0</td></tr>
+           
+             <tr><td>defusedxml</td><td>0.5.0</td></tr>
+           
+             <tr><td>distributed</td><td>2.2.0</td></tr>
+           
+             <tr><td>docopt</td><td>0.6.2</td></tr>
+           
+             <tr><td>docrep</td><td>0.2.7</td></tr>
+           
+             <tr><td>docutils</td><td>0.15.2</td></tr>
+           
+             <tr><td>entrypoints</td><td>0.3</td></tr>
+           
+             <tr><td>eofs</td><td>1.4.0</td></tr>
+           
+             <tr><td>esmf</td><td>7.1.0</td></tr>
+           
+             <tr><td>esmpy</td><td>7.1.0</td></tr>
+           
+             <tr><td>expat</td><td>2.2.5</td></tr>
+           
+             <tr><td>fasteners</td><td>0.14.1</td></tr>
+           
+             <tr><td>fiona</td><td>1.8.6</td></tr>
+           
+             <tr><td>fontconfig</td><td>2.13.1</td></tr>
+           
+             <tr><td>freetype</td><td>2.10.0</td></tr>
+           
+             <tr><td>freexl</td><td>1.0.5</td></tr>
+           
+             <tr><td>fribidi</td><td>1.0.5</td></tr>
+           
+             <tr><td>fsspec</td><td>0.4.4</td></tr>
+           
+             <tr><td>future</td><td>0.17.1</td></tr>
+           
+             <tr><td>gast</td><td>0.2.2</td></tr>
+           
+             <tr><td>gcsfs</td><td>0.3.0</td></tr>
+           
+             <tr><td>gdal</td><td>2.4.2</td></tr>
+           
+             <tr><td>geopandas</td><td>0.5.1</td></tr>
+           
+             <tr><td>geos</td><td>3.7.2</td></tr>
+           
+             <tr><td>geotiff</td><td>1.5.1</td></tr>
+           
+             <tr><td>geoviews</td><td>1.6.3</td></tr>
+           
+             <tr><td>geoviews-core</td><td>1.6.3</td></tr>
+           
+             <tr><td>gettext</td><td>0.19.8.1</td></tr>
+           
+             <tr><td>giflib</td><td>5.1.7</td></tr>
+           
+             <tr><td>glib</td><td>2.58.3</td></tr>
+           
+             <tr><td>google-auth</td><td>1.6.3</td></tr>
+           
+             <tr><td>google-auth-oauthlib</td><td>0.4.0</td></tr>
+           
+             <tr><td>graphite2</td><td>1.3.13</td></tr>
+           
+             <tr><td>graphviz</td><td>2.40.1</td></tr>
+           
+             <tr><td>grpcio</td><td>1.22.0</td></tr>
+           
+             <tr><td>gst-plugins-base</td><td>1.14.5</td></tr>
+           
+             <tr><td>gstreamer</td><td>1.14.5</td></tr>
+           
+             <tr><td>gsw</td><td>3.3.1</td></tr>
+           
+             <tr><td>h5netcdf</td><td>0.7.4</td></tr>
+           
+             <tr><td>h5py</td><td>2.9.0</td></tr>
+           
+             <tr><td>harfbuzz</td><td>2.4.0</td></tr>
+           
+             <tr><td>hdf4</td><td>4.2.13</td></tr>
+           
+             <tr><td>hdf5</td><td>1.10.5</td></tr>
+           
+             <tr><td>heapdict</td><td>1.0.0</td></tr>
+           
+             <tr><td>holoviews</td><td>1.12.5</td></tr>
+           
+             <tr><td>hvplot</td><td>0.4.0</td></tr>
+           
+             <tr><td>icu</td><td>64.2</td></tr>
+           
+             <tr><td>idna</td><td>2.8</td></tr>
+           
+             <tr><td>imageio</td><td>2.5.0</td></tr>
+           
+             <tr><td>intake</td><td>0.5.3</td></tr>
+           
+             <tr><td>intake-esm</td><td>2019.8.23</td></tr>
+           
+             <tr><td>intake-xarray</td><td>0.3.1</td></tr>
+           
+             <tr><td>ipykernel</td><td>5.1.2</td></tr>
+           
+             <tr><td>ipyleaflet</td><td>0.11.1</td></tr>
+           
+             <tr><td>ipython</td><td>7.8.0</td></tr>
+           
+             <tr><td>ipython_genutils</td><td>0.2.0</td></tr>
+           
+             <tr><td>ipywidgets</td><td>7.5.1</td></tr>
+           
+             <tr><td>iris</td><td>2.2.0</td></tr>
+           
+             <tr><td>jedi</td><td>0.15.1</td></tr>
+           
+             <tr><td>jinja2</td><td>2.10.1</td></tr>
+           
+             <tr><td>jmespath</td><td>0.9.4</td></tr>
+           
+             <tr><td>joblib</td><td>0.13.2</td></tr>
+           
+             <tr><td>jpeg</td><td>9c</td></tr>
+           
+             <tr><td>json-c</td><td>0.13.1</td></tr>
+           
+             <tr><td>json5</td><td>0.8.5</td></tr>
+           
+             <tr><td>jsonschema</td><td>3.0.2</td></tr>
+           
+             <tr><td>jupyter</td><td>1.0.0</td></tr>
+           
+             <tr><td>jupyter-server-proxy</td><td>1.1.0</td></tr>
+           
+             <tr><td>jupyter_client</td><td>5.3.1</td></tr>
+           
+             <tr><td>jupyter_console</td><td>6.0.0</td></tr>
+           
+             <tr><td>jupyter_core</td><td>4.4.0</td></tr>
+           
+             <tr><td>jupyterhub</td><td>1.0.0</td></tr>
+           
+             <tr><td>jupyterlab</td><td>1.0.9</td></tr>
+           
+             <tr><td>jupyterlab_server</td><td>1.0.6</td></tr>
+           
+             <tr><td>kealib</td><td>1.4.10</td></tr>
+           
+             <tr><td>keras</td><td>2.2.5</td></tr>
+           
+             <tr><td>keras-applications</td><td>1.0.8</td></tr>
+           
+             <tr><td>keras-preprocessing</td><td>1.1.0</td></tr>
+           
+             <tr><td>kiwisolver</td><td>1.1.0</td></tr>
+           
+             <tr><td>krb5</td><td>1.16.3</td></tr>
+           
+             <tr><td>libblas</td><td>3.8.0</td></tr>
+           
+             <tr><td>libcblas</td><td>3.8.0</td></tr>
+           
+             <tr><td>libcurl</td><td>7.65.3</td></tr>
+           
+             <tr><td>libdap4</td><td>3.20.2</td></tr>
+           
+             <tr><td>libedit</td><td>3.1.20170329</td></tr>
+           
+             <tr><td>libffi</td><td>3.2.1</td></tr>
+           
+             <tr><td>libgcc-ng</td><td>9.1.0</td></tr>
+           
+             <tr><td>libgdal</td><td>2.4.2</td></tr>
+           
+             <tr><td>libgfortran-ng</td><td>7.3.0</td></tr>
+           
+             <tr><td>libgpuarray</td><td>0.7.6</td></tr>
+           
+             <tr><td>libiconv</td><td>1.15</td></tr>
+           
+             <tr><td>libkml</td><td>1.3.0</td></tr>
+           
+             <tr><td>liblapack</td><td>3.8.0</td></tr>
+           
+             <tr><td>libnetcdf</td><td>4.6.2</td></tr>
+           
+             <tr><td>libopenblas</td><td>0.3.7</td></tr>
+           
+             <tr><td>libpng</td><td>1.6.37</td></tr>
+           
+             <tr><td>libpq</td><td>11.5</td></tr>
+           
+             <tr><td>libprotobuf</td><td>3.8.0</td></tr>
+           
+             <tr><td>libsodium</td><td>1.0.17</td></tr>
+           
+             <tr><td>libspatialindex</td><td>1.9.0</td></tr>
+           
+             <tr><td>libspatialite</td><td>4.3.0a</td></tr>
+           
+             <tr><td>libssh2</td><td>1.8.2</td></tr>
+           
+             <tr><td>libstdcxx-ng</td><td>9.1.0</td></tr>
+           
+             <tr><td>libtiff</td><td>4.0.10</td></tr>
+           
+             <tr><td>libtool</td><td>2.4.6</td></tr>
+           
+             <tr><td>libuuid</td><td>2.32.1</td></tr>
+           
+             <tr><td>libxcb</td><td>1.13</td></tr>
+           
+             <tr><td>libxml2</td><td>2.9.9</td></tr>
+           
+             <tr><td>libxslt</td><td>1.1.33</td></tr>
+           
+             <tr><td>llvmlite</td><td>0.29.0</td></tr>
+           
+             <tr><td>locket</td><td>0.2.0</td></tr>
+           
+             <tr><td>lxml</td><td>4.4.1</td></tr>
+           
+             <tr><td>lz4</td><td>2.1.9</td></tr>
+           
+             <tr><td>lz4-c</td><td>1.8.3</td></tr>
+           
+             <tr><td>mako</td><td>1.1.0</td></tr>
+           
+             <tr><td>markdown</td><td>3.1.1</td></tr>
+           
+             <tr><td>markupsafe</td><td>1.1.1</td></tr>
+           
+             <tr><td>matplotlib</td><td>3.1.1</td></tr>
+           
+             <tr><td>matplotlib-base</td><td>3.1.1</td></tr>
+           
+             <tr><td>mechanicalsoup</td><td>0.12.0</td></tr>
+           
+             <tr><td>mercantile</td><td>1.1.2</td></tr>
+           
+             <tr><td>metpy</td><td>0.10.2</td></tr>
+           
+             <tr><td>mistune</td><td>0.8.4</td></tr>
+           
+             <tr><td>mock</td><td>3.0.5</td></tr>
+           
+             <tr><td>monotonic</td><td>1.5</td></tr>
+           
+             <tr><td>mpi</td><td>1.0</td></tr>
+           
+             <tr><td>mpich</td><td>3.2.1</td></tr>
+           
+             <tr><td>msgpack-numpy</td><td>0.4.4.3</td></tr>
+           
+             <tr><td>msgpack-python</td><td>0.6.1</td></tr>
+           
+             <tr><td>multidict</td><td>4.5.2</td></tr>
+           
+             <tr><td>multipledispatch</td><td>0.6.0</td></tr>
+           
+             <tr><td>munch</td><td>2.3.2</td></tr>
+           
+             <tr><td>nbconvert</td><td>5.6.0</td></tr>
+           
+             <tr><td>nbformat</td><td>4.4.0</td></tr>
+           
+             <tr><td>nbgitpuller</td><td>0.7.0</td></tr>
+           
+             <tr><td>ncurses</td><td>6.1</td></tr>
+           
+             <tr><td>netcdf-fortran</td><td>4.4.5</td></tr>
+           
+             <tr><td>netcdf4</td><td>1.5.1.2</td></tr>
+           
+             <tr><td>networkx</td><td>2.3</td></tr>
+           
+             <tr><td>ninja</td><td>1.9.0</td></tr>
+           
+             <tr><td>nodejs</td><td>11.14.0</td></tr>
+           
+             <tr><td>notebook</td><td>6.0.1</td></tr>
+           
+             <tr><td>numba</td><td>0.45.1</td></tr>
+           
+             <tr><td>numcodecs</td><td>0.6.3</td></tr>
+           
+             <tr><td>numpy</td><td>1.17.1</td></tr>
+           
+             <tr><td>oauthlib</td><td>3.0.1</td></tr>
+           
+             <tr><td>olefile</td><td>0.46</td></tr>
+           
+             <tr><td>openjpeg</td><td>2.3.1</td></tr>
+           
+             <tr><td>openssl</td><td>1.1.1c</td></tr>
+           
+             <tr><td>owslib</td><td>0.18.0</td></tr>
+           
+             <tr><td>packaging</td><td>19.0</td></tr>
+           
+             <tr><td>pamela</td><td>1.0.0</td></tr>
+           
+             <tr><td>pandas</td><td>0.25.1</td></tr>
+           
+             <tr><td>pandoc</td><td>2.7.3</td></tr>
+           
+             <tr><td>pandocfilters</td><td>1.4.2</td></tr>
+           
+             <tr><td>panel</td><td>0.6.2</td></tr>
+           
+             <tr><td>pango</td><td>1.42.4</td></tr>
+           
+             <tr><td>param</td><td>1.9.1</td></tr>
+           
+             <tr><td>parso</td><td>0.5.1</td></tr>
+           
+             <tr><td>partd</td><td>1.0.0</td></tr>
+           
+             <tr><td>pcre</td><td>8.41</td></tr>
+           
+             <tr><td>pexpect</td><td>4.7.0</td></tr>
+           
+             <tr><td>pickleshare</td><td>0.7.5</td></tr>
+           
+             <tr><td>pillow</td><td>6.1.0</td></tr>
+           
+             <tr><td>pint</td><td>0.9</td></tr>
+           
+             <tr><td>pip</td><td>19.2.3</td></tr>
+           
+             <tr><td>pixman</td><td>0.38.0</td></tr>
+           
+             <tr><td>pooch</td><td>0.5.2</td></tr>
+           
+             <tr><td>poppler</td><td>0.67.0</td></tr>
+           
+             <tr><td>poppler-data</td><td>0.4.9</td></tr>
+           
+             <tr><td>postgresql</td><td>11.5</td></tr>
+           
+             <tr><td>proj4</td><td>6.1.0</td></tr>
+           
+             <tr><td>prometheus_client</td><td>0.7.1</td></tr>
+           
+             <tr><td>prompt_toolkit</td><td>2.0.9</td></tr>
+           
+             <tr><td>protobuf</td><td>3.8.0</td></tr>
+           
+             <tr><td>psutil</td><td>5.6.3</td></tr>
+           
+             <tr><td>pthread-stubs</td><td>0.4</td></tr>
+           
+             <tr><td>ptyprocess</td><td>0.6.0</td></tr>
+           
+             <tr><td>pyasn1</td><td>0.4.6</td></tr>
+           
+             <tr><td>pyasn1-modules</td><td>0.2.6</td></tr>
+           
+             <tr><td>pycparser</td><td>2.19</td></tr>
+           
+             <tr><td>pyct</td><td>0.4.6</td></tr>
+           
+             <tr><td>pyct-core</td><td>0.4.6</td></tr>
+           
+             <tr><td>pycurl</td><td>7.43.0.2</td></tr>
+           
+             <tr><td>pydap</td><td>3.2.2</td></tr>
+           
+             <tr><td>pyepsg</td><td>0.4.0</td></tr>
+           
+             <tr><td>pygments</td><td>2.4.2</td></tr>
+           
+             <tr><td>pygpu</td><td>0.7.6</td></tr>
+           
+             <tr><td>pyjwt</td><td>1.7.1</td></tr>
+           
+             <tr><td>pykdtree</td><td>1.3.1</td></tr>
+           
+             <tr><td>pyke</td><td>1.1.1</td></tr>
+           
+             <tr><td>pyopenssl</td><td>19.0.0</td></tr>
+           
+             <tr><td>pyorbital</td><td>1.5.0</td></tr>
+           
+             <tr><td>pyparsing</td><td>2.4.2</td></tr>
+           
+             <tr><td>pyproj</td><td>2.2.1</td></tr>
+           
+             <tr><td>pyqt</td><td>5.9.2</td></tr>
+           
+             <tr><td>pyresample</td><td>1.12.3</td></tr>
+           
+             <tr><td>pyrsistent</td><td>0.15.4</td></tr>
+           
+             <tr><td>pyshp</td><td>2.1.0</td></tr>
+           
+             <tr><td>pysocks</td><td>1.7.0</td></tr>
+           
+             <tr><td>pyspectral</td><td>0.9.0</td></tr>
+           
+             <tr><td>pyspharm</td><td>1.0.9</td></tr>
+           
+             <tr><td>python</td><td>3.7.3</td></tr>
+           
+             <tr><td>python-blosc</td><td>1.8.1</td></tr>
+           
+             <tr><td>python-dateutil</td><td>2.8.0</td></tr>
+           
+             <tr><td>python-editor</td><td>1.0.4</td></tr>
+           
+             <tr><td>python-geotiepoints</td><td>1.1.8</td></tr>
+           
+             <tr><td>python-kubernetes</td><td>10.0.1</td></tr>
+           
+             <tr><td>python-snappy</td><td>0.5.4</td></tr>
+           
+             <tr><td>pytorch-cpu</td><td>1.1.0</td></tr>
+           
+             <tr><td>pytz</td><td>2019.2</td></tr>
+           
+             <tr><td>pyviz_comms</td><td>0.7.2</td></tr>
+           
+             <tr><td>pywavelets</td><td>1.0.3</td></tr>
+           
+             <tr><td>pyyaml</td><td>5.1.2</td></tr>
+           
+             <tr><td>pyzmq</td><td>18.0.2</td></tr>
+           
+             <tr><td>qt</td><td>5.9.7</td></tr>
+           
+             <tr><td>qtconsole</td><td>4.5.5</td></tr>
+           
+             <tr><td>rasterio</td><td>1.0.26</td></tr>
+           
+             <tr><td>readline</td><td>8.0</td></tr>
+           
+             <tr><td>regionmask</td><td>0.4.0</td></tr>
+           
+             <tr><td>requests</td><td>2.22.0</td></tr>
+           
+             <tr><td>requests-oauthlib</td><td>1.2.0</td></tr>
+           
+             <tr><td>rio-cogeo</td><td>1.1.0</td></tr>
+           
+             <tr><td>rsa</td><td>3.4.2</td></tr>
+           
+             <tr><td>rtree</td><td>0.8.3</td></tr>
+           
+             <tr><td>ruamel.yaml</td><td>0.16.5</td></tr>
+           
+             <tr><td>ruamel.yaml.clib</td><td>0.1.2</td></tr>
+           
+             <tr><td>s3fs</td><td>0.3.4</td></tr>
+           
+             <tr><td>s3transfer</td><td>0.2.1</td></tr>
+           
+             <tr><td>satpy</td><td>0.16.1</td></tr>
+           
+             <tr><td>scikit-image</td><td>0.15.0</td></tr>
+           
+             <tr><td>scikit-learn</td><td>0.21.3</td></tr>
+           
+             <tr><td>scipy</td><td>1.3.1</td></tr>
+           
+             <tr><td>send2trash</td><td>1.5.0</td></tr>
+           
+             <tr><td>setuptools</td><td>41.2.0</td></tr>
+           
+             <tr><td>shapely</td><td>1.6.4</td></tr>
+           
+             <tr><td>simpervisor</td><td>0.3</td></tr>
+           
+             <tr><td>sip</td><td>4.19.8</td></tr>
+           
+             <tr><td>six</td><td>1.12.0</td></tr>
+           
+             <tr><td>snappy</td><td>1.1.7</td></tr>
+           
+             <tr><td>snuggs</td><td>1.4.6</td></tr>
+           
+             <tr><td>sortedcontainers</td><td>2.1.0</td></tr>
+           
+             <tr><td>soupsieve</td><td>1.9.3</td></tr>
+           
+             <tr><td>sqlalchemy</td><td>1.3.8</td></tr>
+           
+             <tr><td>sqlite</td><td>3.29.0</td></tr>
+           
+             <tr><td>supermercado</td><td>0.0.5</td></tr>
+           
+             <tr><td>tbb</td><td>2018.0.5</td></tr>
+           
+             <tr><td>tblib</td><td>1.4.0</td></tr>
+           
+             <tr><td>tensorboard</td><td>1.13.1</td></tr>
+           
+             <tr><td>tensorflow</td><td>1.13.1</td></tr>
+           
+             <tr><td>tensorflow-base</td><td>1.13.1</td></tr>
+           
+             <tr><td>tensorflow-estimator</td><td>1.13.0</td></tr>
+           
+             <tr><td>termcolor</td><td>1.1.0</td></tr>
+           
+             <tr><td>terminado</td><td>0.8.2</td></tr>
+           
+             <tr><td>testpath</td><td>0.4.2</td></tr>
+           
+             <tr><td>theano</td><td>1.0.3</td></tr>
+           
+             <tr><td>tiledb</td><td>1.6.2</td></tr>
+           
+             <tr><td>tiledb-py</td><td>0.4.3</td></tr>
+           
+             <tr><td>tk</td><td>8.6.9</td></tr>
+           
+             <tr><td>toolchain</td><td>2.4.0</td></tr>
+           
+             <tr><td>toolchain_c_linux-64</td><td>2.4.0</td></tr>
+           
+             <tr><td>toolchain_cxx_linux-64</td><td>2.4.0</td></tr>
+           
+             <tr><td>toolz</td><td>0.10.0</td></tr>
+           
+             <tr><td>tornado</td><td>6.0.3</td></tr>
+           
+             <tr><td>tqdm</td><td>4.35.0</td></tr>
+           
+             <tr><td>traitlets</td><td>4.3.2</td></tr>
+           
+             <tr><td>traittypes</td><td>0.2.1</td></tr>
+           
+             <tr><td>trollimage</td><td>1.9.0</td></tr>
+           
+             <tr><td>trollsift</td><td>0.3.2</td></tr>
+           
+             <tr><td>tzcode</td><td>2019a</td></tr>
+           
+             <tr><td>udunits2</td><td>2.2.27.6</td></tr>
+           
+             <tr><td>urllib3</td><td>1.25.3</td></tr>
+           
+             <tr><td>wcwidth</td><td>0.1.7</td></tr>
+           
+             <tr><td>webencodings</td><td>0.5.1</td></tr>
+           
+             <tr><td>webob</td><td>1.8.5</td></tr>
+           
+             <tr><td>websocket-client</td><td>0.56.0</td></tr>
+           
+             <tr><td>werkzeug</td><td>0.15.5</td></tr>
+           
+             <tr><td>wheel</td><td>0.33.6</td></tr>
+           
+             <tr><td>widgetsnbextension</td><td>3.5.1</td></tr>
+           
+             <tr><td>windspharm</td><td>1.7.0</td></tr>
+           
+             <tr><td>xarray</td><td>0.12.3</td></tr>
+           
+             <tr><td>xerces-c</td><td>3.2.2</td></tr>
+           
+             <tr><td>xesmf</td><td>0.2.0</td></tr>
+           
+             <tr><td>xgcm</td><td>0.2.0</td></tr>
+           
+             <tr><td>xorg-kbproto</td><td>1.0.7</td></tr>
+           
+             <tr><td>xorg-libice</td><td>1.0.10</td></tr>
+           
+             <tr><td>xorg-libsm</td><td>1.2.3</td></tr>
+           
+             <tr><td>xorg-libx11</td><td>1.6.8</td></tr>
+           
+             <tr><td>xorg-libxau</td><td>1.0.9</td></tr>
+           
+             <tr><td>xorg-libxdmcp</td><td>1.1.3</td></tr>
+           
+             <tr><td>xorg-libxext</td><td>1.3.4</td></tr>
+           
+             <tr><td>xorg-libxpm</td><td>3.5.12</td></tr>
+           
+             <tr><td>xorg-libxrender</td><td>0.9.10</td></tr>
+           
+             <tr><td>xorg-libxt</td><td>1.1.5</td></tr>
+           
+             <tr><td>xorg-renderproto</td><td>0.11.1</td></tr>
+           
+             <tr><td>xorg-xextproto</td><td>7.3.0</td></tr>
+           
+             <tr><td>xorg-xproto</td><td>7.0.31</td></tr>
+           
+             <tr><td>xrft</td><td>0.2.0</td></tr>
+           
+             <tr><td>xz</td><td>5.2.4</td></tr>
+           
+             <tr><td>yaml</td><td>0.1.7</td></tr>
+           
+             <tr><td>yarl</td><td>1.3.0</td></tr>
+           
+             <tr><td>zarr</td><td>2.3.2</td></tr>
+           
+             <tr><td>zeromq</td><td>4.3.2</td></tr>
+           
+             <tr><td>zict</td><td>1.0.0</td></tr>
+           
+             <tr><td>zlib</td><td>1.2.11</td></tr>
+           
+             <tr><td>zstd</td><td>1.4.0</td></tr>
+           
+            </tbody>
+           </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-pangeo-notebook" href="#collapse2-pangeo-notebook">
+             metadata</a>
+          </h4>
+        </div>
+        <div id="collapse2-pangeo-notebook" class="panel-collapse collapse">
+          <div class="panel-body">
+           <table class="table table-condensed table-hover">
+            <tbody>
+           
+             <tr><td>url</td><td>https://hub.docker.com/r/pangeo/pangeo/pangeo-notebook</td></tr>
+           
+             <tr><td>onbuild-url</td><td>https://hub.docker.com/r/pangeo/pangeo/pangeo-notebook-onbuild</td></tr>
+           
+             <tr><td>SHA</td><td>9d85ccec794ea90d223d2a90e88ef031b7f442fec44a30cffaf4e29263ce2d9c</td></tr>
+           
+             <tr><td>Tags</td><td>[{&#39;tag&#39;: &#39;latest&#39;}, {&#39;tag&#39;: &#39;2019.08.26&#39;}]</td></tr>
+           
+             <tr><td>ImageName</td><td>pangeo/pangeo-notebook</td></tr>
+           
+             <tr><td>Author</td><td></td></tr>
+           
+             <tr><td>Labels</td><td>{&#39;repo2docker.ref&#39;: &#39;None&#39;, &#39;repo2docker.repo&#39;: &#39;local&#39;, &#39;repo2docker.version&#39;: &#39;0.10.0&#39;}</td></tr>
+           
+             <tr><td>LayerCount</td><td>75</td></tr>
+           
+             <tr><td>DownloadSize</td><td>1573699583</td></tr>
+           
+             <tr><td>Created</td><td>2019-08-26T19:08:59.725477Z</td></tr>
+           
+            </tbody>
+           </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
