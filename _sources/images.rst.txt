@@ -411,21 +411,19 @@ pangeo/base-notebook
            
              <tr><td>onbuild-url</td><td>https://hub.docker.com/r/pangeo/pangeo/base-notebook-onbuild</td></tr>
            
-             <tr><td>SHA</td><td>33bc122de3dfc908d3a7ead42112d3f8f15e358f9fe697d016feea7426ca3379</td></tr>
+             <tr><td>SHA</td><td>f0a792ea76fe9e61326ce1329d136b91098937c6f58b4662b7bc23dbd89f3319</td></tr>
            
-             <tr><td>Tags</td><td>[{&#39;tag&#39;: &#39;2019.04.04&#39;}]</td></tr>
+             <tr><td>Tags</td><td>[{&#39;tag&#39;: &#39;2019.01.25&#39;}]</td></tr>
            
              <tr><td>ImageName</td><td>pangeo/base-notebook</td></tr>
            
              <tr><td>Author</td><td></td></tr>
            
-             <tr><td>Labels</td><td>{&#39;repo2docker.ref&#39;: &#39;None&#39;, &#39;repo2docker.repo&#39;: &#39;./base-notebook&#39;, &#39;repo2docker.version&#39;: &#39;0.8.0+86.g8dfd400&#39;}</td></tr>
+             <tr><td>LayerCount</td><td>44</td></tr>
            
-             <tr><td>LayerCount</td><td>62</td></tr>
+             <tr><td>DownloadSize</td><td>0</td></tr>
            
-             <tr><td>DownloadSize</td><td>934814147</td></tr>
-           
-             <tr><td>Created</td><td>2019-04-04T20:52:19.268531Z</td></tr>
+             <tr><td>Created</td><td>2019-01-25T20:31:49.426565Z</td></tr>
            
             </tbody>
            </table>
@@ -1209,9 +1207,9 @@ pangeo/pangeo-notebook
            
              <tr><td>onbuild-url</td><td>https://hub.docker.com/r/pangeo/pangeo/pangeo-notebook-onbuild</td></tr>
            
-             <tr><td>SHA</td><td>9d85ccec794ea90d223d2a90e88ef031b7f442fec44a30cffaf4e29263ce2d9c</td></tr>
+             <tr><td>SHA</td><td>aa14fde9d05c4d36d3165fe5b3fc2ed9ab1a0460bed400f6e0d5710595499128</td></tr>
            
-             <tr><td>Tags</td><td>[{&#39;tag&#39;: &#39;latest&#39;}, {&#39;tag&#39;: &#39;2019.08.26&#39;}]</td></tr>
+             <tr><td>Tags</td><td>[{&#39;tag&#39;: &#39;2019.08.18&#39;}]</td></tr>
            
              <tr><td>ImageName</td><td>pangeo/pangeo-notebook</td></tr>
            
@@ -1221,9 +1219,9 @@ pangeo/pangeo-notebook
            
              <tr><td>LayerCount</td><td>75</td></tr>
            
-             <tr><td>DownloadSize</td><td>1573699583</td></tr>
+             <tr><td>DownloadSize</td><td>0</td></tr>
            
-             <tr><td>Created</td><td>2019-08-26T19:08:59.725477Z</td></tr>
+             <tr><td>Created</td><td>2019-08-18T05:30:58.295843Z</td></tr>
            
             </tbody>
            </table>
