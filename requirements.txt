@@ -2,3 +2,7 @@ docker
 python-dateutil
 pytz
 jupyter-repo2docker>=0.10.0
+sphinx==1.6.5
+sphinx_bootstrap_theme
+sphinx_pangeo_theme
+doctr>=1.6.3
