@@ -23,6 +23,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Docker Images" href="images.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -62,7 +63,16 @@
      href="#">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Docker Images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="images.html#pangeo-base-notebook">pangeo/base-notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html#pangeo-pangeo-notebook">pangeo/pangeo-notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html#pangeo-base-notebook-onbuild">pangeo/base-notebook-onbuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html#pangeo-pangeo-notebook-onbuild">pangeo/pangeo-notebook-onbuild</a></li>
+</ul>
+</li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -75,7 +85,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Pangeo Stacks</a><ul>
-<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#onbuild-images">Onbuild Images</a></li>
 </ul>
 </li>
@@ -87,6 +97,10 @@
             
               
                 
+  <li>
+    <a href="images.html" title="Next Chapter: Docker Images"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Docker Images &raquo;</span>
+    </a>
+  </li>
               
             
             
@@ -111,15 +125,70 @@
 <p>Welcome to the Pangeo Stacks documentation.
 The Pangeo Stacks live in the following GitHub repository:
 <a class="reference external" href="https://github.com/pangeo-data/pangeo-stacks">https://github.com/pangeo-data/pangeo-stacks</a></p>
-<p>It includes set of currated Docker images intended to be used in
-Pangeo Cloud Deployments.</p>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<p>This project includes set of currated Docker images intended to be used in
+Pangeo Cloud Deployments of JupyterHub (see also <a class="reference external" href="https://github.com/pangeo-data/helm-chart">Pangeo Helm Chart</a>).
+For more information on using these images with JupyterHub, refer to the
+<a class="reference external" href="https://zero-to-jupyterhub.readthedocs.io/en/latest/user-environment.html#choose-and-use-an-existing-docker-image">Zero to JupyterHub</a> documentation. Each of the images in this repository are configured
+and built using <a class="reference external" href="https://repo2docker.readthedocs.io/en/latest/">repo2docker</a> and are continuously deployed to
+<a class="reference external" href="https://hub.docker.com/u/pangeo">DockerHub</a>. Importantly, each image built in this
+project includes the minimum required libraries to do scalable computations with Pangeo
+(via dask-kubernetes).</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<p>This website is a statically generated Sphinx site from which you can browse the images and their contents.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Docker Images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="images.html#pangeo-base-notebook">pangeo/base-notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html#pangeo-pangeo-notebook">pangeo/pangeo-notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html#pangeo-base-notebook-onbuild">pangeo/base-notebook-onbuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html#pangeo-pangeo-notebook-onbuild">pangeo/pangeo-notebook-onbuild</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="onbuild-images">
 <h2>Onbuild Images<a class="headerlink" href="#onbuild-images" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<p>You can customize the images here in comon ways by using the image variants
+that have the <cite>-onbuild</cite> suffix. If your Dockerfile inherits from an
+<cite>-onbuild</cite> Pangeo image, you automatically get the following features:</p>
+<ol class="arabic">
+<li><p class="first">The contents of your directory are copied with appropriate permissions
+into the image. The files will be present under the directory pointed
+to by <code class="docutils literal"><span class="pre">${REPO_DIR}</span></code> docker environment variable.</p>
+</li>
+<li><p class="first">If you have any of the following files in your repository, they are
+used to automatically customize the image similar to what <cite>repo2docker</cite>
+(used by mybinder.org) does:</p>
+<ol class="loweralpha simple">
+<li><cite>requirements.txt</cite> installs python packages with <cite>pip</cite></li>
+<li><cite>environment.yml</cite> installs <cite>conda</cite> packages</li>
+<li><cite>apt.txt</cite> lists ubuntu packages to be installed</li>
+<li><cite>postBuild</cite> is a script (in any language) that is run automatically
+after other customization steps for you to execute arbitrary code.</li>
+</ol>
+<p>These files could also be inside a <cite>binder/</cite> directory rather than
+the top level of your repository if you would like.</p>
+</li>
+</ol>
+<p>For example, if you want to start from the base <cite>pangeo-notebook</cite> image but
+add the <cite>django</cite> python package, you would do the following.</p>
+<ol class="arabic">
+<li><p class="first">Create a <cite>Dockerfile</cite> in your repo with <em>just</em> the following content:</p>
+<p><code class="docutils literal"><span class="pre">`</span>
+<span class="pre">FROM</span> <span class="pre">pangeo/pangeo-notebook:&lt;version&gt;</span>
+<span class="pre">`</span></code></p>
+</li>
+<li><p class="first">Add a <cite>requirements.txt</cite> file with the following contents</p>
+<p><code class="docutils literal"><span class="pre">`</span>
+<span class="pre">django</span>
+<span class="pre">`</span></code></p>
+</li>
+</ol>
+<p>And that’s it! Now you can build the image any way you wish (on a binder instance,
+with repo2docker, or just with <cite>docker build</cite>), and it’ll do the customizations
+for you automatically.</p>
 </div>
 </div>
 
