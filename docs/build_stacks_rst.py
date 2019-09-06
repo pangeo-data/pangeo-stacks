@@ -1,6 +1,7 @@
 import os
 import json
 import pathlib
+import pprint
 import re
 import requests
 import subprocess
@@ -77,6 +78,19 @@ def conda_json_to_version_dict(s):
     return out
 
 
+def docker_json_to_metadata_dict(s):
+    out = {}
+    keep = ['RepoTags', 'Created', 'DockerVersion', 'Architecture',
+            'Os', 'Size']
+    sdict = json.loads(s.decode())[0]
+    for k, v in sdict.items():
+        if k in keep:
+            out[k] = v
+    size = int(out['Size']) / 1e9
+    out['Size'] = f'{size:.2f} GB'
+    return out
+
+
 class StacksRSTBuilder:
 
     def __init__(self, images, output_dir, actually_load=True):
@@ -94,6 +108,14 @@ class StacksRSTBuilder:
         joined_args = " ".join(args)
         out = subprocess.check_output(joined_args, shell=True)
         out = conda_json_to_version_dict(out)
+        return out
+
+    def docker_inspect(self, image):
+        # return "docker run ... conda list"
+        args = ['docker', 'image', 'inspect', image]
+        joined_args = " ".join(args)
+        out = subprocess.check_output(joined_args, shell=True)
+        out = docker_json_to_metadata_dict(out)
         return out
 
     def write_rst(self):
@@ -115,10 +137,8 @@ class StacksRSTBuilder:
 
             conda_list = self.conda_list(image)
 
-            metadata = {'url': f'https://hub.docker.com/r/pangeo/{image}',
-                        'onbuild-url': f'https://hub.docker.com/r/pangeo/{image}-onbuild'}
-            mb_meta = requests.get(f'https://api.microbadger.com/v1/images/{image}').json()['Versions'][0]  # latest version
-            metadata.update(mb_meta)
+            metadata = {'URL': f'https://hub.docker.com/r/pangeo/{image}'}
+            metadata.update(self.docker_inspect(image))
 
             id = image.split('/')[1]
 
@@ -134,7 +154,10 @@ class StacksRSTBuilder:
 
 
 def main():
-    images = ['pangeo/base-notebook', 'pangeo/pangeo-notebook']
+    images = [
+        'pangeo/base-notebook', 'pangeo/pangeo-notebook',
+        'pangeo/base-notebook-onbuild', 'pangeo/pangeo-notebook-onbuild',
+    ]
     output_rst_dir = ''
     builder = StacksRSTBuilder(images, output_rst_dir, actually_load=True)
     builder.build()
