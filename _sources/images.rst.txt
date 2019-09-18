@@ -32,7 +32,7 @@ pangeo/base-notebook
            
              <tr><td>adal</td><td>1.2.2</td></tr>
            
-             <tr><td>aiohttp</td><td>3.5.4</td></tr>
+             <tr><td>aiohttp</td><td>3.6.0</td></tr>
            
              <tr><td>alembic</td><td>1.0.11</td></tr>
            
@@ -54,13 +54,13 @@ pangeo/base-notebook
            
              <tr><td>bzip2</td><td>1.0.8</td></tr>
            
-             <tr><td>ca-certificates</td><td>2019.6.16</td></tr>
+             <tr><td>ca-certificates</td><td>2019.9.11</td></tr>
            
              <tr><td>cachetools</td><td>2.1.0</td></tr>
            
              <tr><td>cairo</td><td>1.16.0</td></tr>
            
-             <tr><td>certifi</td><td>2019.6.16</td></tr>
+             <tr><td>certifi</td><td>2019.9.11</td></tr>
            
              <tr><td>certipy</td><td>0.1.3</td></tr>
            
@@ -70,7 +70,7 @@ pangeo/base-notebook
            
              <tr><td>click</td><td>7.0</td></tr>
            
-             <tr><td>cloudpickle</td><td>1.2.1</td></tr>
+             <tr><td>cloudpickle</td><td>1.2.2</td></tr>
            
              <tr><td>configurable-http-proxy</td><td>4.1.0</td></tr>
            
@@ -104,7 +104,7 @@ pangeo/base-notebook
            
              <tr><td>fribidi</td><td>1.0.5</td></tr>
            
-             <tr><td>fsspec</td><td>0.4.1</td></tr>
+             <tr><td>fsspec</td><td>0.4.5</td></tr>
            
              <tr><td>gettext</td><td>0.19.8.1</td></tr>
            
@@ -150,7 +150,7 @@ pangeo/base-notebook
            
              <tr><td>jupyterhub</td><td>1.0.0</td></tr>
            
-             <tr><td>jupyterlab</td><td>1.0.9</td></tr>
+             <tr><td>jupyterlab</td><td>1.1.3</td></tr>
            
              <tr><td>jupyterlab_server</td><td>1.0.6</td></tr>
            
@@ -212,7 +212,7 @@ pangeo/base-notebook
            
              <tr><td>nbformat</td><td>4.4.0</td></tr>
            
-             <tr><td>nbgitpuller</td><td>0.7.0</td></tr>
+             <tr><td>nbgitpuller</td><td>0.7.2</td></tr>
            
              <tr><td>ncurses</td><td>6.1</td></tr>
            
@@ -222,7 +222,7 @@ pangeo/base-notebook
            
              <tr><td>nteract_on_jupyter</td><td>2.0.12</td></tr>
            
-             <tr><td>numpy</td><td>1.17.0</td></tr>
+             <tr><td>numpy</td><td>1.17.2</td></tr>
            
              <tr><td>oauthlib</td><td>3.0.1</td></tr>
            
@@ -409,9 +409,9 @@ pangeo/base-notebook
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo/base-notebook</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.09.05&#39;, &#39;pangeo/base-notebook:2019.09.06&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.09.18&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-08-26T18:57:59.426912081Z</td></tr>
+             <tr><td>Created</td><td>2019-09-18T21:30:35.332914501Z</td></tr>
            
              <tr><td>DockerVersion</td><td>17.09.0-ce</td></tr>
            
@@ -456,7 +456,7 @@ pangeo/pangeo-notebook
            
              <tr><td>affine</td><td>2.3.0</td></tr>
            
-             <tr><td>aiohttp</td><td>3.5.4</td></tr>
+             <tr><td>aiohttp</td><td>3.6.0</td></tr>
            
              <tr><td>alembic</td><td>1.1.0</td></tr>
            
@@ -492,9 +492,9 @@ pangeo/pangeo-notebook
            
              <tr><td>boost-cpp</td><td>1.70.0</td></tr>
            
-             <tr><td>boto3</td><td>1.9.223</td></tr>
+             <tr><td>boto3</td><td>1.9.231</td></tr>
            
-             <tr><td>botocore</td><td>1.12.223</td></tr>
+             <tr><td>botocore</td><td>1.12.231</td></tr>
            
              <tr><td>branca</td><td>0.3.1</td></tr>
            
@@ -502,7 +502,7 @@ pangeo/pangeo-notebook
            
              <tr><td>c-ares</td><td>1.15.0</td></tr>
            
-             <tr><td>ca-certificates</td><td>2019.6.16</td></tr>
+             <tr><td>ca-certificates</td><td>2019.9.11</td></tr>
            
              <tr><td>cached-property</td><td>1.5.1</td></tr>
            
@@ -512,7 +512,7 @@ pangeo/pangeo-notebook
            
              <tr><td>cartopy</td><td>0.17.0</td></tr>
            
-             <tr><td>certifi</td><td>2019.6.16</td></tr>
+             <tr><td>certifi</td><td>2019.9.11</td></tr>
            
              <tr><td>certipy</td><td>0.1.3</td></tr>
            
@@ -534,7 +534,7 @@ pangeo/pangeo-notebook
            
              <tr><td>climlab</td><td>0.7.5</td></tr>
            
-             <tr><td>cloudpickle</td><td>1.2.1</td></tr>
+             <tr><td>cloudpickle</td><td>1.2.2</td></tr>
            
              <tr><td>colorcet</td><td>2.0.1</td></tr>
            
@@ -554,9 +554,9 @@ pangeo/pangeo-notebook
            
              <tr><td>dask-core</td><td>2.2.0</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.2.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.3.0</td></tr>
            
-             <tr><td>dask-glm</td><td>0.1.0</td></tr>
+             <tr><td>dask-glm</td><td>0.2.0</td></tr>
            
              <tr><td>dask-kubernetes</td><td>0.9.2</td></tr>
            
@@ -604,11 +604,11 @@ pangeo/pangeo-notebook
            
              <tr><td>fribidi</td><td>1.0.5</td></tr>
            
-             <tr><td>fsspec</td><td>0.4.4</td></tr>
+             <tr><td>fsspec</td><td>0.4.5</td></tr>
            
              <tr><td>future</td><td>0.17.1</td></tr>
            
-             <tr><td>gast</td><td>0.2.2</td></tr>
+             <tr><td>gast</td><td>0.3.2</td></tr>
            
              <tr><td>gcsfs</td><td>0.3.0</td></tr>
            
@@ -638,7 +638,7 @@ pangeo/pangeo-notebook
            
              <tr><td>graphviz</td><td>2.40.1</td></tr>
            
-             <tr><td>grpcio</td><td>1.22.0</td></tr>
+             <tr><td>grpcio</td><td>1.23.0</td></tr>
            
              <tr><td>gst-plugins-base</td><td>1.14.5</td></tr>
            
@@ -648,7 +648,7 @@ pangeo/pangeo-notebook
            
              <tr><td>h5netcdf</td><td>0.7.4</td></tr>
            
-             <tr><td>h5py</td><td>2.9.0</td></tr>
+             <tr><td>h5py</td><td>2.10.0</td></tr>
            
              <tr><td>harfbuzz</td><td>2.4.0</td></tr>
            
@@ -676,7 +676,7 @@ pangeo/pangeo-notebook
            
              <tr><td>ipykernel</td><td>5.1.2</td></tr>
            
-             <tr><td>ipyleaflet</td><td>0.11.1</td></tr>
+             <tr><td>ipyleaflet</td><td>0.11.2</td></tr>
            
              <tr><td>ipython</td><td>7.8.0</td></tr>
            
@@ -714,7 +714,7 @@ pangeo/pangeo-notebook
            
              <tr><td>jupyterhub</td><td>1.0.0</td></tr>
            
-             <tr><td>jupyterlab</td><td>1.0.9</td></tr>
+             <tr><td>jupyterlab</td><td>1.1.3</td></tr>
            
              <tr><td>jupyterlab_server</td><td>1.0.6</td></tr>
            
@@ -736,7 +736,7 @@ pangeo/pangeo-notebook
            
              <tr><td>libcurl</td><td>7.65.3</td></tr>
            
-             <tr><td>libdap4</td><td>3.20.2</td></tr>
+             <tr><td>libdap4</td><td>3.20.4</td></tr>
            
              <tr><td>libedit</td><td>3.1.20170329</td></tr>
            
@@ -794,7 +794,7 @@ pangeo/pangeo-notebook
            
              <tr><td>lxml</td><td>4.4.1</td></tr>
            
-             <tr><td>lz4</td><td>2.1.9</td></tr>
+             <tr><td>lz4</td><td>2.2.1</td></tr>
            
              <tr><td>lz4-c</td><td>1.8.3</td></tr>
            
@@ -822,7 +822,7 @@ pangeo/pangeo-notebook
            
              <tr><td>mpi</td><td>1.0</td></tr>
            
-             <tr><td>mpich</td><td>3.2.1</td></tr>
+             <tr><td>mpich</td><td>3.3.1</td></tr>
            
              <tr><td>msgpack-numpy</td><td>0.4.4.3</td></tr>
            
@@ -838,7 +838,7 @@ pangeo/pangeo-notebook
            
              <tr><td>nbformat</td><td>4.4.0</td></tr>
            
-             <tr><td>nbgitpuller</td><td>0.7.0</td></tr>
+             <tr><td>nbgitpuller</td><td>0.7.2</td></tr>
            
              <tr><td>ncurses</td><td>6.1</td></tr>
            
@@ -858,7 +858,7 @@ pangeo/pangeo-notebook
            
              <tr><td>numcodecs</td><td>0.6.3</td></tr>
            
-             <tr><td>numpy</td><td>1.17.1</td></tr>
+             <tr><td>numpy</td><td>1.17.2</td></tr>
            
              <tr><td>oauthlib</td><td>3.0.1</td></tr>
            
@@ -962,7 +962,7 @@ pangeo/pangeo-notebook
            
              <tr><td>pyqt</td><td>5.9.2</td></tr>
            
-             <tr><td>pyresample</td><td>1.12.3</td></tr>
+             <tr><td>pyresample</td><td>1.13.0</td></tr>
            
              <tr><td>pyrsistent</td><td>0.15.4</td></tr>
            
@@ -998,13 +998,13 @@ pangeo/pangeo-notebook
            
              <tr><td>pyyaml</td><td>5.1.2</td></tr>
            
-             <tr><td>pyzmq</td><td>18.0.2</td></tr>
+             <tr><td>pyzmq</td><td>18.1.0</td></tr>
            
              <tr><td>qt</td><td>5.9.7</td></tr>
            
              <tr><td>qtconsole</td><td>4.5.5</td></tr>
            
-             <tr><td>rasterio</td><td>1.0.26</td></tr>
+             <tr><td>rasterio</td><td>1.0.28</td></tr>
            
              <tr><td>readline</td><td>8.0</td></tr>
            
@@ -1014,7 +1014,7 @@ pangeo/pangeo-notebook
            
              <tr><td>requests-oauthlib</td><td>1.2.0</td></tr>
            
-             <tr><td>rio-cogeo</td><td>1.1.0</td></tr>
+             <tr><td>rio-cogeo</td><td>1.1.2</td></tr>
            
              <tr><td>rsa</td><td>3.4.2</td></tr>
            
@@ -1122,7 +1122,7 @@ pangeo/pangeo-notebook
            
              <tr><td>websocket-client</td><td>0.56.0</td></tr>
            
-             <tr><td>werkzeug</td><td>0.15.5</td></tr>
+             <tr><td>werkzeug</td><td>0.15.6</td></tr>
            
              <tr><td>wheel</td><td>0.33.6</td></tr>
            
@@ -1130,7 +1130,7 @@ pangeo/pangeo-notebook
            
              <tr><td>windspharm</td><td>1.7.0</td></tr>
            
-             <tr><td>xarray</td><td>0.12.3</td></tr>
+             <tr><td>xarray</td><td>0.13.0</td></tr>
            
              <tr><td>xerces-c</td><td>3.2.2</td></tr>
            
@@ -1201,9 +1201,9 @@ pangeo/pangeo-notebook
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo/pangeo-notebook</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.09.06&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.09.18&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-09-06T05:30:29.550387096Z</td></tr>
+             <tr><td>Created</td><td>2019-09-18T21:42:39.610430903Z</td></tr>
            
              <tr><td>DockerVersion</td><td>17.09.0-ce</td></tr>
            
@@ -1244,7 +1244,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>adal</td><td>1.2.2</td></tr>
            
-             <tr><td>aiohttp</td><td>3.5.4</td></tr>
+             <tr><td>aiohttp</td><td>3.6.0</td></tr>
            
              <tr><td>alembic</td><td>1.0.11</td></tr>
            
@@ -1266,13 +1266,13 @@ pangeo/base-notebook-onbuild
            
              <tr><td>bzip2</td><td>1.0.8</td></tr>
            
-             <tr><td>ca-certificates</td><td>2019.6.16</td></tr>
+             <tr><td>ca-certificates</td><td>2019.9.11</td></tr>
            
              <tr><td>cachetools</td><td>2.1.0</td></tr>
            
              <tr><td>cairo</td><td>1.16.0</td></tr>
            
-             <tr><td>certifi</td><td>2019.6.16</td></tr>
+             <tr><td>certifi</td><td>2019.9.11</td></tr>
            
              <tr><td>certipy</td><td>0.1.3</td></tr>
            
@@ -1282,7 +1282,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>click</td><td>7.0</td></tr>
            
-             <tr><td>cloudpickle</td><td>1.2.1</td></tr>
+             <tr><td>cloudpickle</td><td>1.2.2</td></tr>
            
              <tr><td>configurable-http-proxy</td><td>4.1.0</td></tr>
            
@@ -1316,7 +1316,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>fribidi</td><td>1.0.5</td></tr>
            
-             <tr><td>fsspec</td><td>0.4.1</td></tr>
+             <tr><td>fsspec</td><td>0.4.5</td></tr>
            
              <tr><td>gettext</td><td>0.19.8.1</td></tr>
            
@@ -1362,7 +1362,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>jupyterhub</td><td>1.0.0</td></tr>
            
-             <tr><td>jupyterlab</td><td>1.0.9</td></tr>
+             <tr><td>jupyterlab</td><td>1.1.3</td></tr>
            
              <tr><td>jupyterlab_server</td><td>1.0.6</td></tr>
            
@@ -1424,7 +1424,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>nbformat</td><td>4.4.0</td></tr>
            
-             <tr><td>nbgitpuller</td><td>0.7.0</td></tr>
+             <tr><td>nbgitpuller</td><td>0.7.2</td></tr>
            
              <tr><td>ncurses</td><td>6.1</td></tr>
            
@@ -1434,7 +1434,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>nteract_on_jupyter</td><td>2.0.12</td></tr>
            
-             <tr><td>numpy</td><td>1.17.0</td></tr>
+             <tr><td>numpy</td><td>1.17.2</td></tr>
            
              <tr><td>oauthlib</td><td>3.0.1</td></tr>
            
@@ -1621,9 +1621,9 @@ pangeo/base-notebook-onbuild
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo/base-notebook-onbuild</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.09.06&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.09.18&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-09-06T05:19:12.507480038Z</td></tr>
+             <tr><td>Created</td><td>2019-09-18T21:30:47.47829801Z</td></tr>
            
              <tr><td>DockerVersion</td><td>17.09.0-ce</td></tr>
            
@@ -1668,7 +1668,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>affine</td><td>2.3.0</td></tr>
            
-             <tr><td>aiohttp</td><td>3.5.4</td></tr>
+             <tr><td>aiohttp</td><td>3.6.0</td></tr>
            
              <tr><td>alembic</td><td>1.1.0</td></tr>
            
@@ -1704,9 +1704,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>boost-cpp</td><td>1.70.0</td></tr>
            
-             <tr><td>boto3</td><td>1.9.223</td></tr>
+             <tr><td>boto3</td><td>1.9.231</td></tr>
            
-             <tr><td>botocore</td><td>1.12.223</td></tr>
+             <tr><td>botocore</td><td>1.12.231</td></tr>
            
              <tr><td>branca</td><td>0.3.1</td></tr>
            
@@ -1714,7 +1714,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>c-ares</td><td>1.15.0</td></tr>
            
-             <tr><td>ca-certificates</td><td>2019.6.16</td></tr>
+             <tr><td>ca-certificates</td><td>2019.9.11</td></tr>
            
              <tr><td>cached-property</td><td>1.5.1</td></tr>
            
@@ -1724,7 +1724,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>cartopy</td><td>0.17.0</td></tr>
            
-             <tr><td>certifi</td><td>2019.6.16</td></tr>
+             <tr><td>certifi</td><td>2019.9.11</td></tr>
            
              <tr><td>certipy</td><td>0.1.3</td></tr>
            
@@ -1746,7 +1746,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>climlab</td><td>0.7.5</td></tr>
            
-             <tr><td>cloudpickle</td><td>1.2.1</td></tr>
+             <tr><td>cloudpickle</td><td>1.2.2</td></tr>
            
              <tr><td>colorcet</td><td>2.0.1</td></tr>
            
@@ -1766,9 +1766,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>dask-core</td><td>2.2.0</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.2.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.3.0</td></tr>
            
-             <tr><td>dask-glm</td><td>0.1.0</td></tr>
+             <tr><td>dask-glm</td><td>0.2.0</td></tr>
            
              <tr><td>dask-kubernetes</td><td>0.9.2</td></tr>
            
@@ -1816,11 +1816,11 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>fribidi</td><td>1.0.5</td></tr>
            
-             <tr><td>fsspec</td><td>0.4.4</td></tr>
+             <tr><td>fsspec</td><td>0.4.5</td></tr>
            
              <tr><td>future</td><td>0.17.1</td></tr>
            
-             <tr><td>gast</td><td>0.2.2</td></tr>
+             <tr><td>gast</td><td>0.3.2</td></tr>
            
              <tr><td>gcsfs</td><td>0.3.0</td></tr>
            
@@ -1850,7 +1850,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>graphviz</td><td>2.40.1</td></tr>
            
-             <tr><td>grpcio</td><td>1.22.0</td></tr>
+             <tr><td>grpcio</td><td>1.23.0</td></tr>
            
              <tr><td>gst-plugins-base</td><td>1.14.5</td></tr>
            
@@ -1860,7 +1860,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>h5netcdf</td><td>0.7.4</td></tr>
            
-             <tr><td>h5py</td><td>2.9.0</td></tr>
+             <tr><td>h5py</td><td>2.10.0</td></tr>
            
              <tr><td>harfbuzz</td><td>2.4.0</td></tr>
            
@@ -1888,7 +1888,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>ipykernel</td><td>5.1.2</td></tr>
            
-             <tr><td>ipyleaflet</td><td>0.11.1</td></tr>
+             <tr><td>ipyleaflet</td><td>0.11.2</td></tr>
            
              <tr><td>ipython</td><td>7.8.0</td></tr>
            
@@ -1926,7 +1926,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>jupyterhub</td><td>1.0.0</td></tr>
            
-             <tr><td>jupyterlab</td><td>1.0.9</td></tr>
+             <tr><td>jupyterlab</td><td>1.1.3</td></tr>
            
              <tr><td>jupyterlab_server</td><td>1.0.6</td></tr>
            
@@ -1948,7 +1948,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>libcurl</td><td>7.65.3</td></tr>
            
-             <tr><td>libdap4</td><td>3.20.2</td></tr>
+             <tr><td>libdap4</td><td>3.20.4</td></tr>
            
              <tr><td>libedit</td><td>3.1.20170329</td></tr>
            
@@ -2006,7 +2006,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>lxml</td><td>4.4.1</td></tr>
            
-             <tr><td>lz4</td><td>2.1.9</td></tr>
+             <tr><td>lz4</td><td>2.2.1</td></tr>
            
              <tr><td>lz4-c</td><td>1.8.3</td></tr>
            
@@ -2034,7 +2034,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>mpi</td><td>1.0</td></tr>
            
-             <tr><td>mpich</td><td>3.2.1</td></tr>
+             <tr><td>mpich</td><td>3.3.1</td></tr>
            
              <tr><td>msgpack-numpy</td><td>0.4.4.3</td></tr>
            
@@ -2050,7 +2050,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>nbformat</td><td>4.4.0</td></tr>
            
-             <tr><td>nbgitpuller</td><td>0.7.0</td></tr>
+             <tr><td>nbgitpuller</td><td>0.7.2</td></tr>
            
              <tr><td>ncurses</td><td>6.1</td></tr>
            
@@ -2070,7 +2070,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>numcodecs</td><td>0.6.3</td></tr>
            
-             <tr><td>numpy</td><td>1.17.1</td></tr>
+             <tr><td>numpy</td><td>1.17.2</td></tr>
            
              <tr><td>oauthlib</td><td>3.0.1</td></tr>
            
@@ -2174,7 +2174,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>pyqt</td><td>5.9.2</td></tr>
            
-             <tr><td>pyresample</td><td>1.12.3</td></tr>
+             <tr><td>pyresample</td><td>1.13.0</td></tr>
            
              <tr><td>pyrsistent</td><td>0.15.4</td></tr>
            
@@ -2210,13 +2210,13 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>pyyaml</td><td>5.1.2</td></tr>
            
-             <tr><td>pyzmq</td><td>18.0.2</td></tr>
+             <tr><td>pyzmq</td><td>18.1.0</td></tr>
            
              <tr><td>qt</td><td>5.9.7</td></tr>
            
              <tr><td>qtconsole</td><td>4.5.5</td></tr>
            
-             <tr><td>rasterio</td><td>1.0.26</td></tr>
+             <tr><td>rasterio</td><td>1.0.28</td></tr>
            
              <tr><td>readline</td><td>8.0</td></tr>
            
@@ -2226,7 +2226,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>requests-oauthlib</td><td>1.2.0</td></tr>
            
-             <tr><td>rio-cogeo</td><td>1.1.0</td></tr>
+             <tr><td>rio-cogeo</td><td>1.1.2</td></tr>
            
              <tr><td>rsa</td><td>3.4.2</td></tr>
            
@@ -2334,7 +2334,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>websocket-client</td><td>0.56.0</td></tr>
            
-             <tr><td>werkzeug</td><td>0.15.5</td></tr>
+             <tr><td>werkzeug</td><td>0.15.6</td></tr>
            
              <tr><td>wheel</td><td>0.33.6</td></tr>
            
@@ -2342,7 +2342,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>windspharm</td><td>1.7.0</td></tr>
            
-             <tr><td>xarray</td><td>0.12.3</td></tr>
+             <tr><td>xarray</td><td>0.13.0</td></tr>
            
              <tr><td>xerces-c</td><td>3.2.2</td></tr>
            
@@ -2413,9 +2413,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo/pangeo-notebook-onbuild</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.09.06&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.09.18&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-09-06T05:30:36.63407263Z</td></tr>
+             <tr><td>Created</td><td>2019-09-18T21:42:49.522228321Z</td></tr>
            
              <tr><td>DockerVersion</td><td>17.09.0-ce</td></tr>
            
