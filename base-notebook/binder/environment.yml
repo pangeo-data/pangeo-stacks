@@ -6,10 +6,10 @@ dependencies:
   - jupyterlab=1
   - jupyterhub=1
   - nbgitpuller=0.7
-  - dask=2.4.0
-  - distributed=2.2
-  - dask-kubernetes=0.9
-  - dask-gateway=0.2
+  - dask=2.4
+  - distributed=2.4
+  - dask-kubernetes=0.9.2
+  - dask-gateway=0.3.0
   - tornado=6
   - jupyter-server-proxy=1.1
   - bokeh=1.3
