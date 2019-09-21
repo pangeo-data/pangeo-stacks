@@ -8,6 +8,7 @@ dependencies:
   - matplotlib
   - pandas
   - xarray>=0.13.0
+  - sparse
   # data science stuff
   - scikit-image
   - scikit-learn
