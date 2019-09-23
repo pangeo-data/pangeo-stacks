@@ -137,7 +137,7 @@ class StacksRSTBuilder:
 
             conda_list = self.conda_list(image)
 
-            metadata = {'URL': f'https://hub.docker.com/r/pangeo/{image}'}
+            metadata = {'URL': f'https://hub.docker.com/r/{image}'}
             metadata.update(self.docker_inspect(image))
 
             id = image.split('/')[1]
