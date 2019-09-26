@@ -1,3 +1,3 @@
-# Pangeo/Base-Notebook
+# Pangeo/ML-Notebook
 
-A bare-bones image with Jupyter and Dask.
+An image focused on Machine Learning including use of GPUs.
