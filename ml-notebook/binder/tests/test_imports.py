@@ -5,7 +5,8 @@ import pytest
 
 packages = [
     # these are things we can't live without, just to be safe
-    'dask', 'distributed', 'dask_gateway',
+    'dask', 'distributed', 'dask_gateway', 'tensorflow', 'tensorflow-gpu', 
+    'pytorch', 'pytorch-gpu',
     # jupyterhub and related utilities
     'jupyterhub', 'nbgitpuller'
     ]
