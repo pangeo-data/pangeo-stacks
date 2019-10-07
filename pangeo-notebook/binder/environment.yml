@@ -7,7 +7,7 @@ dependencies:
   - scipy
   - matplotlib
   - pandas
-  - xarray>=0.13.0
+  - xarray>=0.14.0
   - sparse
   # data science stuff
   - scikit-image
@@ -46,6 +46,7 @@ dependencies:
   - intake
   - intake-xarray
   - intake-esm
+  - intake-stac
   # zarr-related
   - zarr
   - numcodecs
@@ -59,6 +60,5 @@ dependencies:
   # xarray-related
   - xgcm
   - xrft
+  - xrviz
   - pip
-#  - pip:
-#    - git+https://github.com/intake/xrviz
