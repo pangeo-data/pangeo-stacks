@@ -7,7 +7,7 @@ dependencies:
   - scipy
   - matplotlib
   - pandas
-  - xarray>=0.14.0
+  - xarray
   - sparse
   # data science stuff
   - scikit-image
@@ -61,4 +61,7 @@ dependencies:
   - xgcm
   - xrft
   - xrviz
+  - climpred
+  - pangeo-pytide
+  - pangeo-pyinterp
   - pip
