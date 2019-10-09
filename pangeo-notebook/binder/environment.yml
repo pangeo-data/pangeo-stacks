@@ -46,7 +46,7 @@ dependencies:
   - intake
   - intake-xarray
   - intake-esm
-  - intake-stac
+  # - intake-stac
   # zarr-related
   - zarr
   - numcodecs
@@ -62,6 +62,6 @@ dependencies:
   - xrft
   - xrviz
   - climpred
-  - pangeo-pytide
-  - pangeo-pyinterp
+  - pytide
+  - pyinterp
   - pip
