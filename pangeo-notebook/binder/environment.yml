@@ -9,6 +9,7 @@ dependencies:
   - pandas
   - xarray
   - sparse
+  - sympy
   # data science stuff
   - scikit-image
   - scikit-learn
@@ -23,12 +24,23 @@ dependencies:
   - hvplot
   - geoviews
   - datashader
+  - seaborn
+  - altair
+  - descartes
+  - folium
+  - vega
+  - vega_datasets
+  - palettable
+  - cmocean
   # geospatial
   - iris
   - cartopy
+  - basemap
   - geopandas
   - rasterio
   - netcdf4
+  - erddapy
+  - pydap
   - h5py
   - h5netcdf
   - regionmask
@@ -46,7 +58,8 @@ dependencies:
   - intake
   - intake-xarray
   - intake-esm
-  # - intake-stac
+  - fsspec
+  - intake-stac
   # zarr-related
   - zarr
   - numcodecs
@@ -60,8 +73,15 @@ dependencies:
   # xarray-related
   - xgcm
   - xrft
-  - xrviz
+  - xhistogram
+  - xlrd
+  # - xrviz  # waiting on hvplot release
   - climpred
   - pytide
   - pyinterp
+  # misc
+  - python-wget
+  - prefect
   - pip
+  - pip:
+    - graphviz
