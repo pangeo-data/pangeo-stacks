@@ -75,7 +75,7 @@ dependencies:
   - xrft
   - xhistogram
   - xlrd
-  # - xrviz  # waiting on hvplot release
+  - xrviz
   - climpred
   - pytide
   - pyinterp
