@@ -2,8 +2,7 @@
 # It doesn't seem like symbolic links work.
 # xref: pangeo-stacks#1 and repo2docker#565
 distributed:
-  logging:
-    bokeh: critical
+  version: 2
 
   dashboard:
     link: /user/{JUPYTERHUB_USER}/proxy/{port}/status
@@ -11,6 +10,13 @@ distributed:
   admin:
     tick:
       limit: 5s
+
+logging:
+    distributed: warning
+    bokeh: critical
+    # http://stackoverflow.com/questions/21234772/python-tornado-disable-logging-to-stderr
+    tornado: critical
+    tornado.application: error
 
 kubernetes:
   name: dask-{JUPYTERHUB_USER}-{uuid}
