@@ -83,4 +83,5 @@ dependencies:
   - xgcm
   - xrft
   - pip:
+    - jupyterlab-nvdashboard
     - git+https://github.com/ian-r-rose/dask-labextension.git@de-asyncify#egg=dask_labextension
