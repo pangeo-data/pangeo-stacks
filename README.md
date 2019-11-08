@@ -41,7 +41,7 @@ add the `django` python package, you would do the following.
 1. Create a `Dockerfile` in your repo with *just* the following content:
 
    ```
-   FROM pangeo/pangeo-notebook:<version>
+   FROM pangeo/pangeo-notebook-onbuild:<version>
    ```
 
 2. Add a `requirements.txt` file with the following contents
