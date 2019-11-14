@@ -82,6 +82,3 @@ dependencies:
   # misc
   - python-wget
   - prefect
-  - pip
-  - pip:
-    - graphviz
