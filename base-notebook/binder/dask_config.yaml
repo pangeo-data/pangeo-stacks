@@ -14,12 +14,12 @@ distributed:
     tick:
       limit: 5s
 
-  logging:
-    distributed: warning
-    bokeh: critical
-    # http://stackoverflow.com/questions/21234772/python-tornado-disable-logging-to-stderr
-    tornado: critical
-    tornado.application: error
+logging:
+  distributed: warning
+  bokeh: critical
+  # http://stackoverflow.com/questions/21234772/python-tornado-disable-logging-to-stderr
+  tornado: critical
+  tornado.application: error
 
 kubernetes:
   name: dask-{JUPYTERHUB_USER}-{uuid}
