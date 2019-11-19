@@ -10,6 +10,9 @@ distributed:
   scheduler:
     idle-timeout: 3600s
   
+  worker:
+    lifetime: "5 hours"
+  
   admin:
     tick:
       limit: 5s
