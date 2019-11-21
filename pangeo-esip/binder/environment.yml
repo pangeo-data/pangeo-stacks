@@ -26,6 +26,7 @@ dependencies:
   - cartopy
   - geopandas
   - sat-search
+  - sat-stac
   - rasterio
   - regionmask
   - rio-cogeo
