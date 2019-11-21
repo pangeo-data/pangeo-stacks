@@ -25,7 +25,6 @@ dependencies:
   - iris
   - cartopy
   - geopandas
-  - intake-stac
   - sat-search
   - rasterio
   - regionmask
@@ -58,6 +57,7 @@ dependencies:
   - intake
   - intake-xarray
   - intake-esm
+  - intake-stac
   # zarr-related
   - zarr
   - numcodecs
