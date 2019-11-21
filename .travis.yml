@@ -27,6 +27,8 @@ install:
 script:
   - python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
   - python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-notebook
+  - python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-esip
+
   - bash ./docs/build_docs.sh
 
 deploy:
@@ -36,6 +38,10 @@ deploy:
       branch: master
   - provider: script
     script: bash docker_push.sh pangeo-notebook
+    on:
+      branch: master
+  - provider: script
+    script: bash docker_push.sh pangeo-esip
     on:
       branch: master
   - provider: script

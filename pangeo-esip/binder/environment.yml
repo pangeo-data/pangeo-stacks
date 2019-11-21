@@ -33,7 +33,6 @@ dependencies:
   - rioxarray
   - netcdf4
   - h5py
-  - h5pyd
   - h5netcdf
   - folium
   # ocean/atmos stuff
@@ -72,3 +71,6 @@ dependencies:
   # xarray-related
   - xgcm
   - xrft
+  - pip
+  - pip:
+    - git+https://github.com/HDFGroup/h5pyd.git
