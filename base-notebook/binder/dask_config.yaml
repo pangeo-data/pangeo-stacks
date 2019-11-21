@@ -11,8 +11,11 @@ distributed:
     idle-timeout: 3600s
   
   worker:
-    lifetime: "5 hours"
-  
+    lifetime:
+      duration: "5 hours"
+      stagger: "10 s"
+      restart: true
+
   admin:
     tick:
       limit: 5s
