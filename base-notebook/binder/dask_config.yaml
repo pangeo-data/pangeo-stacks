@@ -9,7 +9,14 @@ distributed:
 
   scheduler:
     idle-timeout: 3600s
-  
+
+# uncomment to force new worker pods after 2 hrs
+#  worker:
+#    lifetime:
+#      duration: "2 hours"
+#      stagger: "10 s"
+#      restart: true
+
   admin:
     tick:
       limit: 5s

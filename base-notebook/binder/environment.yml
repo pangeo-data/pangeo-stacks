@@ -7,8 +7,8 @@ dependencies:
   - jupyterhub=1.0
   - jupyter-server-proxy=1.1
   - nbgitpuller=0.7
-  - dask=2.7
-  - distributed=2.7
+  - dask=2.8
+  - distributed=2.8
   - dask-kubernetes=0.10
   - dask-labextension=1.0
   - dask-gateway=0.5
