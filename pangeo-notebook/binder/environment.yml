@@ -59,6 +59,4 @@ dependencies:
   # xarray-related
   - xgcm
   - xrft
-  - pip
-#  - pip:
-#    - git+https://github.com/intake/xrviz
+  - xrviz
