@@ -3,8 +3,9 @@ name: pangeo
 channels:
   - conda-forge
 dependencies:
-  - jupyterlab=1
-  - jupyterhub=1
+  - jupyterlab=1.2
+  - jupyterhub=1.0
+  - jupyter-server-proxy=1.2
   - nbgitpuller=0.7
   - dask=2.8
   - distributed=2.8
@@ -14,5 +15,6 @@ dependencies:
   - tornado=6
   - jupyter-server-proxy=1.2
   - bokeh=1.4
+  - python-graphviz=0.13
   - graphviz=2.40
-  - pip=19
+  - pip=19.3

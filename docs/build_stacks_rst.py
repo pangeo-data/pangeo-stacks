@@ -157,6 +157,7 @@ def main():
     images = [
         'pangeo/base-notebook', 'pangeo/pangeo-notebook',
         'pangeo/base-notebook-onbuild', 'pangeo/pangeo-notebook-onbuild',
+        'pangeo/pangeo-esip'
     ]
     output_rst_dir = ''
     builder = StacksRSTBuilder(images, output_rst_dir, actually_load=True)

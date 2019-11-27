@@ -2,49 +2,49 @@ name: pangeo
 channels:
   - conda-forge
 dependencies:
-  # core scipy packages
+  # core scipy 
   - numpy
   - scipy
   - matplotlib
   - pandas
   - xarray
-  - sparse
-  - sympy
+  - python-gist
+  - fastparquet
   # data science stuff
   - scikit-image
   - scikit-learn
   - dask-ml
-  - tensorflow
-  - keras
   - pytorch-cpu
   # pyviz
-  - holoviews
-  - panel
-  - geoviews
   - hvplot
+  - holoviews
   - geoviews
+  - panel
   - datashader
-  - seaborn
-  - altair
-  - descartes
-  - folium
-  - vega
-  - vega_datasets
-  - palettable
-  - cmocean
   # geospatial
   - iris
   - cartopy
-  - basemap
   - geopandas
+  - sat-search
+  - sat-stac
   - rasterio
-  - netcdf4
-  - erddapy
-  - pydap
-  - h5py
-  - h5netcdf
   - regionmask
   - rio-cogeo
+  - rioxarray
+  - netcdf4
+  - h5py
+  - h5netcdf
+  - folium
+  # ocean/atmos stuff
+  - siphon
+  - utide
+  - pocean-core
+  - owslib
+  - ioos-tools
+  - geolinks
+  - cftime
+  - pyoos
+  - timeout-decorator
   # geoscience-related
   - climlab
   - metpy
@@ -58,7 +58,6 @@ dependencies:
   - intake
   - intake-xarray
   - intake-esm
-  - fsspec
   - intake-stac
   # zarr-related
   - zarr
@@ -67,18 +66,12 @@ dependencies:
   - lz4
   - gcsfs
   - s3fs
-  - tiledb-py
+  - fsspec
   # jupyter-related
   - ipyleaflet
   # xarray-related
   - xgcm
   - xrft
-  - xhistogram
-  - xlrd
-  - xrviz
-  - climpred
-  - pytide
-  - pyinterp
-  # misc
-  - python-wget
-  - prefect
+  - pip
+  - pip:
+    - git+https://github.com/HDFGroup/h5pyd.git
