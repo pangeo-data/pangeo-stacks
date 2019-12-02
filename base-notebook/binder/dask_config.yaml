@@ -32,6 +32,7 @@ kubernetes:
   name: dask-{JUPYTERHUB_USER}-{uuid}
   worker-template:
     spec:
+      serviceAccount: daskkubernetes
       restartPolicy: Never
       containers:
         - name: dask-${JUPYTERHUB_USER}
