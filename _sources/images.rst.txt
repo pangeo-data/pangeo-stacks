@@ -82,7 +82,7 @@ pangeo/base-notebook
            
              <tr><td>dask-core</td><td>2.8.1</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.5.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.6.0</td></tr>
            
              <tr><td>dask-kubernetes</td><td>0.10.0</td></tr>
            
@@ -415,7 +415,7 @@ pangeo/base-notebook
            
              <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.12.04&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T21:08:42.804057684Z</td></tr>
+             <tr><td>Created</td><td>2019-12-04T22:36:18.73204395Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -1343,7 +1343,7 @@ pangeo/pangeo-notebook
            
              <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.12.04&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T21:26:27.840604678Z</td></tr>
+             <tr><td>Created</td><td>2019-12-04T22:56:12.980811348Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -1434,7 +1434,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>dask-core</td><td>2.8.1</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.5.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.6.0</td></tr>
            
              <tr><td>dask-kubernetes</td><td>0.10.0</td></tr>
            
@@ -1767,7 +1767,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.12.04&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T21:08:51.26785116Z</td></tr>
+             <tr><td>Created</td><td>2019-12-04T22:36:29.098909843Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -2695,7 +2695,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.12.04&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T21:26:29.193420853Z</td></tr>
+             <tr><td>Created</td><td>2019-12-04T22:56:14.483821419Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -3515,7 +3515,7 @@ pangeo/pangeo-esip
            
              <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-esip:2019.12.04&#39;, &#39;pangeo/pangeo-esip:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T21:37:16.260703718Z</td></tr>
+             <tr><td>Created</td><td>2019-12-04T23:09:38.728946655Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
