@@ -65,7 +65,7 @@ dependencies:
   - numcodecs
   - python-blosc
   - lz4
-  - gcsfs
+  - gcsfs>=0.5.2
   - s3fs
   - tiledb-py
   # jupyter-related
