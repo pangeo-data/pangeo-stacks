@@ -82,7 +82,7 @@ pangeo/base-notebook
            
              <tr><td>dask-core</td><td>2.8.1</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.6.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
              <tr><td>dask-kubernetes</td><td>0.10.0</td></tr>
            
@@ -413,9 +413,9 @@ pangeo/base-notebook
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/base-notebook</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.12.04&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.12.06&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T22:36:18.73204395Z</td></tr>
+             <tr><td>Created</td><td>2019-12-06T06:44:57.762002568Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -504,9 +504,9 @@ pangeo/pangeo-notebook
            
              <tr><td>boost-cpp</td><td>1.70.0</td></tr>
            
-             <tr><td>boto3</td><td>1.10.32</td></tr>
+             <tr><td>boto3</td><td>1.10.34</td></tr>
            
-             <tr><td>botocore</td><td>1.13.32</td></tr>
+             <tr><td>botocore</td><td>1.13.34</td></tr>
            
              <tr><td>bottleneck</td><td>1.3.1</td></tr>
            
@@ -574,7 +574,7 @@ pangeo/pangeo-notebook
            
              <tr><td>dask-core</td><td>2.8.1</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.6.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
              <tr><td>dask-glm</td><td>0.2.0</td></tr>
            
@@ -646,7 +646,7 @@ pangeo/pangeo-notebook
            
              <tr><td>gcc_linux-64</td><td>7.3.0</td></tr>
            
-             <tr><td>gcsfs</td><td>0.5.2</td></tr>
+             <tr><td>gcsfs</td><td>0.5.3</td></tr>
            
              <tr><td>gdal</td><td>2.4.1</td></tr>
            
@@ -714,7 +714,7 @@ pangeo/pangeo-notebook
            
              <tr><td>imageio</td><td>2.6.1</td></tr>
            
-             <tr><td>importlib_metadata</td><td>1.1.0</td></tr>
+             <tr><td>importlib_metadata</td><td>1.2.0</td></tr>
            
              <tr><td>intake</td><td>0.5.3</td></tr>
            
@@ -1300,7 +1300,7 @@ pangeo/pangeo-notebook
            
              <tr><td>xrft</td><td>0.2.0</td></tr>
            
-             <tr><td>xrviz</td><td>0.1.3</td></tr>
+             <tr><td>xrviz</td><td>0.1.4</td></tr>
            
              <tr><td>xskillscore</td><td>0.0.8</td></tr>
            
@@ -1341,9 +1341,9 @@ pangeo/pangeo-notebook
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-notebook</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.12.04&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.12.06&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T22:56:12.980811348Z</td></tr>
+             <tr><td>Created</td><td>2019-12-06T07:04:26.014751296Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -1434,7 +1434,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>dask-core</td><td>2.8.1</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.6.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
              <tr><td>dask-kubernetes</td><td>0.10.0</td></tr>
            
@@ -1765,9 +1765,9 @@ pangeo/base-notebook-onbuild
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/base-notebook-onbuild</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.12.04&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.12.06&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T22:36:29.098909843Z</td></tr>
+             <tr><td>Created</td><td>2019-12-06T06:45:07.438674797Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -1856,9 +1856,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>boost-cpp</td><td>1.70.0</td></tr>
            
-             <tr><td>boto3</td><td>1.10.32</td></tr>
+             <tr><td>boto3</td><td>1.10.34</td></tr>
            
-             <tr><td>botocore</td><td>1.13.32</td></tr>
+             <tr><td>botocore</td><td>1.13.34</td></tr>
            
              <tr><td>bottleneck</td><td>1.3.1</td></tr>
            
@@ -1926,7 +1926,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>dask-core</td><td>2.8.1</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.6.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
              <tr><td>dask-glm</td><td>0.2.0</td></tr>
            
@@ -1998,7 +1998,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>gcc_linux-64</td><td>7.3.0</td></tr>
            
-             <tr><td>gcsfs</td><td>0.5.2</td></tr>
+             <tr><td>gcsfs</td><td>0.5.3</td></tr>
            
              <tr><td>gdal</td><td>2.4.1</td></tr>
            
@@ -2066,7 +2066,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>imageio</td><td>2.6.1</td></tr>
            
-             <tr><td>importlib_metadata</td><td>1.1.0</td></tr>
+             <tr><td>importlib_metadata</td><td>1.2.0</td></tr>
            
              <tr><td>intake</td><td>0.5.3</td></tr>
            
@@ -2652,7 +2652,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>xrft</td><td>0.2.0</td></tr>
            
-             <tr><td>xrviz</td><td>0.1.3</td></tr>
+             <tr><td>xrviz</td><td>0.1.4</td></tr>
            
              <tr><td>xskillscore</td><td>0.0.8</td></tr>
            
@@ -2693,9 +2693,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-notebook-onbuild</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.12.04&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.12.06&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T22:56:14.483821419Z</td></tr>
+             <tr><td>Created</td><td>2019-12-06T07:04:27.498577336Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -2770,9 +2770,9 @@ pangeo/pangeo-esip
            
              <tr><td>boost-cpp</td><td>1.70.0</td></tr>
            
-             <tr><td>boto3</td><td>1.10.32</td></tr>
+             <tr><td>boto3</td><td>1.10.34</td></tr>
            
-             <tr><td>botocore</td><td>1.13.32</td></tr>
+             <tr><td>botocore</td><td>1.13.34</td></tr>
            
              <tr><td>branca</td><td>0.3.1</td></tr>
            
@@ -2830,7 +2830,7 @@ pangeo/pangeo-esip
            
              <tr><td>dask-core</td><td>2.8.1</td></tr>
            
-             <tr><td>dask-gateway</td><td>0.6.0</td></tr>
+             <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
              <tr><td>dask-glm</td><td>0.2.0</td></tr>
            
@@ -2872,7 +2872,7 @@ pangeo/pangeo-esip
            
              <tr><td>fastparquet</td><td>0.3.2</td></tr>
            
-             <tr><td>fiona</td><td>1.8.11</td></tr>
+             <tr><td>fiona</td><td>1.8.13</td></tr>
            
              <tr><td>folium</td><td>0.10.1</td></tr>
            
@@ -2888,7 +2888,7 @@ pangeo/pangeo-esip
            
              <tr><td>future</td><td>0.18.2</td></tr>
            
-             <tr><td>gcsfs</td><td>0.5.2</td></tr>
+             <tr><td>gcsfs</td><td>0.5.3</td></tr>
            
              <tr><td>gdal</td><td>3.0.2</td></tr>
            
@@ -2948,7 +2948,7 @@ pangeo/pangeo-esip
            
              <tr><td>imageio</td><td>2.6.1</td></tr>
            
-             <tr><td>importlib_metadata</td><td>1.1.0</td></tr>
+             <tr><td>importlib_metadata</td><td>1.2.0</td></tr>
            
              <tr><td>intake</td><td>0.5.3</td></tr>
            
@@ -3110,7 +3110,7 @@ pangeo/pangeo-esip
            
              <tr><td>monotonic</td><td>1.5</td></tr>
            
-             <tr><td>more-itertools</td><td>8.0.0</td></tr>
+             <tr><td>more-itertools</td><td>8.0.1</td></tr>
            
              <tr><td>msgpack-numpy</td><td>0.4.4.3</td></tr>
            
@@ -3513,9 +3513,9 @@ pangeo/pangeo-esip
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-esip</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-esip:2019.12.04&#39;, &#39;pangeo/pangeo-esip:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-esip:2019.12.06&#39;, &#39;pangeo/pangeo-esip:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-04T23:09:38.728946655Z</td></tr>
+             <tr><td>Created</td><td>2019-12-06T07:16:23.335071016Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
