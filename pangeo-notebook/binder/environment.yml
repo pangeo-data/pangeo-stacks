@@ -82,3 +82,5 @@ dependencies:
   # misc
   - python-wget
   - prefect
+  - pip:
+    - intake_geopandas 
