@@ -70,6 +70,7 @@ dependencies:
   - tiledb-py
   # jupyter-related
   - ipyleaflet
+  - watermark
   # xarray-related
   - xgcm
   - xrft
@@ -83,4 +84,6 @@ dependencies:
   - python-wget
   - prefect
   - pip:
-    - intake_geopandas 
+    - intake_geopandas
+    - git+https://github.com/NCAR/intake-esm.git@master
+    - git+https://github.com/hhuangwx/cmaps.git#egg=cmaps
