@@ -413,9 +413,9 @@ pangeo/base-notebook
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/base-notebook</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.12.06&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.12.07&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-06T06:44:57.762002568Z</td></tr>
+             <tr><td>Created</td><td>2019-12-07T00:47:19.164323963Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -720,7 +720,9 @@ pangeo/pangeo-notebook
            
              <tr><td>intake-esm</td><td>2019.10.15</td></tr>
            
-             <tr><td>intake-stac</td><td>0.2.1</td></tr>
+             <tr><td>intake-geopandas</td><td>0.2.2</td></tr>
+           
+             <tr><td>intake-stac</td><td>0.2.2</td></tr>
            
              <tr><td>intake-xarray</td><td>0.3.1</td></tr>
            
@@ -888,7 +890,7 @@ pangeo/pangeo-notebook
            
              <tr><td>monotonic</td><td>1.5</td></tr>
            
-             <tr><td>more-itertools</td><td>8.0.0</td></tr>
+             <tr><td>more-itertools</td><td>8.0.1</td></tr>
            
              <tr><td>mpc</td><td>1.1.0</td></tr>
            
@@ -960,7 +962,7 @@ pangeo/pangeo-notebook
            
              <tr><td>pandas</td><td>0.25.3</td></tr>
            
-             <tr><td>pandoc</td><td>2.8.0.1</td></tr>
+             <tr><td>pandoc</td><td>2.8.1</td></tr>
            
              <tr><td>pandocfilters</td><td>1.4.2</td></tr>
            
@@ -992,6 +994,8 @@ pangeo/pangeo-notebook
            
              <tr><td>pixman</td><td>0.38.0</td></tr>
            
+             <tr><td>pluggy</td><td>0.13.1</td></tr>
+           
              <tr><td>pooch</td><td>0.7.0</td></tr>
            
              <tr><td>poppler</td><td>0.67.0</td></tr>
@@ -1017,6 +1021,8 @@ pangeo/pangeo-notebook
              <tr><td>pthread-stubs</td><td>0.4</td></tr>
            
              <tr><td>ptyprocess</td><td>0.6.0</td></tr>
+           
+             <tr><td>py</td><td>1.8.0</td></tr>
            
              <tr><td>pyasn1</td><td>0.4.8</td></tr>
            
@@ -1068,9 +1074,11 @@ pangeo/pangeo-notebook
            
              <tr><td>pysocks</td><td>1.7.1</td></tr>
            
-             <tr><td>pyspectral</td><td>0.9.2</td></tr>
+             <tr><td>pyspectral</td><td>0.9.3</td></tr>
            
              <tr><td>pyspharm</td><td>1.0.9</td></tr>
+           
+             <tr><td>pytest</td><td>5.3.1</td></tr>
            
              <tr><td>python</td><td>3.7.3</td></tr>
            
@@ -1341,9 +1349,9 @@ pangeo/pangeo-notebook
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-notebook</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.12.06&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.12.07&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-06T07:04:26.014751296Z</td></tr>
+             <tr><td>Created</td><td>2019-12-07T01:06:58.961106202Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -1351,7 +1359,7 @@ pangeo/pangeo-notebook
            
              <tr><td>Os</td><td>linux</td></tr>
            
-             <tr><td>Size</td><td>6.13 GB</td></tr>
+             <tr><td>Size</td><td>6.22 GB</td></tr>
            
             </tbody>
            </table>
@@ -1765,9 +1773,9 @@ pangeo/base-notebook-onbuild
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/base-notebook-onbuild</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.12.06&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.12.07&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-06T06:45:07.438674797Z</td></tr>
+             <tr><td>Created</td><td>2019-12-07T00:47:28.734031664Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -2072,7 +2080,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>intake-esm</td><td>2019.10.15</td></tr>
            
-             <tr><td>intake-stac</td><td>0.2.1</td></tr>
+             <tr><td>intake-geopandas</td><td>0.2.2</td></tr>
+           
+             <tr><td>intake-stac</td><td>0.2.2</td></tr>
            
              <tr><td>intake-xarray</td><td>0.3.1</td></tr>
            
@@ -2240,7 +2250,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>monotonic</td><td>1.5</td></tr>
            
-             <tr><td>more-itertools</td><td>8.0.0</td></tr>
+             <tr><td>more-itertools</td><td>8.0.1</td></tr>
            
              <tr><td>mpc</td><td>1.1.0</td></tr>
            
@@ -2312,7 +2322,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>pandas</td><td>0.25.3</td></tr>
            
-             <tr><td>pandoc</td><td>2.8.0.1</td></tr>
+             <tr><td>pandoc</td><td>2.8.1</td></tr>
            
              <tr><td>pandocfilters</td><td>1.4.2</td></tr>
            
@@ -2344,6 +2354,8 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>pixman</td><td>0.38.0</td></tr>
            
+             <tr><td>pluggy</td><td>0.13.1</td></tr>
+           
              <tr><td>pooch</td><td>0.7.0</td></tr>
            
              <tr><td>poppler</td><td>0.67.0</td></tr>
@@ -2369,6 +2381,8 @@ pangeo/pangeo-notebook-onbuild
              <tr><td>pthread-stubs</td><td>0.4</td></tr>
            
              <tr><td>ptyprocess</td><td>0.6.0</td></tr>
+           
+             <tr><td>py</td><td>1.8.0</td></tr>
            
              <tr><td>pyasn1</td><td>0.4.8</td></tr>
            
@@ -2420,9 +2434,11 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>pysocks</td><td>1.7.1</td></tr>
            
-             <tr><td>pyspectral</td><td>0.9.2</td></tr>
+             <tr><td>pyspectral</td><td>0.9.3</td></tr>
            
              <tr><td>pyspharm</td><td>1.0.9</td></tr>
+           
+             <tr><td>pytest</td><td>5.3.1</td></tr>
            
              <tr><td>python</td><td>3.7.3</td></tr>
            
@@ -2693,9 +2709,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-notebook-onbuild</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.12.06&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.12.07&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-06T07:04:27.498577336Z</td></tr>
+             <tr><td>Created</td><td>2019-12-07T01:07:00.433373952Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -2703,7 +2719,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>Os</td><td>linux</td></tr>
            
-             <tr><td>Size</td><td>6.13 GB</td></tr>
+             <tr><td>Size</td><td>6.22 GB</td></tr>
            
             </tbody>
            </table>
@@ -2954,7 +2970,7 @@ pangeo/pangeo-esip
            
              <tr><td>intake-esm</td><td>2019.10.15</td></tr>
            
-             <tr><td>intake-stac</td><td>0.2.1</td></tr>
+             <tr><td>intake-stac</td><td>0.2.2</td></tr>
            
              <tr><td>intake-xarray</td><td>0.3.1</td></tr>
            
@@ -3011,6 +3027,8 @@ pangeo/pangeo-esip
              <tr><td>krb5</td><td>1.16.3</td></tr>
            
              <tr><td>kubernetes_asyncio</td><td>10.0.0</td></tr>
+           
+             <tr><td>ld_impl_linux-64</td><td>2.33.1</td></tr>
            
              <tr><td>libblas</td><td>3.8.0</td></tr>
            
@@ -3174,7 +3192,7 @@ pangeo/pangeo-esip
            
              <tr><td>pandas-flavor</td><td>0.2.0</td></tr>
            
-             <tr><td>pandoc</td><td>2.8.0.1</td></tr>
+             <tr><td>pandoc</td><td>2.8.1</td></tr>
            
              <tr><td>pandocfilters</td><td>1.4.2</td></tr>
            
@@ -3276,7 +3294,7 @@ pangeo/pangeo-esip
            
              <tr><td>pysocks</td><td>1.7.1</td></tr>
            
-             <tr><td>pyspectral</td><td>0.9.2</td></tr>
+             <tr><td>pyspectral</td><td>0.9.3</td></tr>
            
              <tr><td>pyspharm</td><td>1.0.9</td></tr>
            
@@ -3513,9 +3531,9 @@ pangeo/pangeo-esip
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-esip</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-esip:2019.12.06&#39;, &#39;pangeo/pangeo-esip:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-esip:2019.12.07&#39;, &#39;pangeo/pangeo-esip:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-06T07:16:23.335071016Z</td></tr>
+             <tr><td>Created</td><td>2019-12-07T01:18:59.485872184Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -3523,7 +3541,7 @@ pangeo/pangeo-esip
            
              <tr><td>Os</td><td>linux</td></tr>
            
-             <tr><td>Size</td><td>5.20 GB</td></tr>
+             <tr><td>Size</td><td>5.29 GB</td></tr>
            
             </tbody>
            </table>
