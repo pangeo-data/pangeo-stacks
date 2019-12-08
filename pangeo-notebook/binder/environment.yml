@@ -20,6 +20,7 @@ dependencies:
   # pyviz
   - holoviews
   - panel
+  - jupyter-panel-proxy
   - geoviews
   - hvplot
   - geoviews
@@ -60,6 +61,8 @@ dependencies:
   - intake-esm
   - fsspec
   - intake-stac
+  - sat-stac
+  - sat-search
   # zarr-related
   - zarr
   - numcodecs
