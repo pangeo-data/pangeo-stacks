@@ -78,9 +78,9 @@ pangeo/base-notebook
            
              <tr><td>cytoolz</td><td>0.10.1</td></tr>
            
-             <tr><td>dask</td><td>2.8.1</td></tr>
+             <tr><td>dask</td><td>2.9.0</td></tr>
            
-             <tr><td>dask-core</td><td>2.8.1</td></tr>
+             <tr><td>dask-core</td><td>2.9.0</td></tr>
            
              <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
@@ -92,7 +92,7 @@ pangeo/base-notebook
            
              <tr><td>defusedxml</td><td>0.5.0</td></tr>
            
-             <tr><td>distributed</td><td>2.8.1</td></tr>
+             <tr><td>distributed</td><td>2.9.0</td></tr>
            
              <tr><td>entrypoints</td><td>0.3</td></tr>
            
@@ -413,9 +413,9 @@ pangeo/base-notebook
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/base-notebook</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.12.07&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook:2019.12.08&#39;, &#39;pangeo/base-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-07T03:38:44.111494072Z</td></tr>
+             <tr><td>Created</td><td>2019-12-08T16:21:38.31698122Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -572,9 +572,9 @@ pangeo/pangeo-notebook
            
              <tr><td>cytoolz</td><td>0.10.1</td></tr>
            
-             <tr><td>dask</td><td>2.8.1</td></tr>
+             <tr><td>dask</td><td>2.9.0</td></tr>
            
-             <tr><td>dask-core</td><td>2.8.1</td></tr>
+             <tr><td>dask-core</td><td>2.9.0</td></tr>
            
              <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
@@ -586,7 +586,7 @@ pangeo/pangeo-notebook
            
              <tr><td>dask-ml</td><td>1.1.1</td></tr>
            
-             <tr><td>datashader</td><td>0.8.0</td></tr>
+             <tr><td>datashader</td><td>0.9.0</td></tr>
            
              <tr><td>datashape</td><td>0.5.4</td></tr>
            
@@ -598,7 +598,7 @@ pangeo/pangeo-notebook
            
              <tr><td>descartes</td><td>1.1.0</td></tr>
            
-             <tr><td>distributed</td><td>2.8.1</td></tr>
+             <tr><td>distributed</td><td>2.9.0</td></tr>
            
              <tr><td>docker-py</td><td>4.1.0</td></tr>
            
@@ -758,6 +758,8 @@ pangeo/pangeo-notebook
            
              <tr><td>jupyter</td><td>1.0.0</td></tr>
            
+             <tr><td>jupyter-panel-proxy</td><td>0.1.0</td></tr>
+           
              <tr><td>jupyter-server-proxy</td><td>1.2.0</td></tr>
            
              <tr><td>jupyter_client</td><td>5.3.3</td></tr>
@@ -892,7 +894,7 @@ pangeo/pangeo-notebook
            
              <tr><td>monotonic</td><td>1.5</td></tr>
            
-             <tr><td>more-itertools</td><td>8.0.1</td></tr>
+             <tr><td>more-itertools</td><td>8.0.2</td></tr>
            
              <tr><td>mpc</td><td>1.1.0</td></tr>
            
@@ -1046,7 +1048,7 @@ pangeo/pangeo-notebook
            
              <tr><td>pygpu</td><td>0.7.6</td></tr>
            
-             <tr><td>pyinterp</td><td>0.0.7</td></tr>
+             <tr><td>pyinterp</td><td>0.0.8</td></tr>
            
              <tr><td>pyjwt</td><td>1.7.1</td></tr>
            
@@ -1148,7 +1150,9 @@ pangeo/pangeo-notebook
            
              <tr><td>s3transfer</td><td>0.2.1</td></tr>
            
-             <tr><td>sat-stac</td><td>0.3.0</td></tr>
+             <tr><td>sat-search</td><td>0.2.2</td></tr>
+           
+             <tr><td>sat-stac</td><td>0.3.1</td></tr>
            
              <tr><td>satpy</td><td>0.18.1</td></tr>
            
@@ -1314,7 +1318,7 @@ pangeo/pangeo-notebook
            
              <tr><td>xrviz</td><td>0.1.4</td></tr>
            
-             <tr><td>xskillscore</td><td>0.0.8</td></tr>
+             <tr><td>xskillscore</td><td>0.0.9</td></tr>
            
              <tr><td>xz</td><td>5.2.4</td></tr>
            
@@ -1353,9 +1357,9 @@ pangeo/pangeo-notebook
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-notebook</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.12.07&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook:2019.12.08&#39;, &#39;pangeo/pangeo-notebook:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-07T03:57:22.276143415Z</td></tr>
+             <tr><td>Created</td><td>2019-12-08T16:42:48.789818528Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -1442,9 +1446,9 @@ pangeo/base-notebook-onbuild
            
              <tr><td>cytoolz</td><td>0.10.1</td></tr>
            
-             <tr><td>dask</td><td>2.8.1</td></tr>
+             <tr><td>dask</td><td>2.9.0</td></tr>
            
-             <tr><td>dask-core</td><td>2.8.1</td></tr>
+             <tr><td>dask-core</td><td>2.9.0</td></tr>
            
              <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
@@ -1456,7 +1460,7 @@ pangeo/base-notebook-onbuild
            
              <tr><td>defusedxml</td><td>0.5.0</td></tr>
            
-             <tr><td>distributed</td><td>2.8.1</td></tr>
+             <tr><td>distributed</td><td>2.9.0</td></tr>
            
              <tr><td>entrypoints</td><td>0.3</td></tr>
            
@@ -1777,9 +1781,9 @@ pangeo/base-notebook-onbuild
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/base-notebook-onbuild</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.12.07&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/base-notebook-onbuild:2019.12.08&#39;, &#39;pangeo/base-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-07T03:38:52.196079494Z</td></tr>
+             <tr><td>Created</td><td>2019-12-08T16:21:48.576774033Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -1936,9 +1940,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>cytoolz</td><td>0.10.1</td></tr>
            
-             <tr><td>dask</td><td>2.8.1</td></tr>
+             <tr><td>dask</td><td>2.9.0</td></tr>
            
-             <tr><td>dask-core</td><td>2.8.1</td></tr>
+             <tr><td>dask-core</td><td>2.9.0</td></tr>
            
              <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
@@ -1950,7 +1954,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>dask-ml</td><td>1.1.1</td></tr>
            
-             <tr><td>datashader</td><td>0.8.0</td></tr>
+             <tr><td>datashader</td><td>0.9.0</td></tr>
            
              <tr><td>datashape</td><td>0.5.4</td></tr>
            
@@ -1962,7 +1966,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>descartes</td><td>1.1.0</td></tr>
            
-             <tr><td>distributed</td><td>2.8.1</td></tr>
+             <tr><td>distributed</td><td>2.9.0</td></tr>
            
              <tr><td>docker-py</td><td>4.1.0</td></tr>
            
@@ -2122,6 +2126,8 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>jupyter</td><td>1.0.0</td></tr>
            
+             <tr><td>jupyter-panel-proxy</td><td>0.1.0</td></tr>
+           
              <tr><td>jupyter-server-proxy</td><td>1.2.0</td></tr>
            
              <tr><td>jupyter_client</td><td>5.3.3</td></tr>
@@ -2256,7 +2262,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>monotonic</td><td>1.5</td></tr>
            
-             <tr><td>more-itertools</td><td>8.0.1</td></tr>
+             <tr><td>more-itertools</td><td>8.0.2</td></tr>
            
              <tr><td>mpc</td><td>1.1.0</td></tr>
            
@@ -2410,7 +2416,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>pygpu</td><td>0.7.6</td></tr>
            
-             <tr><td>pyinterp</td><td>0.0.7</td></tr>
+             <tr><td>pyinterp</td><td>0.0.8</td></tr>
            
              <tr><td>pyjwt</td><td>1.7.1</td></tr>
            
@@ -2512,7 +2518,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>s3transfer</td><td>0.2.1</td></tr>
            
-             <tr><td>sat-stac</td><td>0.3.0</td></tr>
+             <tr><td>sat-search</td><td>0.2.2</td></tr>
+           
+             <tr><td>sat-stac</td><td>0.3.1</td></tr>
            
              <tr><td>satpy</td><td>0.18.1</td></tr>
            
@@ -2678,7 +2686,7 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>xrviz</td><td>0.1.4</td></tr>
            
-             <tr><td>xskillscore</td><td>0.0.8</td></tr>
+             <tr><td>xskillscore</td><td>0.0.9</td></tr>
            
              <tr><td>xz</td><td>5.2.4</td></tr>
            
@@ -2717,9 +2725,9 @@ pangeo/pangeo-notebook-onbuild
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-notebook-onbuild</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.12.07&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-notebook-onbuild:2019.12.08&#39;, &#39;pangeo/pangeo-notebook-onbuild:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-07T03:57:23.620164877Z</td></tr>
+             <tr><td>Created</td><td>2019-12-08T16:42:50.320892846Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
@@ -2850,9 +2858,9 @@ pangeo/pangeo-esip
            
              <tr><td>cytoolz</td><td>0.10.1</td></tr>
            
-             <tr><td>dask</td><td>2.8.1</td></tr>
+             <tr><td>dask</td><td>2.9.0</td></tr>
            
-             <tr><td>dask-core</td><td>2.8.1</td></tr>
+             <tr><td>dask-core</td><td>2.9.0</td></tr>
            
              <tr><td>dask-gateway</td><td>0.6.1</td></tr>
            
@@ -2864,7 +2872,7 @@ pangeo/pangeo-esip
            
              <tr><td>dask-ml</td><td>1.1.1</td></tr>
            
-             <tr><td>datashader</td><td>0.8.0</td></tr>
+             <tr><td>datashader</td><td>0.9.0</td></tr>
            
              <tr><td>datashape</td><td>0.5.4</td></tr>
            
@@ -2874,7 +2882,7 @@ pangeo/pangeo-esip
            
              <tr><td>defusedxml</td><td>0.6.0</td></tr>
            
-             <tr><td>distributed</td><td>2.8.1</td></tr>
+             <tr><td>distributed</td><td>2.9.0</td></tr>
            
              <tr><td>docopt</td><td>0.6.2</td></tr>
            
@@ -3136,7 +3144,7 @@ pangeo/pangeo-esip
            
              <tr><td>monotonic</td><td>1.5</td></tr>
            
-             <tr><td>more-itertools</td><td>8.0.1</td></tr>
+             <tr><td>more-itertools</td><td>8.0.2</td></tr>
            
              <tr><td>msgpack-numpy</td><td>0.4.4.3</td></tr>
            
@@ -3372,7 +3380,7 @@ pangeo/pangeo-esip
            
              <tr><td>sat-search</td><td>0.2.2</td></tr>
            
-             <tr><td>sat-stac</td><td>0.3.0</td></tr>
+             <tr><td>sat-stac</td><td>0.3.1</td></tr>
            
              <tr><td>satpy</td><td>0.18.1</td></tr>
            
@@ -3539,9 +3547,9 @@ pangeo/pangeo-esip
            
              <tr><td>URL</td><td>https://hub.docker.com/r/pangeo/pangeo-esip</td></tr>
            
-             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-esip:2019.12.07&#39;, &#39;pangeo/pangeo-esip:latest&#39;]</td></tr>
+             <tr><td>RepoTags</td><td>[&#39;pangeo/pangeo-esip:2019.12.08&#39;, &#39;pangeo/pangeo-esip:latest&#39;]</td></tr>
            
-             <tr><td>Created</td><td>2019-12-07T04:07:34.72091719Z</td></tr>
+             <tr><td>Created</td><td>2019-12-08T16:55:39.516679182Z</td></tr>
            
              <tr><td>DockerVersion</td><td>18.06.0-ce</td></tr>
            
