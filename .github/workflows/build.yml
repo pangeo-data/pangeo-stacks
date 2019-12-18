@@ -55,15 +55,15 @@ jobs:
     #   # echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
     #   run: |
     #     echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-  base-notebook:
-    runs-on: ubuntu-18.04
-    needs: setup
+#   base-notebook:
+#     runs-on: ubuntu-18.04
+#     needs: setup
     steps:
     - name: Build Image
       # Add folder of artifacts related to build that anyone can download
       run: |
-        pwd
-        ls ${PWD}/*
+        # pwd
+        # ls ${PWD}/*
         python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
     # - name: Archive Conda Package List
     #   # Seems that artifacts uploaded with restricted permissions, requiring chmod -R u+x to read content
