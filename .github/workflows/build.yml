@@ -63,6 +63,7 @@ jobs:
       # Add folder of artifacts related to build that anyone can download
       run: |
         pwd
+        ls ${PWD}/*
         python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
     # - name: Archive Conda Package List
     #   # Seems that artifacts uploaded with restricted permissions, requiring chmod -R u+x to read content
