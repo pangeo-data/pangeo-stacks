@@ -98,6 +98,7 @@ jobs:
         # ls ${PWD}/*
         python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-notebook
   pangeo-esip:
+    needs: base-notebook
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout Repo
