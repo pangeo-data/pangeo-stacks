@@ -82,9 +82,10 @@ def r2d_build(image, image_spec, cache_from):
             '-i', '-t',
             f'{r2d.output_image_spec}',
             'binder/verify'
-        ])
+        ], shell=True)
     else:
         print(f'No verify script found for {image_spec}')
+
 
 def main():
     argparser = argparse.ArgumentParser()
