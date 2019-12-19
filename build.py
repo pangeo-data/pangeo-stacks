@@ -58,7 +58,7 @@ def docker_build(image_spec, path, build_args):
     for k, v in build_args.items():
         command += ['--build-arg', f'{k}={v}']
     command.append(path)
-    subprocess.check_call(command)
+    subprocess.check_call(command, shell=True)
 
 
 def r2d_build(image, image_spec, cache_from):
@@ -127,7 +127,7 @@ def main():
             subprocess.check_call([
                 'docker',
                 'pull', existing_image_spec
-            ])
+            ], shell=True)
             break
 
     calver = datetime.utcnow().strftime('%Y.%m.%d')
