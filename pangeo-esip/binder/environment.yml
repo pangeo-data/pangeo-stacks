@@ -2,6 +2,7 @@ name: pangeo
 channels:
   - conda-forge
 dependencies:
+  - pandoc
   # core scipy 
   - numpy
   - scipy
@@ -72,6 +73,8 @@ dependencies:
   # xarray-related
   - xgcm
   - xrft
+  - graphviz
+  - vim
   - pip
   - pip:
     - git+https://github.com/HDFGroup/h5pyd.git
