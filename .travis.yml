@@ -47,11 +47,11 @@ deploy:
     on:
       branch: master
   - provider: script
-    script: bash docker_push.sh pangeo-notebook
+    script: bash docker_push.sh pangeo-esip
     on:
       branch: master
   - provider: script
-    script: bash docker_push.sh pangeo-esip
+    script: bash docker_push.sh pangeo-notebook
     on:
       branch: master
   - provider: script
