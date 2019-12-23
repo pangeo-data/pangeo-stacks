@@ -50,10 +50,12 @@ deploy:
     script: bash docker_push.sh pangeo-esip
     on:
       branch: master
+      condition: $TRAVIS_JOB_NAME = 'pangeo-esip'
   - provider: script
     script: bash docker_push.sh pangeo-notebook
     on:
       branch: master
+      condition: $TRAVIS_JOB_NAME = 'pangeo-notebook'
   - provider: script
     script: bash ./docs/build_docs.sh && bash ./docs/publish_docs.sh
     on:
