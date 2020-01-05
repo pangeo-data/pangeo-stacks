@@ -24,7 +24,7 @@ template_html = """    <div class="panel-group" id="accordion-{{ id }}">
             <table class="table table-condensed table-hover">
             <tbody>
             <tr><td>Package</td><td>Version</td></tr>
-           {% for key, value in conda_list.items() %}
+           {% for key, value in history.items() %}
              <tr><td>{{ key | e }}</td><td>{{ value | e }}</td></tr>
            {% endfor %}
             </tbody>
@@ -98,7 +98,7 @@ class StacksRSTBuilder:
         self.output_dir = output_dir
         self.actually_load = actually_load
 
-    def conda_list(self, image):
+    def get_conda_versions(self, image):
         # return "docker run ... conda list"
         args = [
             'docker', 'run', '-it',
@@ -107,8 +107,31 @@ class StacksRSTBuilder:
             'conda', 'list', '--json']
         joined_args = " ".join(args)
         out = subprocess.check_output(joined_args, shell=True)
-        out = conda_json_to_version_dict(out)
-        return out
+        versions = conda_json_to_version_dict(out)
+        return versions
+
+    def get_conda_history(self, image):
+
+        # return "docker run ... conda list"
+        args = [
+            'docker', 'run', '-it',
+            '--entrypoint=""',
+            image,
+            'conda', 'env', 'export', '--from-history', '--json']
+        joined_args = " ".join(args)
+        history = subprocess.check_output(joined_args, shell=True)
+
+        # get versions
+        versions = self.get_conda_versions(image)
+
+        # update versions from conda list
+        with_versions = []
+        for pkg in history['dependencies']:
+            pkg = pkg.split('=')[0]
+            ver = versions[pkg]
+            with_versions.append(f'{pkg}={ver}')
+        history['dependencies'] = with_versions
+        return history
 
     def docker_inspect(self, image):
         # return "docker run ... conda list"
@@ -135,14 +158,14 @@ class StacksRSTBuilder:
             d.h3(image)
             d.newline()
 
-            conda_list = self.conda_list(image)
+            history = self.get_conda_history(image)
 
             metadata = {'URL': f'https://hub.docker.com/r/{image}'}
             metadata.update(self.docker_inspect(image))
 
             id = image.split('/')[1]
 
-            html = template.render(id=id, conda_list=conda_list, metadata=metadata)
+            html = template.render(id=id, history=history, metadata=metadata)
             d.directive('raw', arg='html', content=html)
             d.newline()
 
