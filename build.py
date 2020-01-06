@@ -98,12 +98,6 @@ def main():
         help='Prefix for image to be built. Usually contains registry url and name',
         default='pangeo/'
     )
-    argparser.add_argument(
-        '--push',
-        help='Push the built image to the docker registry',
-        action='store_true',
-        default=False
-    )
 
     args = argparser.parse_args()
 
