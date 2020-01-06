@@ -109,7 +109,7 @@ jobs:
         python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-notebook
     - name: Push Image to DockerHub (latest & sha tags)
       # Only push if merge to master or pushed tag with v1.2.3 semantic version
-      if: github.ref == 'refs/heads/master'
+      # if: github.ref == 'refs/heads/master'
       # Tag with short 7-character SHA
       run: |
         CALVER="$( date -u '+%Y.%m.%d' )"
@@ -121,7 +121,7 @@ jobs:
         echo docker push $CONTAINER_NAME:latest
     - name: Push Tagged Release Image to DockerHub
       # Only run this for 'git push --tags'
-      if: startswith(github.ref, 'refs/tags')
+      # if: startswith(github.ref, 'refs/tags')
       run: |
         DOCKER_TAG=${GITHUB_REF##*/}
         echo docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
