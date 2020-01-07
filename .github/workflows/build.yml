@@ -21,6 +21,7 @@ on:
 env:
   CONTAINER_NAME: ${{ github.repository }} # user/repo format
   GITHUB_REF: ${{ github.ref }}
+  GITHUB_SHA: ${{ github.sha }}
   IMAGE_PREFIX: pangeo/
 
 
@@ -34,6 +35,13 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
+    - name: Print env vars
+      run: |
+        echo $GITHUB_SHA
+        echo $( git rev-parse --short ${GITHUB_SHA} )
+        echo $( git rev-parse --short HEAD )
+        exit 1
+      
     - name: Enable Pip Cache
       # https://github.com/actions/cache/blob/master/examples.md#python---pip
       uses: actions/cache@v1
