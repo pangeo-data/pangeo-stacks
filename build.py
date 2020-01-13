@@ -125,6 +125,7 @@ def main():
             break
 
     calver = datetime.utcnow().strftime('%Y.%m.%d')
+    sha = next(iter(sha_date))
     dockerfile_paths = [
         os.path.join(args.image, 'binder', 'Dockerfile'),
         os.path.join(args.image, 'Dockerfile')
