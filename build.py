@@ -58,6 +58,8 @@ def docker_build(image_spec, path, build_args):
     for k, v in build_args.items():
         command += ['--build-arg', f'{k}={v}']
     command.append(path)
+    # debug
+    print(command)
     subprocess.check_call(command, shell=True)
 
 
