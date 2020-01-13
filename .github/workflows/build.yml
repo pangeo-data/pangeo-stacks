@@ -20,13 +20,67 @@ on:
 
 env:
   CONTAINER_NAME: ${{ github.repository }} # user/repo format
-  GITHUB_SHA: ${{ github.sha }}
   GITHUB_REF: ${{ github.ref }}
+  GITHUB_SHA: ${{ github.sha }}
   IMAGE_PREFIX: pangeo/
 
 
 jobs:
-  setup:
+  base-notebook:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v1
+    - name: Set Up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Print env vars
+      run: |
+        echo $GITHUB_SHA
+        echo $( git rev-parse --short ${GITHUB_SHA} )    
+    - name: Enable Pip Cache
+      # https://github.com/actions/cache/blob/master/examples.md#python---pip
+      uses: actions/cache@v1
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - name: Install Dependencies
+      run: |
+        python --version
+        pip install -r requirements.txt
+        repo2docker --version
+        docker version
+    - name: Authenticate with DockerHub
+      if: startswith(github.ref, 'refs/tags') || github.ref == 'refs/heads/master'
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+    - name: Build Image
+      # Add folder of artifacts related to build that anyone can download
+      run: |
+        python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
+    - name: Push Image to DockerHub (latest & sha tags)
+      # Only push if merge to master or pushed tag with v1.2.3 semantic version
+      if: github.ref == 'refs/heads/master'
+      # Tag with short 7-character SHA
+      run: |
+        CALVER="$( date -u '+%Y.%m.%d' )"
+        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
+        DOCKER_TAG=${CALVER}-${SHA}
+        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:latest
+    - name: Push Tagged Release Image to DockerHub
+      # Only run this for 'git push --tags'
+      if: startswith(github.ref, 'refs/tags')
+      run: |
+        DOCKER_TAG=${GITHUB_REF##*/}
+        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:$DOCKER_TAG
+  pangeo-notebook:
+    needs: base-notebook
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout Repo
@@ -49,23 +103,79 @@ jobs:
         pip install -r requirements.txt
         repo2docker --version
         docker version
-    # - name: Authenticate with DockerHub
-    #   # Consider GitHub Packages once they allow for unathenticated pulling
-    #   # https://github.com/actions/starter-workflows/blob/master/ci/docker-push.yml
-    #   # echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-    #   run: |
-    #     echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-  base-notebook:
-    runs-on: ubuntu-18.04
-    needs: setup
-    steps:
+    - name: Authenticate with DockerHub
+      if: startswith(github.ref, 'refs/tags') || github.ref == 'refs/heads/master'
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Build Image
       # Add folder of artifacts related to build that anyone can download
       run: |
-        python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
-    # - name: Archive Conda Package List
-    #   # Seems that artifacts uploaded with restricted permissions, requiring chmod -R u+x to read content
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: conda-packages
-    #     path: conda-packages
+        python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-notebook
+    - name: Push Image to DockerHub (latest & sha tags)
+      # Only push if merge to master or pushed tag with v1.2.3 semantic version
+      if: github.ref == 'refs/heads/master'
+      # Tag with short 7-character SHA
+      run: |
+        CALVER="$( date -u '+%Y.%m.%d' )"
+        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
+        DOCKER_TAG=${CALVER}-${SHA}
+        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:latest
+    - name: Push Tagged Release Image to DockerHub
+      # Only run this for 'git push --tags'
+      if: startswith(github.ref, 'refs/tags')
+      run: |
+        DOCKER_TAG=${GITHUB_REF##*/}
+        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:$DOCKER_TAG
+  pangeo-esip:
+    needs: base-notebook
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v1
+    - name: Set Up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Enable Pip Cache
+      # https://github.com/actions/cache/blob/master/examples.md#python---pip
+      uses: actions/cache@v1
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - name: Install Dependencies
+      run: |
+        python --version
+        pip install -r requirements.txt
+        repo2docker --version
+        docker version
+    - name: Authenticate with DockerHub
+      if: startswith(github.ref, 'refs/tags') || github.ref == 'refs/heads/master'
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+    - name: Build Image
+      # Add folder of artifacts related to build that anyone can download
+      run: |
+        python3 build.py --image-prefix=${IMAGE_PREFIX} pangeo-esip
+    - name: Push Image to DockerHub (latest & sha tags)
+      # Only push if merge to master or pushed tag with v1.2.3 semantic version
+      if: github.ref == 'refs/heads/master'
+      # Tag with short 7-character SHA
+      run: |
+        CALVER="$( date -u '+%Y.%m.%d' )"
+        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
+        DOCKER_TAG=${CALVER}-${SHA}
+        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:latest
+    - name: Push Tagged Release Image to DockerHub
+      # Only run this for 'git push --tags'
+      if: startswith(github.ref, 'refs/tags')
+      run: |
+        DOCKER_TAG=${GITHUB_REF##*/}
+        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
+        docker push $CONTAINER_NAME:$DOCKER_TAG
