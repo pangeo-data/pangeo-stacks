@@ -19,7 +19,6 @@ on:
 
 
 env:
-  CONTAINER_NAME: ${{ github.repository }} # user/repo format
   GITHUB_REF: ${{ github.ref }}
   GITHUB_SHA: ${{ github.sha }}
   IMAGE_PREFIX: pangeo/
@@ -66,19 +65,23 @@ jobs:
       if: github.ref == 'refs/heads/master'
       # Tag with short 7-character SHA
       run: |
+        IMAGE=base-notebook
         CALVER="$( date -u '+%Y.%m.%d' )"
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
         DOCKER_TAG=${CALVER}-${SHA}
-        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:latest
-    - name: Push Tagged Release Image to DockerHub
-      # Only run this for 'git push --tags'
-      if: startswith(github.ref, 'refs/tags')
-      run: |
-        DOCKER_TAG=${GITHUB_REF##*/}
-        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:$DOCKER_TAG
+
+        IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
+        IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}:latest
+        ONBUILD_IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}-onbuild:latest
+
+        docker tag $IMAGE_LATEST $IMAGE_NAME
+        docker tag $ONBUILD_IMAGE_LATEST $ONBUILD_IMAGE_NAME
+
+        docker push $IMAGE_LATEST
+        docker push $IMAGE_NAME
+        docker push $ONBUILD_IMAGE_LATEST
+        docker push $ONBUILD_IMAGE_NAME
   pangeo-notebook:
     needs: base-notebook
     runs-on: ubuntu-18.04
@@ -116,19 +119,23 @@ jobs:
       if: github.ref == 'refs/heads/master'
       # Tag with short 7-character SHA
       run: |
+        IMAGE=pangeo-notebook
         CALVER="$( date -u '+%Y.%m.%d' )"
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
         DOCKER_TAG=${CALVER}-${SHA}
-        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:latest
-    - name: Push Tagged Release Image to DockerHub
-      # Only run this for 'git push --tags'
-      if: startswith(github.ref, 'refs/tags')
-      run: |
-        DOCKER_TAG=${GITHUB_REF##*/}
-        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:$DOCKER_TAG
+
+        IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
+        IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}:latest
+        ONBUILD_IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}-onbuild:latest
+
+        docker tag $IMAGE_LATEST $IMAGE_NAME
+        docker tag $ONBUILD_IMAGE_LATEST $ONBUILD_IMAGE_NAME
+
+        docker push $IMAGE_LATEST
+        docker push $IMAGE_NAME
+        docker push $ONBUILD_IMAGE_LATEST
+        docker push $ONBUILD_IMAGE_NAME
   pangeo-esip:
     needs: base-notebook
     runs-on: ubuntu-18.04
@@ -166,16 +173,20 @@ jobs:
       if: github.ref == 'refs/heads/master'
       # Tag with short 7-character SHA
       run: |
+        IMAGE=pangeo-esip
         CALVER="$( date -u '+%Y.%m.%d' )"
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
         DOCKER_TAG=${CALVER}-${SHA}
-        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:latest
-    - name: Push Tagged Release Image to DockerHub
-      # Only run this for 'git push --tags'
-      if: startswith(github.ref, 'refs/tags')
-      run: |
-        DOCKER_TAG=${GITHUB_REF##*/}
-        docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
-        docker push $CONTAINER_NAME:$DOCKER_TAG
+
+        IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
+        IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}:latest
+        ONBUILD_IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}-onbuild:latest
+
+        docker tag $IMAGE_LATEST $IMAGE_NAME
+        docker tag $ONBUILD_IMAGE_LATEST $ONBUILD_IMAGE_NAME
+
+        docker push $IMAGE_LATEST
+        docker push $IMAGE_NAME
+        docker push $ONBUILD_IMAGE_LATEST
+        docker push $ONBUILD_IMAGE_NAME
