@@ -75,8 +75,8 @@ jobs:
         ONBUILD_IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
         ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}-onbuild:latest
 
-        docker tag $IMAGE_LATEST $IMAGE_NAME
-        docker tag $ONBUILD_IMAGE_LATEST $ONBUILD_IMAGE_NAME
+        docker tag $IMAGE_NAME $IMAGE_LATEST
+        docker tag $ONBUILD_IMAGE_NAME $ONBUILD_IMAGE_LATEST
 
         docker push $IMAGE_LATEST
         docker push $IMAGE_NAME
@@ -129,8 +129,8 @@ jobs:
         ONBUILD_IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
         ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}-onbuild:latest
 
-        docker tag $IMAGE_LATEST $IMAGE_NAME
-        docker tag $ONBUILD_IMAGE_LATEST $ONBUILD_IMAGE_NAME
+        docker tag $IMAGE_NAME $IMAGE_LATEST
+        docker tag $ONBUILD_IMAGE_NAME $ONBUILD_IMAGE_LATEST
 
         docker push $IMAGE_LATEST
         docker push $IMAGE_NAME
@@ -183,8 +183,8 @@ jobs:
         ONBUILD_IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
         ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}-onbuild:latest
 
-        docker tag $IMAGE_LATEST $IMAGE_NAME
-        docker tag $ONBUILD_IMAGE_LATEST $ONBUILD_IMAGE_NAME
+        docker tag $IMAGE_NAME $IMAGE_LATEST
+        docker tag $ONBUILD_IMAGE_NAME $ONBUILD_IMAGE_LATEST
 
         docker push $IMAGE_LATEST
         docker push $IMAGE_NAME
