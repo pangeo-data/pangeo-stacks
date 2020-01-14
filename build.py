@@ -136,6 +136,7 @@ def main():
         # Use docker if we have a Dockerfile
         # Can be just r2d once we can pass arbitrary BUILD ARGs to it
         # https://github.com/jupyter/repo2docker/issues/645
+        print('building dockerfile')
         docker_build(
             f'{image_name}:{calver}',
             args.image,
@@ -144,6 +145,7 @@ def main():
             }
         )
     else:
+        print('building a regular image')
         # Build regular image
         r2d_build(
             args.image,
@@ -152,6 +154,7 @@ def main():
         )
 
     # Build onbuild image
+    print('building an onbuild image')
     docker_build(
         f'{image_name}-onbuild:{calver}-{sha}',
         'onbuild',
