@@ -60,7 +60,7 @@ def docker_build(image_spec, path, build_args):
     command.append(path)
     # debug
     print(command)
-    subprocess.check_call(command, shell=True)
+    subprocess.check_call(command, shell=False)
 
 
 def r2d_build(image, image_spec, cache_from):
@@ -84,7 +84,7 @@ def r2d_build(image, image_spec, cache_from):
             '-i', '-t',
             f'{r2d.output_image_spec}',
             'binder/verify'
-        ], shell=True)
+        ], shell=False)
     else:
         print(f'No verify script found for {image_spec}')
 
@@ -123,7 +123,7 @@ def main():
             subprocess.check_call([
                 'docker',
                 'pull', existing_image_spec
-            ], shell=True)
+            ], shell=False)
             break
 
     calver = datetime.utcnow().strftime('%Y.%m.%d')
@@ -154,7 +154,7 @@ def main():
         )
 
     # Build onbuild image
-    print('building an onbuild image')
+    print('building an onbuild image0')
     docker_build(
         f'{image_name}-onbuild:{calver}-{sha}',
         'onbuild',
