@@ -81,7 +81,9 @@ def r2d_build(image, image_spec, cache_from):
         subprocess.check_call([
             'docker',
             'run',
-            '-i', '-t',
+            '--interactive',
+            '--rm',
+            '--tty',
             f'{r2d.output_image_spec}',
             '/bin/bash', '-c', "echo $PWD; ls"
             #'binder/verify'
