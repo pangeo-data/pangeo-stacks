@@ -83,7 +83,8 @@ def r2d_build(image, image_spec, cache_from):
             'run',
             '-i', '-t',
             f'{r2d.output_image_spec}',
-            'binder/verify'
+            '/bin/bash', '-c', "echo $PWD; ls"
+            #'binder/verify'
         ], shell=False)
     else:
         print(f'No verify script found for {image_spec}')
