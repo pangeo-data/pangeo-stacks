@@ -122,6 +122,31 @@ def build():
                     ['/bin/bash', '-c', command], preexec_fn=applicator._pre_exec
                 )
 
+def start():
+    #Enable additional actions in the future
+    applicators = [apply_start]
+
+    for applicator in applicators:
+        commands = applicator()
+
+        if commands:
+            for command in commands:
+                subprocess.check_call(
+                    ['/bin/bash', '-c', command], preexec_fn=applicator._pre_exec
+                )
+
+@become(NB_UID)
+def apply_start():
+    st_path = binder_path('start')
+
+    if os.path.exists(st_path):
+        return [
+            f'chmod +x {st_path}',
+            # since pb_path is a fully qualified path, no need to add a ./
+            f'{st_path}'
+        ]
+    else:
+        return [f'/usr/local/bin/repo2docker-entrypoint']
 
 def main():
     argparser = argparse.ArgumentParser()
@@ -134,8 +159,9 @@ def main():
 
     if args.action == 'build':
         build()
-    else:
-        raise Exception("start isn't implemented yet")
+    elif args.action == 'start':
+        start()
+
 
 if __name__ == '__main__':
     main()
