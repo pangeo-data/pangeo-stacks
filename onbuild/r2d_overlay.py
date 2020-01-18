@@ -142,7 +142,7 @@ def apply_start():
     if os.path.exists(st_path):
         return [
             f'chmod +x {st_path}',
-            # since pb_path is a fully qualified path, no need to add a ./
+            # since st_path is a fully qualified path, no need to add a ./
             f'{st_path}'
         ]
     else:
