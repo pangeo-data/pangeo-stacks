@@ -49,7 +49,7 @@ def apply_environment():
     env_path = binder_path('environment.yml')
     if os.path.exists(env_path):
         return [
-            f'conda env update -p {NB_PYTHON_PREFIX} -f {env_path}',
+            f'conda env update --verbose -p {NB_PYTHON_PREFIX} -f {env_path}',
             f'conda clean --all -f -y',
             f'conda list -p {NB_PYTHON_PREFIX}',
             f'rm -rf /srv/conda/pkgs'
