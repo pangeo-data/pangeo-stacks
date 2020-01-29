@@ -45,7 +45,10 @@ def image_exists_in_registry(client, image_spec):
 
 
 def docker_build(image_spec, path, build_args):
+    pwd = os.getcwd()
     print(f'Building {image_spec}')
+    print(f'PWD={pwd}')
+    os.system('docker images')
     if os.path.exists(os.path.join(path, 'Dockerfile')):
         df_path = os.path.join(path, 'Dockerfile')
     else:
@@ -73,18 +76,18 @@ def r2d_build(image, image_spec, cache_from):
     r2d.initialize()
     r2d.build()
 
-    if os.path.exists(os.path.join(r2d.subdir, 'binder/verify')):
-        print(f'Validating {image_spec}')
-        # Validate the built image
-        subprocess.check_call([
-            'docker',
-            'run',
-            '-i', '-t',
-            f'{r2d.output_image_spec}',
-            'binder/verify'
-        ], shell=True)
-    else:
-        print(f'No verify script found for {image_spec}')
+    # if os.path.exists(os.path.join(r2d.subdir, 'binder/verify')):
+    #     print(f'Validating {image_spec}')
+    #     # Validate the built image
+    #     subprocess.check_call([
+    #         'docker',
+    #         'run',
+    #         '-i', '-t',
+    #         f'{r2d.output_image_spec}',
+    #         'binder/verify'
+    #     ], shell=True)
+    # else:
+    #     print(f'No verify script found for {image_spec}')
 
 
 def main():
