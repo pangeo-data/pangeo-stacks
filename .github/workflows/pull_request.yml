@@ -65,7 +65,7 @@ jobs:
         docker push $ONBUILD_IMAGE_NAME
 
   onbuild-images:
-    needs: base-notebook
+    needs: base-image
     strategy:
       fail-fast: false
       matrix:
