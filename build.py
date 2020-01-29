@@ -49,19 +49,26 @@ def docker_build(image_spec, path, build_args):
     print(f'Building {image_spec}')
     print(f'PWD={pwd}')
     os.system('docker images')
+
     if os.path.exists(os.path.join(path, 'Dockerfile')):
         df_path = os.path.join(path, 'Dockerfile')
     else:
         df_path = os.path.join(path, 'binder', 'Dockerfile')
-    command = [
-        'docker', 'build',
-        '-t', image_spec,
-        '-f', df_path
-    ]
+
+    cmd = f'docker build {path} -t {image_spec} -f {df_path}'
     for k, v in build_args.items():
-        command += ['--build-arg', f'{k}={v}']
-    command.append(path)
-    subprocess.check_call(command, shell=True)
+        cmd += ' --build-arg', f'{k}={v}'
+    print(cmd)
+    os.system(cmd)
+    #cmd = [
+    #    'docker', 'build',
+    #    '-t', image_spec,
+    #    '-f', df_path
+    #]
+    #for k, v in build_args.items():
+    #    cmd += [' --build-arg', f'{k}={v}']
+    #command.append(path)
+    #subprocess.check_call(cmd, shell=True)
 
 
 def r2d_build(image, image_spec, cache_from):
