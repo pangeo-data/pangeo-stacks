@@ -57,7 +57,7 @@ def docker_build(image_spec, path, build_args):
 
     cmd = f'docker build {path} -t {image_spec} -f {df_path}'
     for k, v in build_args.items():
-        cmd += ' --build-arg', f'{k}={v}'
+        cmd += f' --build-arg {k}={v}'
     print(cmd)
     os.system(cmd)
     #cmd = [
