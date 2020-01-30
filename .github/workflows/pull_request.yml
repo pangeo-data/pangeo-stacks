@@ -8,10 +8,12 @@ on:
 env:
   GITHUB_REF: ${{ github.ref }}
   GITHUB_SHA: ${{ github.sha }}
-  IMAGE_PREFIX: pangeo/pr-
+  IMAGE_PREFIX: pangeo/
 
 jobs:
   base-image:
+    env:
+      IMAGE: base-notebook
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout Repository
@@ -20,10 +22,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-    - name: Print Environment Variables
-      run: |
-        echo $GITHUB_SHA
-        echo $( git rev-parse --short ${GITHUB_SHA} )
     - name: Enable Pip Cache
       uses: actions/cache@v1
       with:
@@ -39,37 +37,26 @@ jobs:
         docker version
     - name: Build Image
       run: |
-        python3 build.py --image-prefix=${IMAGE_PREFIX} base-notebook
+        python3 build.py --pr --image-prefix=${IMAGE_PREFIX} ${IMAGE}
     - name: Authenticate with DockerHub
       run: |
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-
-    - name: Push Image to DockerHub (latest & sha tags)
+    - name: Push Image to DockerHub
+      # NOTE: could export tag names from build.py?
       run: |
-        IMAGE=base-notebook
         CALVER="$( date -u '+%Y.%m.%d' )"
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
-        DOCKER_TAG=${CALVER}-${SHA}
+        DOCKER_TAG=${CALVER}-${SHA}-PR
 
-        IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
-        IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}:latest
-        ONBUILD_IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
-        ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}-onbuild:latest
-
-        docker tag $IMAGE_NAME $IMAGE_LATEST
-        docker tag $ONBUILD_IMAGE_NAME $ONBUILD_IMAGE_LATEST
-
-        docker push $IMAGE_LATEST
-        docker push $IMAGE_NAME
-        docker push $ONBUILD_IMAGE_LATEST
-        docker push $ONBUILD_IMAGE_NAME
+        docker push ${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
+        docker push ${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}-PR
 
   onbuild-images:
     needs: base-image
     strategy:
       fail-fast: false
       matrix:
-        IMAGE: [pangeo-notebook, esip-notebook]
+        IMAGE: [pangeo-notebook, pangeo-esip]
     name: ${{ matrix.IMAGE }}
     runs-on: ubuntu-18.04
     steps:
@@ -97,23 +84,13 @@ jobs:
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Build Image
       run: |
-        python3 build.py --image-prefix=${IMAGE_PREFIX} ${{ matrix.IMAGE }}
-    - name: Push Image to DockerHub (latest & sha tags)
+        python3 build.py --pr --image-prefix=${IMAGE_PREFIX} ${{ matrix.IMAGE }}
+    - name: Push Image to DockerHub
       run: |
         IMAGE=${{ matrix.IMAGE }}
         CALVER="$( date -u '+%Y.%m.%d' )"
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
-        DOCKER_TAG=${CALVER}-${SHA}
+        DOCKER_TAG=${CALVER}-${SHA}-PR
 
-        IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
-        IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}:latest
-        ONBUILD_IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
-        ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${IMAGE}-onbuild:latest
-
-        docker tag $IMAGE_NAME $IMAGE_LATEST
-        docker tag $ONBUILD_IMAGE_NAME $ONBUILD_IMAGE_LATEST
-
-        docker push $IMAGE_LATEST
-        docker push $IMAGE_NAME
-        docker push $ONBUILD_IMAGE_LATEST
-        docker push $ONBUILD_IMAGE_NAME
+        docker push ${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
+        docker push ${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
