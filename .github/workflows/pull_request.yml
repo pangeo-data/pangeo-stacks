@@ -49,7 +49,7 @@ jobs:
         DOCKER_TAG=${CALVER}-${SHA}-PR
 
         docker push ${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
-        docker push ${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}-PR
+        docker push ${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
 
   onbuild-images:
     needs: base-image
