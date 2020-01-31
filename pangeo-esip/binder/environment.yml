@@ -23,6 +23,7 @@ dependencies:
   - panel
   - datashader
   # geospatial
+  - erddapy
   - iris
   - cartopy
   - geopandas
