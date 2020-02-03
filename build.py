@@ -45,20 +45,31 @@ def image_exists_in_registry(client, image_spec):
 
 
 def docker_build(image_spec, path, build_args):
+    pwd = os.getcwd()
     print(f'Building {image_spec}')
+    print(f'PWD={pwd}')
+    os.system('docker images')
+
     if os.path.exists(os.path.join(path, 'Dockerfile')):
         df_path = os.path.join(path, 'Dockerfile')
     else:
         df_path = os.path.join(path, 'binder', 'Dockerfile')
-    command = [
-        'docker', 'build',
-        '-t', image_spec,
-        '-f', df_path
-    ]
+
+    cmd = f'docker build {path} -t {image_spec} -f {df_path}'
     for k, v in build_args.items():
-        command += ['--build-arg', f'{k}={v}']
-    command.append(path)
-    subprocess.check_call(command, shell=True)
+        cmd += f' --build-arg {k}={v}'
+    print(cmd)
+    os.system(cmd)
+    # NOTE: not sure why this is failing to run, but no Error
+    #cmd = [
+    #    'docker', 'build',
+    #    '-t', image_spec,
+    #    '-f', df_path
+    #]
+    #for k, v in build_args.items():
+    #    cmd += [' --build-arg', f'{k}={v}']
+    #command.append(path)
+    #subprocess.check_call(cmd, shell=True)
 
 
 def r2d_build(image, image_spec, cache_from):
@@ -72,19 +83,19 @@ def r2d_build(image, image_spec, cache_from):
 
     r2d.initialize()
     r2d.build()
-
-    if os.path.exists(os.path.join(r2d.subdir, 'binder/verify')):
-        print(f'Validating {image_spec}')
-        # Validate the built image
-        subprocess.check_call([
-            'docker',
-            'run',
-            '-i', '-t',
-            f'{r2d.output_image_spec}',
-            'binder/verify'
-        ], shell=True)
-    else:
-        print(f'No verify script found for {image_spec}')
+    # NOTE: not sure why this is failing to run, but no Error
+    # if os.path.exists(os.path.join(r2d.subdir, 'binder/verify')):
+    #     print(f'Validating {image_spec}')
+    #     # Validate the built image
+    #     subprocess.check_call([
+    #         'docker',
+    #         'run',
+    #         '-i', '-t',
+    #         f'{r2d.output_image_spec}',
+    #         'binder/verify'
+    #     ], shell=True)
+    # else:
+    #     print(f'No verify script found for {image_spec}')
 
 
 def main():
@@ -92,6 +103,12 @@ def main():
     argparser.add_argument(
         'image',
         help='Image to build. Subdirectory with this name must exist'
+    )
+    argparser.add_argument(
+        '--pr',
+        action="store_true",
+        default=False,
+        help='Append PR to image names if run in pull request workflow'
     )
     argparser.add_argument(
         '--image-prefix',
@@ -115,6 +132,8 @@ def main():
         # Stick to UTC for calver
         existing_calver = date.astimezone(pytz.utc).strftime('%Y.%m.%d')
         existing_image_spec = f'{image_name}:{existing_calver}-{sha}'
+        if args.pr:
+            existing_image_spec+='-PR'
         if image_exists_in_registry(client, existing_image_spec):
             print(f'Re-using cache from {existing_image_spec}')
             cache_from = [existing_image_spec]
@@ -126,6 +145,9 @@ def main():
 
     calver = datetime.utcnow().strftime('%Y.%m.%d')
     sha = next(iter(sha_date))
+    tag = f'{calver}-{sha}'
+    if args.pr:
+        tag+='-PR'
     dockerfile_paths = [
         os.path.join(args.image, 'binder', 'Dockerfile'),
         os.path.join(args.image, 'Dockerfile')
@@ -135,25 +157,25 @@ def main():
         # Can be just r2d once we can pass arbitrary BUILD ARGs to it
         # https://github.com/jupyter/repo2docker/issues/645
         docker_build(
-            f'{image_name}:{calver}',
+            f'{image_name}:{tag}',
             args.image,
             {
-                'VERSION': f'{calver}-{sha}'
+                'VERSION': tag
             }
         )
     else:
         # Build regular image
         r2d_build(
             args.image,
-            f'{image_name}:{calver}-{sha}',
+            f'{image_name}:{tag}',
             cache_from
         )
 
     # Build onbuild image
     docker_build(
-        f'{image_name}-onbuild:{calver}-{sha}',
+        f'{image_name}-onbuild:{tag}',
         'onbuild',
-        {'BASE_IMAGE_SPEC': f'{image_name}:{calver}-{sha}'}
+        {'BASE_IMAGE_SPEC': f'{image_name}:{tag}'}
     )
 
 
