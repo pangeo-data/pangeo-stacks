@@ -6,7 +6,7 @@ dependencies:
   # core scipy 
   - numpy
   - scipy
-  - matplotlib
+  - matplotlib-base
   - pandas
   - xarray
   - python-gist
