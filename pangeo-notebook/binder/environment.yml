@@ -23,7 +23,6 @@ dependencies:
   - jupyter-panel-proxy
   - geoviews
   - hvplot
-  - geoviews
   - datashader
   - seaborn
   - altair
