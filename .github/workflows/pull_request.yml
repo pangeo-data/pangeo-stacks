@@ -69,7 +69,8 @@ jobs:
         name: base-notebook
     - shell: bash
       run: |
-        docker load < base-notebook.tar.gz
+        ls
+        docker load < base-notebook.tar
         docker images
     - name: Set Up Python 3.7
       uses: actions/setup-python@v1
