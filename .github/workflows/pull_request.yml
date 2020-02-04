@@ -45,12 +45,12 @@ jobs:
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
         DOCKER_TAG=${CALVER}-${SHA}
         IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
-        docker save ${IMAGE_NAME} | gzip > base-notebook.tar.gz
+        docker save ${IMAGE_NAME} | gzip > base-image.tar.gz
     - name: Upload Base-notebook Image
       uses: actions/upload-artifact@v1
       with:
-        name: base-notebook
-        path: base-notebook.tar.gz
+        name: base-image
+        path: base-image.tar.gz
 
   onbuild-images:
     needs: base-image
@@ -66,11 +66,12 @@ jobs:
     - name: Download Base-Noteook Docker Image
       uses: actions/download-artifact@v1
       with:
-        name: base-notebook
-    - shell: bash
+        name: base-image
+        path: ./artifact/base-image.tar.gz
+    - name: Load Docker Image
       run: |
-        ls
-        docker load < base-notebook.tar
+        ls -l *
+        docker load < ./artifact/base-image.tar.gz
         docker images
     - name: Set Up Python 3.7
       uses: actions/setup-python@v1
