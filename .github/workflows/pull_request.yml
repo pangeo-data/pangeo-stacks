@@ -45,7 +45,7 @@ jobs:
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
         DOCKER_TAG=${CALVER}-${SHA}
         IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
-        docker save $IMAGE_NAME | gzip > base-notebook.tar.gz
+        docker save ${IMAGE_NAME} | gzip > base-notebook.tar.gz
       - name: Upload Base-notebook Image
         uses: actions/upload-artifact@v1
         with:
