@@ -46,11 +46,11 @@ jobs:
         DOCKER_TAG=${CALVER}-${SHA}
         IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
         docker save ${IMAGE_NAME} | gzip > base-notebook.tar.gz
-      - name: Upload Base-notebook Image
-        uses: actions/upload-artifact@v1
-        with:
-          name: base-notebook
-          path: base-notebook.tar.gz
+    - name: Upload Base-notebook Image
+      uses: actions/upload-artifact@v1
+      with:
+        name: base-notebook
+        path: base-notebook.tar.gz
 
   onbuild-images:
     needs: base-image
