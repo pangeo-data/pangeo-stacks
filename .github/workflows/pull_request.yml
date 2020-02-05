@@ -18,6 +18,12 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+    - name: Set Environment Variables
+      run: |
+        echo "::set-env CALVER=$( date -u '+%Y.%m.%d' )"
+        echo "::set-env SHA=$( git rev-parse --short ${GITHUB_SHA} )"
+        echo "::set-env DOCKER_TAG=${CALVER}-${SHA}"
+        echo "::set-env IMAGE_SPEC=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
     - name: Set Up Python 3.7
       uses: actions/setup-python@v1
       with:
@@ -38,15 +44,13 @@ jobs:
     - name: Build Image
       run: |
         python3 build.py --image-prefix=${IMAGE_PREFIX} ${IMAGE}
-        docker images
+    - name: Test Image
+      run: |
+        docker run -i -t ${IMAGE_SPEC} binder/verify
     - name: Save Docker Image
       run: |
-        CALVER="$( date -u '+%Y.%m.%d' )"
-        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
-        DOCKER_TAG=${CALVER}-${SHA}
-        IMAGE_NAME=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
-        docker save ${IMAGE_NAME} | gzip > base-image.tar.gz
-    - name: Upload Base-notebook Image
+        docker save ${IMAGE_SPEC} | gzip > base-image.tar.gz
+    - name: Upload Base-Notebook Image
       uses: actions/upload-artifact@v1
       with:
         name: base-image

@@ -54,32 +54,11 @@ def docker_build(image_spec, path, build_args):
     else:
         df_path = os.path.join(path, 'binder', 'Dockerfile')
 
-    cmd = [
-       'docker', 'build',
-       path,
-       '-t', image_spec,
-       '-f', df_path
-    ]
+    cmd = f'docker build {path} -t {image_spec} -f {df_path}'
     for k, v in build_args.items():
-       cmd += [' --build-arg', f'{k}={v}']
-
-    subprocess.check_call(cmd, shell=True)
-
-
-def docker_verify(image, image_spec):
-    if os.path.exists(os.path.join(image, 'binder/verify')):
-        print(f'Validating {image_spec}')
-        # Validate the built image
-        cmd = [
-            'docker', 'run',
-            '-i', '-t',
-            image_spec,
-            'binder/verify'
-        ]
-        
-        subprocess.check_call(cmd, shell=True)
-    else:
-        print(f'No verify script found for {image_spec}')
+        cmd += f' --build-arg {k}={v}'
+    print(cmd)
+    os.system(cmd)
 
 
 def r2d_build(image, image_spec, cache_from):
@@ -158,7 +137,6 @@ def main():
             image_spec,
             cache_from
         )
-    docker_verify(args.image, image_spec)
 
     # Build onbuild image
     docker_build(
