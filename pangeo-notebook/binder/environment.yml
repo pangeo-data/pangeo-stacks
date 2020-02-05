@@ -3,9 +3,10 @@ channels:
   - conda-forge
 dependencies:
   # core scipy packages
+  - nomkl
   - numpy
   - scipy
-  - matplotlib
+  - matplotlib-base
   - pandas
   - xarray
   - sparse
@@ -14,16 +15,16 @@ dependencies:
   - scikit-image
   - scikit-learn
   - dask-ml
-  - tensorflow
-  - keras
-  - pytorch-cpu
+# NOTE: will move these to pangeo-ml image
+#  - tensorflow
+#  - keras
+#  - pytorch-cpu
   # pyviz
   - holoviews
   - panel
   - jupyter-panel-proxy
   - geoviews
   - hvplot
-  - geoviews
   - datashader
   - seaborn
   - altair
