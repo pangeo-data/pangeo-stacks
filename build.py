@@ -47,7 +47,6 @@ def image_exists_in_registry(client, image_spec):
 def docker_build(image_spec, path, build_args):
     pwd = os.getcwd()
     print(f'Building {image_spec}')
-    print(f'PWD={pwd}')
     os.system('docker images')
 
     if os.path.exists(os.path.join(path, 'Dockerfile')):
@@ -57,7 +56,7 @@ def docker_build(image_spec, path, build_args):
 
     cmd = [
        'docker', 'build',
-       path
+       path,
        '-t', image_spec,
        '-f', df_path
     ]
@@ -71,13 +70,14 @@ def docker_verify(image, image_spec):
     if os.path.exists(os.path.join(image, 'binder/verify')):
         print(f'Validating {image_spec}')
         # Validate the built image
-        subprocess.check_call([
-            'docker',
-            'run',
+        cmd = [
+            'docker', 'run',
             '-i', '-t',
             image_spec,
             'binder/verify'
-        ], shell=True)
+        ]
+        
+        subprocess.check_call(cmd, shell=True)
     else:
         print(f'No verify script found for {image_spec}')
 
@@ -135,7 +135,7 @@ def main():
     calver = datetime.utcnow().strftime('%Y.%m.%d')
     sha = next(iter(sha_date))
     tag = f'{calver}-{sha}'
-    image_spec = f'{image}:{tag}'
+    image_spec = f'{image_name}:{tag}'
     dockerfile_paths = [
         os.path.join(args.image, 'binder', 'Dockerfile'),
         os.path.join(args.image, 'Dockerfile')
@@ -164,7 +164,7 @@ def main():
     docker_build(
         f'{image_name}-onbuild:{tag}',
         'onbuild',
-        {'BASE_IMAGE_SPEC': f'{image_name}:{tag}'}
+        {'BASE_IMAGE_SPEC': image_spec}
     )
 
 
