@@ -54,12 +54,12 @@ jobs:
     - name: Save Docker Image
       run: |
         docker save ${ONBUILD_IMAGE_SPEC} | gzip > base-image.tar.gz
-        docker run ${ONBUILD_IMAGE_SPEC} conda list > ${IMAGE}-packages.txt
+        docker run ${ONBUILD_IMAGE_SPEC} conda list > conda-packages.txt
     - name: Archive Conda Package List
       uses: actions/upload-artifact@v1
       with:
-        name: conda-packages
-        path: ${IMAGE}-packages.txt
+        name: ${{env.IMAGE}}-packages
+        path: conda-packages.txt
     - name: Upload Base-Notebook Image
       uses: actions/upload-artifact@v1
       with:
@@ -117,12 +117,12 @@ jobs:
     - name: Test Image
       run: |
         docker run ${IMAGE_SPEC} binder/verify
-        docker run ${IMAGE_SPEC} conda list > ${{matrix.IMAGE}}-packages.txt
+        docker run ${IMAGE_SPEC} conda list > conda-packages.txt
     - name: Archive Conda Package List
       uses: actions/upload-artifact@v1
       with:
-        name: conda-packages
-        path: ${{matrix.IMAGE}}-packages.txt
+        name: ${{matrix.IMAGE}}-packages
+        path: conda-packages.txt
       # NOTE: test onbuild images as well?
       # NOTE: push to image registry for testing?
       # NOTE: should just re-tag image and push to dockerhub when merged
