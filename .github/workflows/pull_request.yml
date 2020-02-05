@@ -67,7 +67,7 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: base-image
-        path: ./artifact/base-image.tar.gz
+        path: ./artifact
     - name: Load Docker Image
       run: |
         ls -l *
