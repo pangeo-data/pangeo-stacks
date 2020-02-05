@@ -68,6 +68,13 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+    - name: Set Job Environment Variables
+      run: |
+        CALVER="$( date -u '+%Y.%m.%d' )"
+        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
+        DOCKER_TAG="${CALVER}-${SHA}"
+        IMAGE_SPEC="${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
+        echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
     - name: Download Base-Noteook Docker Image
       uses: actions/download-artifact@v1
       with:
@@ -98,4 +105,7 @@ jobs:
     - name: Build Image
       run: |
         python3 build.py --image-prefix=${IMAGE_PREFIX} ${{ matrix.IMAGE }}
+    - name: Test Image
+      run: |
+        docker run ${IMAGE_SPEC} binder/verify
       # Add cleanup step to delete artifacts / upload to public location
