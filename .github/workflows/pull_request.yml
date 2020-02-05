@@ -24,7 +24,9 @@ jobs:
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
         DOCKER_TAG="${CALVER}-${SHA}"
         IMAGE_SPEC="${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
+        ONBUILD_IMAGE_SPEC=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
         echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
+        echo "::set-env name=ONBUILD_IMAGE_SPEC::${ONBUILD_IMAGE_SPEC}"
     - name: Set Up Python 3.7
       uses: actions/setup-python@v1
       with:
@@ -48,9 +50,10 @@ jobs:
     - name: Test Image
       run: |
         docker run ${IMAGE_SPEC} binder/verify
+        docker run ${ONBUILD_IMAGE_SPEC} binder/verify
     - name: Save Docker Image
       run: |
-        docker save ${IMAGE_SPEC} | gzip > base-image.tar.gz
+        docker save ${ONBUILD_IMAGE_SPEC} | gzip > base-image.tar.gz
     - name: Upload Base-Notebook Image
       uses: actions/upload-artifact@v1
       with:
@@ -108,4 +111,5 @@ jobs:
     - name: Test Image
       run: |
         docker run ${IMAGE_SPEC} binder/verify
-      # Add cleanup step to delete artifacts / upload to public location
+      # NOTE: test onbuild images as well?
+      # NOTE: Add cleanup step to delete artifacts / upload to public location?
