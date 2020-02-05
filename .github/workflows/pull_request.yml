@@ -54,7 +54,7 @@ jobs:
     - name: Save Docker Image
       run: |
         docker save ${ONBUILD_IMAGE_SPEC} | gzip > base-image.tar.gz
-        docker run ${ONBUILD_IMAGE_SPEC} conda list > conda-packages/packages.txt
+        docker run ${ONBUILD_IMAGE_SPEC} conda list > conda-packages.txt
     - name: Archive Conda Package List
       uses: actions/upload-artifact@v1
       with:
