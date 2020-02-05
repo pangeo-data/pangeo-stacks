@@ -31,8 +31,8 @@ dependencies:
   - folium
   - vega
   - vega_datasets
-  - palettable
-  - cmocean
+#  - palettable
+#  - cmocean
   # geospatial
   - iris
   - cartopy
@@ -51,7 +51,7 @@ dependencies:
   - metpy
   - satpy
   - gsw
-  - eofs
+#  - eofs
   - esmpy
   - xesmf
   - windspharm
@@ -73,10 +73,10 @@ dependencies:
   - tiledb-py
   # jupyter-related
   - ipyleaflet
-  - watermark
+#  - watermark
   # xarray-related
   - xgcm
-  - xrft
+#  - xrft
   - xhistogram
   - xlrd
   - xrviz
