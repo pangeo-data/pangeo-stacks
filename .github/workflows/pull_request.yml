@@ -117,7 +117,7 @@ jobs:
     - name: Test Image
       run: |
         docker run ${IMAGE_SPEC} binder/verify
-        docker run ${IMAGE_SPEC} conda list > conda-packages/packages.txt
+        docker run ${IMAGE_SPEC} conda list > packages.txt
     - name: Archive Conda Package List
       uses: actions/upload-artifact@v1
       with:
