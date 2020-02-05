@@ -47,7 +47,7 @@ jobs:
         python3 build.py --image-prefix=${IMAGE_PREFIX} ${IMAGE}
     - name: Test Image
       run: |
-        docker run -i -t ${IMAGE_SPEC} binder/verify
+        docker run ${IMAGE_SPEC} binder/verify
     - name: Save Docker Image
       run: |
         docker save ${IMAGE_SPEC} | gzip > base-image.tar.gz
