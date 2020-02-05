@@ -73,7 +73,7 @@ jobs:
         CALVER="$( date -u '+%Y.%m.%d' )"
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
         DOCKER_TAG="${CALVER}-${SHA}"
-        IMAGE_SPEC="${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
+        IMAGE_SPEC="${IMAGE_PREFIX}${{ matrix.IMAGE }}:${DOCKER_TAG}"
         echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
     - name: Download Base-Noteook Docker Image
       uses: actions/download-artifact@v1
