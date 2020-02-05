@@ -18,12 +18,13 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
-    - name: Set Environment Variables
+    - name: Set Job Environment Variables
       run: |
-        echo "::set-env CALVER=$( date -u '+%Y.%m.%d' )"
-        echo "::set-env SHA=$( git rev-parse --short ${GITHUB_SHA} )"
-        echo "::set-env DOCKER_TAG=${CALVER}-${SHA}"
-        echo "::set-env IMAGE_SPEC=${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
+        CALVER="$( date -u '+%Y.%m.%d' )"
+        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
+        DOCKER_TAG="${CALVER}-${SHA}"
+        IMAGE_SPEC="${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
+        echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
     - name: Set Up Python 3.7
       uses: actions/setup-python@v1
       with:
