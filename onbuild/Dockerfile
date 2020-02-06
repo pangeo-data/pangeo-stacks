@@ -13,8 +13,7 @@ ONBUILD COPY . ${REPO_DIR}
 ONBUILD COPY . ${REPO_DIR}/.onbuild-child
 ONBUILD RUN chown -R 1000:1000 ${REPO_DIR}
 ONBUILD RUN /usr/local/bin/r2d_overlay.py build
-ONBUILD RUN rm -rf ${REPO_DIR}/.onbuild-child
 
 ONBUILD USER ${NB_USER}
 
-ENTRYPOINT /usr/local/bin/r2d_overlay.py start
+ENTRYPOINT ["/usr/local/bin/r2d_overlay.py", "start"]

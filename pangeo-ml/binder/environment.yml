@@ -1,0 +1,56 @@
+name: pangeoml
+channels:
+  - conda-forge
+  - rapidsai-nightly
+dependencies:
+  # core scipy packages
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - xarray>=0.14
+  - sparse
+  # data science stuff
+  - scikit-image
+  - scikit-learn
+  - dask-ml
+  - tensorflow-gpu
+  - keras-gpu
+  - pytorch-cpu
+  - cupy
+  - jupyterlab-nvdashboard
+  # rapidsai-nightly
+  - cudf
+  - rmm
+  - cuspatial
+  # pyviz
+  - holoviews
+  - panel
+  - geoviews
+  - hvplot
+  - geoviews
+  - datashader
+  # geospatial
+  - cartopy
+  - geopandas
+  - rasterio
+  - netcdf4
+  - h5py
+  - h5netcdf
+  - regionmask
+  - rio-cogeo
+  # intake-related
+  - intake
+  - intake-xarray
+  - intake-esm
+  # zarr-related
+  - zarr
+  - numcodecs
+  - python-blosc
+  - lz4
+  - gcsfs
+  - s3fs
+  - tiledb-py
+  # xarray-related
+  - xgcm
+  - xrft

@@ -9,7 +9,7 @@ packages = [
     # these are things we can't live without, just to be safe
     'gcsfs', 's3fs', 'xarray', 'intake', 'dask', 'distributed',
     # machine learning stuff
-    #'tensorflow', 'keras', 'torch'
+    'tensorflow', 'keras', 'torch'
     ]
 
 
