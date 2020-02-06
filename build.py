@@ -2,16 +2,12 @@
 """
 Build an image in the pangeo stack.
 """
-import subprocess
-from dateutil.parser import parse
-from datetime import datetime
-import pytz
 import docker
 import os
 from repo2docker.app import Repo2Docker
 import argparse
 
-def docker_build(image_spec, path, build_args):
+def docker_build(image_spec, path, image_latest, build_args):
     pwd = os.getcwd()
     print(f'Building {image_spec}')
     os.system('docker images')
@@ -21,7 +17,7 @@ def docker_build(image_spec, path, build_args):
     else:
         df_path = os.path.join(path, 'binder', 'Dockerfile')
 
-    cmd = f'docker build {path} -t {image_spec} -f {df_path}'
+    cmd = f'docker build {path} -t {image_spec} -f {df_path} --cache-from {image_latest}'
     for k, v in build_args.items():
         cmd += f' --build-arg {k}={v}'
     print(cmd)
@@ -87,6 +83,7 @@ def main():
         docker_build(
             image_spec,
             args.image,
+            image_latest,
             {
                 'VERSION': tag
             }
