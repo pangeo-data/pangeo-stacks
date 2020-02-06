@@ -25,6 +25,7 @@ jobs:
         DOCKER_TAG="${CALVER}-${SHA}"
         IMAGE_SPEC="${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
         ONBUILD_IMAGE_SPEC=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        echo "::set-env name=DOCKER_TAG::${DOCKER_TAG}"
         echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
         echo "::set-env name=ONBUILD_IMAGE_SPEC::${ONBUILD_IMAGE_SPEC}"
     - name: Set Up Python 3.7
@@ -46,7 +47,7 @@ jobs:
         docker version
     - name: Build Image
       run: |
-        python3 build.py --image-prefix=${IMAGE_PREFIX} ${IMAGE}
+        python3 build.py --image-prefix=${IMAGE_PREFIX} --tag=${DOCKER_TAG} ${IMAGE}
         docker run ${ONBUILD_IMAGE_SPEC} conda list > conda-packages.txt
     - name: Archive Conda Package List
       uses: actions/upload-artifact@v1
@@ -86,6 +87,7 @@ jobs:
         DOCKER_TAG="${CALVER}-${SHA}"
         IMAGE_SPEC="${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
         ONBUILD_IMAGE_SPEC=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        echo "::set-env name=DOCKER_TAG::${DOCKER_TAG}"
         echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
         echo "::set-env name=ONBUILD_IMAGE_SPEC::${ONBUILD_IMAGE_SPEC}"
     - name: Set Up Python 3.7
@@ -107,7 +109,7 @@ jobs:
         docker version
     - name: Build Image
       run: |
-        python3 build.py --image-prefix=${IMAGE_PREFIX} ${{ matrix.IMAGE }}
+        python3 build.py --image-prefix=${IMAGE_PREFIX} --tag=${DOCKER_TAG} ${{ matrix.IMAGE }}
         docker run ${ONBUILD_IMAGE_SPEC} conda list > conda-packages.txt
     - name: Archive Conda Package List
       uses: actions/upload-artifact@v1

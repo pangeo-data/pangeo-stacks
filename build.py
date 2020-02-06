@@ -8,41 +8,8 @@ from datetime import datetime
 import pytz
 import docker
 import os
-from functools import lru_cache
 from repo2docker.app import Repo2Docker
 import argparse
-
-
-def sha_and_date():
-    # git log --pretty='%cd %h %gd %gs' --date=iso -n 100
-    lines = subprocess.check_output([
-        "git",
-        "log",
-        "--pretty='%cd %h %gd %gs'",
-        "--date=iso",
-        "-n", "100",
-    ]).decode('utf-8').strip().split('\n')
-
-    d = {}
-    for line in lines:
-        l = line.replace("'", "").strip().split()
-        sha = l[-1]
-        iso_date = l[0]
-        d[sha] = parse(iso_date)
-    return d
-
-
-@lru_cache(128)
-def image_exists_in_registry(client, image_spec):
-    """
-    Return true if image exists in docker registry
-    """
-    try:
-        image_manifest = client.images.get_registry_data(image_spec)
-        return image_manifest is not None
-    except docker.errors.APIError:
-        return False
-
 
 def docker_build(image_spec, path, build_args):
     pwd = os.getcwd()
@@ -59,6 +26,15 @@ def docker_build(image_spec, path, build_args):
         cmd += f' --build-arg {k}={v}'
     print(cmd)
     os.system(cmd)
+
+
+def pull_latest(image_latest):
+    print(f'Pulling {image_latest} for docker layer cache...')
+    subprocess.check_call([
+        'docker',
+        'pull',
+        image_latest,
+    ], shell=True)
 
 
 def r2d_build(image, image_spec, cache_from):
@@ -81,40 +57,27 @@ def main():
         help='Image to build. Subdirectory with this name must exist'
     )
     argparser.add_argument(
+        '--tag',
+        help='Docker image tag'
+    )
+    argparser.add_argument(
         '--image-prefix',
         help='Prefix for image to be built. Usually contains registry url and name',
         default='pangeo/'
     )
 
     args = argparser.parse_args()
-
     image_name = f'{args.image_prefix}{args.image}'
+    tag = args.tag
+    image_spec = f'{image_name}:{tag}'
+    image_latest = f'{image_name}:latest'
+
     print(f'Building {image_name}')
     client = docker.from_env()
-    cache_from = []
 
-    sha_date = sha_and_date()
+    pull_latest(image_latest)
+    cache_from = [image_latest]
 
-    # Pull the most recent built image available for this docker image
-    # We can re-use the cache from that, significantly speeding up
-    # our image builds
-    for sha, date in sha_date.items():
-        # Stick to UTC for calver
-        existing_calver = date.astimezone(pytz.utc).strftime('%Y.%m.%d')
-        existing_image_spec = f'{image_name}:{existing_calver}-{sha}'
-        if image_exists_in_registry(client, existing_image_spec):
-            print(f'Re-using cache from {existing_image_spec}')
-            cache_from = [existing_image_spec]
-            subprocess.check_call([
-                'docker',
-                'pull', existing_image_spec
-            ], shell=True)
-            break
-
-    calver = datetime.utcnow().strftime('%Y.%m.%d')
-    sha = next(iter(sha_date))
-    tag = f'{calver}-{sha}'
-    image_spec = f'{image_name}:{tag}'
     dockerfile_paths = [
         os.path.join(args.image, 'binder', 'Dockerfile'),
         os.path.join(args.image, 'Dockerfile')
