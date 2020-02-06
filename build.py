@@ -41,7 +41,7 @@ def r2d_build(image, image_spec, cache_from=None):
     r2d.user_id = 1000
     r2d.user_name = 'jovyan'
     if cache_from:
-        r2d.cache_from = cache_from
+        r2d.cache_from = [cache_from]
 
     r2d.initialize()
     r2d.build()
