@@ -1,4 +1,5 @@
 #!/bin/bash
 jupyter labextension install @pyviz/jupyterlab_pyviz \
+                             jupyterlab-nvdashboard \
                              jupyter-leaflet
 #EOF
