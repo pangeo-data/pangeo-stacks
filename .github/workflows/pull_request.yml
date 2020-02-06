@@ -18,6 +18,15 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+    - name: Set Job Environment Variables
+      run: |
+        CALVER="$( date -u '+%Y.%m.%d' )"
+        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
+        DOCKER_TAG="${CALVER}-${SHA}"
+        IMAGE_SPEC="${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
+        ONBUILD_IMAGE_SPEC=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
+        echo "::set-env name=ONBUILD_IMAGE_SPEC::${ONBUILD_IMAGE_SPEC}"
     - name: Set Up Python 3.7
       uses: actions/setup-python@v1
       with:
@@ -37,19 +46,25 @@ jobs:
         docker version
     - name: Build Image
       run: |
-        python3 build.py --pr --image-prefix=${IMAGE_PREFIX} ${IMAGE}
-    - name: Authenticate with DockerHub
+        python3 build.py --image-prefix=${IMAGE_PREFIX} ${IMAGE}
+    - name: Test Image
       run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-    - name: Push Image to DockerHub
-      # NOTE: could export tag names from build.py?
+        docker run ${IMAGE_SPEC} binder/verify
+        docker run ${ONBUILD_IMAGE_SPEC} binder/verify
+    - name: Save Docker Image
       run: |
-        CALVER="$( date -u '+%Y.%m.%d' )"
-        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
-        DOCKER_TAG=${CALVER}-${SHA}-PR
-
-        docker push ${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
-        docker push ${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        docker save ${ONBUILD_IMAGE_SPEC} | gzip > base-image.tar.gz
+        docker run ${ONBUILD_IMAGE_SPEC} conda list > conda-packages.txt
+    - name: Archive Conda Package List
+      uses: actions/upload-artifact@v1
+      with:
+        name: ${{env.IMAGE}}-packages
+        path: conda-packages.txt
+    - name: Upload Base-Notebook Image
+      uses: actions/upload-artifact@v1
+      with:
+        name: base-image
+        path: base-image.tar.gz
 
   onbuild-images:
     needs: base-image
@@ -62,6 +77,23 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+    - name: Set Job Environment Variables
+      run: |
+        CALVER="$( date -u '+%Y.%m.%d' )"
+        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
+        DOCKER_TAG="${CALVER}-${SHA}"
+        IMAGE_SPEC="${IMAGE_PREFIX}${{ matrix.IMAGE }}:${DOCKER_TAG}"
+        echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
+    - name: Download Base-Noteook Docker Image
+      uses: actions/download-artifact@v1
+      with:
+        name: base-image
+        path: ./artifact
+    - name: Load Docker Image
+      run: |
+        ls -l *
+        docker load < ./artifact/base-image.tar.gz
+        docker images
     - name: Set Up Python 3.7
       uses: actions/setup-python@v1
       with:
@@ -79,18 +111,19 @@ jobs:
         pip install -r requirements.txt
         repo2docker --version
         docker version
-    - name: Authenticate with DockerHub
-      run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Build Image
       run: |
-        python3 build.py --pr --image-prefix=${IMAGE_PREFIX} ${{ matrix.IMAGE }}
-    - name: Push Image to DockerHub
+        python3 build.py --image-prefix=${IMAGE_PREFIX} ${{ matrix.IMAGE }}
+    - name: Test Image
       run: |
-        IMAGE=${{ matrix.IMAGE }}
-        CALVER="$( date -u '+%Y.%m.%d' )"
-        SHA="$( git rev-parse --short ${GITHUB_SHA} )"
-        DOCKER_TAG=${CALVER}-${SHA}-PR
-
-        docker push ${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}
-        docker push ${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        docker run ${IMAGE_SPEC} binder/verify
+        docker run ${IMAGE_SPEC} conda list > conda-packages.txt
+    - name: Archive Conda Package List
+      uses: actions/upload-artifact@v1
+      with:
+        name: ${{matrix.IMAGE}}-packages
+        path: conda-packages.txt
+      # NOTE: test onbuild images as well?
+      # NOTE: push to image registry for testing?
+      # NOTE: should just re-tag image and push to dockerhub when merged
+      # NOTE: Add cleanup step to delete artifacts

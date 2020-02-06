@@ -2,7 +2,7 @@ Pangeo Stacks
 =============
 *Currated Docker images for use with Jupyter and [Pangeo](http://pangeo.io/)*
 
-[![Build Status](https://travis-ci.org/pangeo-data/pangeo-stacks.svg?branch=master)](https://travis-ci.org/pangeo-data/pangeo-stacks)
+![Action Status](https://github.com/pangeo-data/pangeo-stacks/workflows/MasterBuild/badge.svg)
 
 This repository contains a few currated Docker images that can be used with deployments of the [Pangeo Helm Chart](https://github.com/pangeo-data/helm-chart). Each of the images in this repository are configured and built using [repo2docker](https://repo2docker.readthedocs.io) and are continuously deployed to DockerHub. Importantly, each image built in this repo includes the minimum required libraries to do scalable computations with Pangeo (via dask-kubernetes).
 

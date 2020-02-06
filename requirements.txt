@@ -1,9 +1,9 @@
-docker
-python-dateutil
-pytz
-jupyter-repo2docker>=0.10.0
+docker==4.1.0
+python-dateutil==2.8.1
+pytz==2019.3
+jupyter-repo2docker==0.10.0
 sphinx==1.6.5
-rstcloth
+rstcloth==0.2.6
+doctr==1.8.0
 sphinx_bootstrap_theme
 sphinx_pangeo_theme
-doctr>=1.6.3

@@ -23,24 +23,11 @@ def become(uid):
         return func
     return wrap
 
+
 def binder_path(path):
-    has_binder = os.path.isdir(os.path.join(ONBUILD_CONTENTS_DIR, "binder"))
-    has_dotbinder = os.path.isdir(os.path.join(ONBUILD_CONTENTS_DIR, ".binder"))
-
-    if has_binder and has_dotbinder:
-        raise RuntimeError(
-            "The repository contains both a 'binder' and a '.binder' "
-            "directory. However they are exclusive."
-        )
-
-    if has_dotbinder:
-        binder_dir =  ".binder"
-    elif has_binder:
-        binder_dir = "binder"
-    else:
-        binder_dir = ""
-
-    return os.path.join(ONBUILD_CONTENTS_DIR, binder_dir, path)
+    if os.path.exists(os.path.join(ONBUILD_CONTENTS_DIR, 'binder')):
+        return os.path.join(ONBUILD_CONTENTS_DIR, 'binder', path)
+    return os.path.join(ONBUILD_CONTENTS_DIR, path)
 
 
 @become(NB_UID)
@@ -122,37 +109,30 @@ def build():
                     ['/bin/bash', '-c', command], preexec_fn=applicator._pre_exec
                 )
 
-def start():
-    #Enable additional actions in the future
-    applicators = [apply_start]
-
-    for applicator in applicators:
-        commands = applicator()
-
-        if commands:
-            for command in commands:
-                subprocess.check_call(
-                    ['/bin/bash', '-c', command], preexec_fn=applicator._pre_exec
-                )
-
 @become(NB_UID)
-def apply_start():
+def start(args):
     st_path = binder_path('start')
 
     if os.path.exists(st_path):
-        return [
-            f'chmod +x {st_path}',
-            # since st_path is a fully qualified path, no need to add a ./
-            f'{st_path}'
-        ]
+        subprocess.check_call(['chmod', '+x', st_path])
     else:
-        return [f'/usr/local/bin/repo2docker-entrypoint']
+        st_path = '/usr/local/bin/repo2docker-entrypoint'
+
+    os.execv(st_path, [st_path] + args)
 
 def main():
     argparser = argparse.ArgumentParser()
-    argparser.add_argument(
-        'action',
-        choices=('build', 'start')
+    subparsers = argparser.add_subparsers(dest='action')
+
+    build_parser = subparsers.add_parser('build')
+
+    start_parser = subparsers.add_parser('start')
+    start_parser.add_argument(
+        'args',
+        # We want REMAINDER instead '*' here so argparse passes through args starting with '-'
+        # Without this, if you try to do `r2d_overlay.py start /bin/bash -c "echo hi"`
+        # will fail, since argparse will try to parse the '-c'
+        nargs=argparse.REMAINDER
     )
 
     args = argparser.parse_args()
@@ -160,7 +140,7 @@ def main():
     if args.action == 'build':
         build()
     elif args.action == 'start':
-        start()
+        start(args.args)
 
 
 if __name__ == '__main__':
