@@ -8,10 +8,7 @@ packages = [
     'netCDF4', 'h5py', 'rasterio', 'geopandas', 'cartopy', 'geoviews',
     # these are things we can't live without, just to be safe
     'gcsfs', 's3fs', 'xarray', 'intake', 'dask', 'distributed',
-    # machine learning stuff
-    #'tensorflow', 'keras', 'torch'
     ]
-
 
 @pytest.mark.parametrize('package_name', packages, ids=packages)
 def test_import(package_name):
