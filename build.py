@@ -33,14 +33,15 @@ def pull_latest(image_latest):
     os.system(cmd)
 
 
-def r2d_build(image, image_spec, cache_from):
+def r2d_build(image, image_spec, cache_from=None):
     r2d = Repo2Docker()
 
     r2d.subdir = image
     r2d.output_image_spec = image_spec
     r2d.user_id = 1000
     r2d.user_name = 'jovyan'
-    r2d.cache_from = cache_from
+    if cache_from:
+        r2d.cache_from = cache_from
 
     r2d.initialize()
     r2d.build()
@@ -71,8 +72,11 @@ def main():
     print(f'Building {image_name}')
     client = docker.from_env()
 
-    pull_latest(image_latest)
-    cache_from = [image_latest]
+    # Temporary fix b/c pulling 8GB pangeo-ml:latest runs out of space
+    if image_name == 'pangeo-ml':
+        image_latest = None
+    else:
+        pull_latest(image_latest)
 
     dockerfile_paths = [
         os.path.join(args.image, 'binder', 'Dockerfile'),
@@ -93,7 +97,7 @@ def main():
         r2d_build(
             args.image,
             image_spec,
-            cache_from
+            cache_from=image_latest
         )
 
     # Build onbuild image
