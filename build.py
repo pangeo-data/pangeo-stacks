@@ -30,11 +30,9 @@ def docker_build(image_spec, path, build_args):
 
 def pull_latest(image_latest):
     print(f'Pulling {image_latest} for docker layer cache...')
-    subprocess.check_call([
-        'docker',
-        'pull',
-        image_latest,
-    ], shell=True)
+    cmd = f'docker pull {image_latest}'
+    print(cmd)
+    os.system(cmd)
 
 
 def r2d_build(image, image_spec, cache_from):
