@@ -85,10 +85,8 @@ def main():
         docker_build(
             image_spec,
             args.image,
-            {
-                'VERSION': tag
-            }
-            cache_from=image_latest,
+            {'VERSION': tag},
+            cache_from=image_latest
         )
     else:
         # Build regular image
