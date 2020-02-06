@@ -73,7 +73,7 @@ def main():
     client = docker.from_env()
 
     # Temporary fix b/c pulling 8GB pangeo-ml:latest runs out of space
-    if image_name == 'pangeo-ml':
+    if args.image == 'pangeo-ml':
         image_latest = None
     else:
         pull_latest(image_latest)
