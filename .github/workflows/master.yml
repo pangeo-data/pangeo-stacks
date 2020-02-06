@@ -122,7 +122,7 @@ jobs:
     - name: Push Image to DockerHub
       run: |
         IMAGE_LATEST=${IMAGE_PREFIX}${{ matrix.IMAGE }}:latest
-        ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}$${{ matrix.IMAGE }}-onbuild:latest
+        ONBUILD_IMAGE_LATEST=${IMAGE_PREFIX}${{ matrix.IMAGE }}-onbuild:latest
         docker tag $IMAGE_SPEC $IMAGE_LATEST
         docker tag $ONBUILD_IMAGE_SPEC $ONBUILD_IMAGE_LATEST
         docker push $IMAGE_LATEST
