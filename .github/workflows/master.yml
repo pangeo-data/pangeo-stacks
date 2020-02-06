@@ -64,7 +64,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        IMAGE: [pangeo-notebook, pangeo-esip]
+        IMAGE: [pangeo-notebook, pangeo-esip, pangeo-ml]
     name: ${{ matrix.IMAGE }}
     runs-on: ubuntu-18.04
     steps:
