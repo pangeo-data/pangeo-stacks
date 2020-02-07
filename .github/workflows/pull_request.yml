@@ -25,6 +25,7 @@ jobs:
         DOCKER_TAG="${CALVER}-${SHA}"
         IMAGE_SPEC="${IMAGE_PREFIX}${IMAGE}:${DOCKER_TAG}"
         ONBUILD_IMAGE_SPEC=${IMAGE_PREFIX}${IMAGE}-onbuild:${DOCKER_TAG}
+        echo "::set-env name=DOCKER_TAG::${DOCKER_TAG}"
         echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
         echo "::set-env name=ONBUILD_IMAGE_SPEC::${ONBUILD_IMAGE_SPEC}"
     - name: Set Up Python 3.7
@@ -46,7 +47,7 @@ jobs:
         docker version
     - name: Build Image
       run: |
-        python3 build.py --image-prefix=${IMAGE_PREFIX} ${IMAGE}
+        python3 build.py --image-prefix=${IMAGE_PREFIX} --tag=${DOCKER_TAG} ${IMAGE}
     - name: Test Image
       run: |
         docker run ${IMAGE_SPEC} binder/verify
@@ -83,15 +84,15 @@ jobs:
         SHA="$( git rev-parse --short ${GITHUB_SHA} )"
         DOCKER_TAG="${CALVER}-${SHA}"
         IMAGE_SPEC="${IMAGE_PREFIX}${{ matrix.IMAGE }}:${DOCKER_TAG}"
+        echo "::set-env name=DOCKER_TAG::${DOCKER_TAG}"
         echo "::set-env name=IMAGE_SPEC::${IMAGE_SPEC}"
-    - name: Download Base-Noteook Docker Image
+    - name: Download Base-Notebook Docker Image
       uses: actions/download-artifact@v1
       with:
         name: base-image
         path: ./artifact
     - name: Load Docker Image
       run: |
-        ls -l *
         docker load < ./artifact/base-image.tar.gz
         docker images
     - name: Set Up Python 3.7
@@ -113,7 +114,7 @@ jobs:
         docker version
     - name: Build Image
       run: |
-        python3 build.py --image-prefix=${IMAGE_PREFIX} ${{ matrix.IMAGE }}
+        python3 build.py --image-prefix=${IMAGE_PREFIX} --tag=${DOCKER_TAG} ${{ matrix.IMAGE }}
     - name: Test Image
       run: |
         docker run ${IMAGE_SPEC} binder/verify

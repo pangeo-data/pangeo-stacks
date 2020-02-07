@@ -2,49 +2,12 @@
 """
 Build an image in the pangeo stack.
 """
-import subprocess
-from dateutil.parser import parse
-from datetime import datetime
-import pytz
 import docker
 import os
-from functools import lru_cache
 from repo2docker.app import Repo2Docker
 import argparse
 
-
-def sha_and_date():
-    # git log --pretty='%cd %h %gd %gs' --date=iso -n 100
-    lines = subprocess.check_output([
-        "git",
-        "log",
-        "--pretty='%cd %h %gd %gs'",
-        "--date=iso",
-        "-n", "100",
-    ]).decode('utf-8').strip().split('\n')
-
-    d = {}
-    for line in lines:
-        l = line.replace("'", "").strip().split()
-        sha = l[-1]
-        iso_date = l[0]
-        d[sha] = parse(iso_date)
-    return d
-
-
-@lru_cache(128)
-def image_exists_in_registry(client, image_spec):
-    """
-    Return true if image exists in docker registry
-    """
-    try:
-        image_manifest = client.images.get_registry_data(image_spec)
-        return image_manifest is not None
-    except docker.errors.APIError:
-        return False
-
-
-def docker_build(image_spec, path, build_args):
+def docker_build(image_spec, path, build_args, cache_from=None):
     pwd = os.getcwd()
     print(f'Building {image_spec}')
     os.system('docker images')
@@ -55,20 +18,30 @@ def docker_build(image_spec, path, build_args):
         df_path = os.path.join(path, 'binder', 'Dockerfile')
 
     cmd = f'docker build {path} -t {image_spec} -f {df_path}'
+    if cache_from:
+        cmd +=' --cache-from {cache_from}'
     for k, v in build_args.items():
         cmd += f' --build-arg {k}={v}'
     print(cmd)
     os.system(cmd)
 
 
-def r2d_build(image, image_spec, cache_from):
+def pull_latest(image_latest):
+    print(f'Pulling {image_latest} for docker layer cache...')
+    cmd = f'docker pull {image_latest}'
+    print(cmd)
+    os.system(cmd)
+
+
+def r2d_build(image, image_spec, cache_from=None):
     r2d = Repo2Docker()
 
     r2d.subdir = image
     r2d.output_image_spec = image_spec
     r2d.user_id = 1000
     r2d.user_name = 'jovyan'
-    r2d.cache_from = cache_from
+    if cache_from:
+        r2d.cache_from = [cache_from]
 
     r2d.initialize()
     r2d.build()
@@ -81,40 +54,30 @@ def main():
         help='Image to build. Subdirectory with this name must exist'
     )
     argparser.add_argument(
+        '--tag',
+        help='Docker image tag'
+    )
+    argparser.add_argument(
         '--image-prefix',
         help='Prefix for image to be built. Usually contains registry url and name',
         default='pangeo/'
     )
 
     args = argparser.parse_args()
-
     image_name = f'{args.image_prefix}{args.image}'
+    tag = args.tag
+    image_spec = f'{image_name}:{tag}'
+    image_latest = f'{image_name}:latest'
+
     print(f'Building {image_name}')
     client = docker.from_env()
-    cache_from = []
 
-    sha_date = sha_and_date()
+    # Temporary fix b/c pulling 8GB pangeo-ml:latest runs out of space
+    if args.image == 'pangeo-ml':
+        image_latest = None
+    else:
+        pull_latest(image_latest)
 
-    # Pull the most recent built image available for this docker image
-    # We can re-use the cache from that, significantly speeding up
-    # our image builds
-    for sha, date in sha_date.items():
-        # Stick to UTC for calver
-        existing_calver = date.astimezone(pytz.utc).strftime('%Y.%m.%d')
-        existing_image_spec = f'{image_name}:{existing_calver}-{sha}'
-        if image_exists_in_registry(client, existing_image_spec):
-            print(f'Re-using cache from {existing_image_spec}')
-            cache_from = [existing_image_spec]
-            subprocess.check_call([
-                'docker',
-                'pull', existing_image_spec
-            ], shell=True)
-            break
-
-    calver = datetime.utcnow().strftime('%Y.%m.%d')
-    sha = next(iter(sha_date))
-    tag = f'{calver}-{sha}'
-    image_spec = f'{image_name}:{tag}'
     dockerfile_paths = [
         os.path.join(args.image, 'binder', 'Dockerfile'),
         os.path.join(args.image, 'Dockerfile')
@@ -126,16 +89,15 @@ def main():
         docker_build(
             image_spec,
             args.image,
-            {
-                'VERSION': tag
-            }
+            {'VERSION': tag},
+            cache_from=image_latest
         )
     else:
         # Build regular image
         r2d_build(
             args.image,
             image_spec,
-            cache_from
+            cache_from=image_latest
         )
 
     # Build onbuild image
