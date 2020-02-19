@@ -1,5 +1,6 @@
-from os import environ
+import os
 
 def test_start():
-    if environ.get('PANGEO_STACK') is not None:
+    print(os.environ)
+    if os.environ.get('PANGEO_STACK') is not None:
         assert os.environ['PANGEO_STACK'] == 'pangeo-notebook'
