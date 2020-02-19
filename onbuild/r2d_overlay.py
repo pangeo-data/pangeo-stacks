@@ -111,13 +111,18 @@ def build():
 
 @become(NB_UID)
 def start(args):
-    st_path = binder_path('start')
+    # This is run at run-time but binder_path() uses ONBUILD_CONTENTS_DIR
+    #st_path = binder_path('start')
+    if os.path.exists(os.path.join(REPO_DIR, 'binder')):
+        st_path = os.path.join(REPO_DIR, 'binder', 'start')
+    else:
+        st_path = os.path.join(REPO_DIR, 'start')
 
     if os.path.exists(st_path):
         subprocess.check_call(['chmod', '+x', st_path])
     else:
         st_path = '/usr/local/bin/repo2docker-entrypoint'
-
+    #print(st_path)
     os.execv(st_path, [st_path] + args)
 
 def main():
