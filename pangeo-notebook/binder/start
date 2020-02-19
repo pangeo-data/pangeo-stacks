@@ -4,4 +4,4 @@
 
 export PANGEO_STACK=pangeo-notebook
 
-exec "$@" 
+exec "$@"
