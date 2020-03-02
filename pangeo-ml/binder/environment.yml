@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - rapidsai-nightly
 dependencies:
+  - nomkl
   # core scipy packages
   - numpy
   - scipy
