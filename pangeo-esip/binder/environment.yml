@@ -2,6 +2,7 @@ name: pangeo
 channels:
   - conda-forge
 dependencies:
+  - nomkl
   - pandoc
   # core scipy 
   - numpy
