@@ -1,3 +1,7 @@
+## !! This repo is no longer being monitored !!
+*active development now happening here: https://github.com/pangeo-data/pangeo-docker-images*
+
+
 Pangeo Stacks
 =============
 *Currated Docker images for use with Jupyter and [Pangeo](http://pangeo.io/)*
