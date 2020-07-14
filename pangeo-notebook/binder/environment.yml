@@ -87,6 +87,8 @@ dependencies:
   # misc
   - python-wget
   - prefect
+  - python-gist
+  - nbstripout
   - pip:
     - intake_geopandas
     - git+https://github.com/NCAR/intake-esm.git@master
