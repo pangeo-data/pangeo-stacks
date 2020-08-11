@@ -10,7 +10,7 @@ dependencies:
   - dask=2.11
   - distributed=2.11
   - dask-kubernetes=0.10
-  - dask-gateway=0.6
+  - dask-gateway=0.8
   - dask-labextension=1.1
   - tornado=6
   - bokeh=1.4
